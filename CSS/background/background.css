@@ -1,0 +1,22 @@
+body {
+  background-color: bisque;
+  /* background-image: url(Ven_basil_matin_082005.jpg); */
+  background-image: url(depositphotos_23759519-stock-illustration-abstract-seamless-texture.jpg);
+  background-repeat: repeat;
+  background-position: center top;
+  /* background-attachment: fixed; */
+  /* background-size: contain; */
+}
+
+.start {
+  width: 60%;
+  border: 2px solid;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(239, 22, 22, 0.54);
+  color: white;
+}
+
+.fs {
+  height: 1000px;
+}

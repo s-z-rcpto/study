@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="box-model.css" />
+
+    <title>Box-model</title>
+  </head>
+  <body>
+    <h1>Box-model</h1>
+
+    <p>Цей абзац має фон аквамарин, тому що успадковує стиль *</p>
+    <p class="bg-1">
+      Цей абзац має фон червоний, тому що успадковує стиль body завдяки значенню
+      inherit
+    </p>
+    <p class="bg-2">Цей абзац має фон червоний, тому що його фон - прозорий</p>
+    <p class="bg-3">Вівторок, 15 жовтня</p>
+
+    <br />
+    <hr />
+    <br />
+
+    <div>Вівторок, 15 жовтня</div>
+
+    <div class="box"><span>Вівторок, 15 жовтня</span></div>
+    <div class="box-2"><span>Вівторок, 15 жовтня</span></div>
+    <div class="box-3"><span>Вівторок, 15 жовтня</span></div>
+    <div class="box-4"><span>Вівторок, 15 жовтня</span></div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div class="box-size">Вівторок, 15 жовтня</div>
+    <div class="content-size">Вівторок, 15 жовтня</div>
+  </body>
+</html>

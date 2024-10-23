@@ -42,14 +42,30 @@ div {
   display: inline-block;
 } */
 
+body {
+  background-color: darksalmon;
+}
+
 @media screen and (max-width: 480px) {
   body {
     background-color: lightgreen;
+  }
+
+  .box-2 {
+    border: 5px solid yellow;
+  }
+
+  .flexbox {
+    flex-direction: column;
   }
 }
 
 @media screen and (orientation: landscape) {
   body {
     background-color: lightblue;
+  }
+
+  .box-3 {
+    background-color: brown;
   }
 }

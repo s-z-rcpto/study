@@ -41,3 +41,15 @@ div {
 .box-4 {
   display: inline-block;
 } */
+
+@media screen and (max-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}

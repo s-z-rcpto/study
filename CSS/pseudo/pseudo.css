@@ -1,0 +1,91 @@
+h1 {
+  color: green;
+}
+
+h1:hover {
+  color: white;
+  background-color: black;
+}
+
+.child {
+  /* Тут не працює! */
+  p:first-child {
+    color: yellow;
+  }
+
+  p:last-child {
+    color: yellow;
+    margin-bottom: 30px;
+  }
+
+  /* Парні елементи */
+  p:nth-child(even),
+  p:nth-child(2n) {
+    color: blueviolet;
+  }
+
+  /* Непарні елементи */
+  p:nth-child(odd),
+  p:nth-child(2n + 1) {
+    color: chartreuse;
+  }
+
+  /* Тут працює! Порядок використання важливий! */
+  p:first-child {
+    color: red;
+  }
+
+  p:last-child {
+    color: violet;
+    margin-bottom: 30px;
+  }
+
+  p:not(:first-child) {
+    font-size: 20px;
+  }
+}
+
+.elements {
+  font-size: 30px;
+
+  p::before {
+    content: "\2709";
+  }
+
+  p::after {
+    content: ">>";
+    color: aqua;
+  }
+}
+
+.link {
+  margin-bottom: 20px;
+  font-size: 48px;
+
+  a {
+    text-decoration-style: double !important;
+  }
+
+  a:link {
+    color: lime;
+    text-decoration-style: dotted;
+  }
+
+  a:visited {
+    color: yellow;
+    text-decoration-style: double;
+  }
+
+  a:hover {
+    color: red;
+  }
+
+  a:active {
+    color: chocolate;
+  }
+}
+
+.box {
+  border: 1px solid;
+  height: 50px;
+}

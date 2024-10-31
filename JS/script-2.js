@@ -43,3 +43,31 @@ switch (day) {
     console.log("Такий день тижня не існує");
     break;
 }
+
+const num = 15;
+const decimalNum = 15.34;
+
+console.log(num, typeof num, typeof num.toFixed(2));
+console.log(decimalNum.toFixed(1));
+console.log("--------------------------");
+// console.log("toExponential: ", decimalNum.toExponential());
+// console.log("toLocaleString: ", decimalNum.toLocaleString());
+// console.log("toPrecision: ", decimalNum.toPrecision());
+// console.log("valueOf: ", decimalNum.valueOf());
+
+const time = 2.33; // год
+
+// Спосіб 1
+const timeInMinutes = Number((time * 60).toFixed(0)); // 140 хв = 2 * 60 + 20 = 120 + 20
+
+console.log(time * 60);
+const minutes_1 = timeInMinutes % 60; // 20
+const hours_1 = (timeInMinutes - (timeInMinutes % 60)) / 60; // 140 хв - 20 хв = 120 хв / 60 = 2 год
+
+console.log(`Час в дорозі ${hours_1} год ${minutes_1} хв`);
+
+// Спосіб 2
+const hours_2 = Math.floor(time); // 2 год
+const minutes_2 = Math.ceil((time - hours_2) * 60);
+
+console.log(`Час в дорозі ${hours_2} год ${minutes_2} хв`);

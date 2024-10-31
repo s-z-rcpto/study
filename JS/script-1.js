@@ -165,7 +165,7 @@ console.log(true, false); // булеві значення
 console.log(`15 > 8 is ${15 > 8}, it is ${typeof (15 > 8)}`);
 console.log(`8 > 24 is ${8 > 24}, it is ${typeof (8 > 24)}`);
 
-let day;
+let dayExample;
 
 console.log(typeof day);
 

@@ -2,6 +2,20 @@ let hour = 13;
 
 hour = 5;
 
+// && - and - і
+// || - or - або
+// ! - not - не
+
+const isMonday = true;
+
+if (!isMonday) {
+  //
+}
+
+// frontend // html, css, js
+// backend // php, python, node.js
+// fullstack // php, python, node.js + html, css, js
+
 if (hour >= 8 && hour <= 12) {
   console.log("Доброго ранку");
 } else if (hour > 12 && hour < 18) {
@@ -14,7 +28,7 @@ if (hour >= 8 && hour <= 12) {
   console.log("Доброї ночі");
 }
 
-const day = 6;
+const day = 8;
 
 switch (day) {
   case 1:

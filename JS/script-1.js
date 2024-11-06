@@ -202,3 +202,52 @@ console.log(`++x = ${x}`);
 --x; // x = x - 1;
 console.log(`--x = ${x}`);
 */
+
+// Перетворення типів
+console.log(Number("04.11"));
+
+const strMon = "11";
+
+console.log(Number(strMon), typeof Number(strMon));
+
+// if (typeof Number(strMon) == "number") {
+if (typeof Number(strMon) === "number") {
+  console.log("Перетворення працює");
+}
+
+if ("5" == 5) {
+  // true
+  // порівнюються лише значення 5 = 5
+  console.log("'5' == 5 --> ok");
+}
+
+if ("5" === 5) {
+  // false
+  // порівнюється значення і тип - (5 = 5 і 'string' = 'number')
+  console.log("'5' === 5 --> ok");
+}
+
+console.log(Number(null)); // 0
+console.log(Number(undefined)); // NaN
+console.log(Number(true)); // 1
+console.log(Number(false)); // 0
+console.log(Number("")); // 0
+console.log(Number("q")); // NaN
+
+if (true) {
+} // еквівалентно if (1) {} // Boolean(1)
+
+console.log(Boolean(null)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(17)); // true
+console.log(Boolean(0)); // false
+console.log(Boolean("")); // false
+console.log(Boolean("q")); // true
+
+console.log(String(null)); //
+console.log(String(undefined)); //
+console.log(String(17)); //
+console.log(String(0)); //
+console.log(String(NaN)); //
+console.log(String(false)); //
+console.log(String(true)); //

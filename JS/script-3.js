@@ -30,14 +30,14 @@ console.log("Finish while");
 // Math.random() --> (0 - 1) = 0.5321321313
 // 0.5321321313 * 10 = 5.321321313
 // Math.round(5.321321313) = 5
-const guessNum = Math.round(Math.random() * 10);
+const computerNumber = Math.round(Math.random() * 10);
 
-console.log(guessNum); // 5
+console.log(computerNumber); // 5
 
-let userNum = -1; // тому не входить в діапазон від 0 до 10
+let userNumber = -1; // тому не входить в діапазон від 0 до 10
 
-while (guessNum !== userNum) {
-  const userAnswer = prompt("Напишіть число");
+while (computerNumber !== userNumber) {
+  const userAnswer = prompt("Напишіть число від 0 до 10");
 
   console.log(`Відповідь користувача: ${userAnswer}`);
 
@@ -46,20 +46,21 @@ while (guessNum !== userNum) {
     break; // вихід з циклу
   }
 
-  userNum = Number(userAnswer); // конвертуємо "6" в 6
+  userNumber = Number(userAnswer); // конвертуємо "6" в 6
 
-  console.log(`Число користувача: ${userNum}`);
+  console.log(`Число користувача: ${userNumber}`);
 
-  if (Number.isNaN(userNum)) {
+  if (Number.isNaN(userNumber)) {
     alert("Ви ввели не число");
     continue; // почати наступне коло циклу
   }
 
-  if (userNum > guessNum) {
+  if (userNumber > computerNumber) {
     alert("Забагато");
-  } else if (userNum < guessNum) {
+  } else if (userNumber < computerNumber) {
     alert("Замало");
-  } else {
+  } // if (userNumber === computerNumber)
+  else {
     alert("Вітаємо переможця!");
   }
 }

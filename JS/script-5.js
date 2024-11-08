@@ -119,3 +119,9 @@ for (let i = 0; i < 5; i += 1) {
   }
 }
 */
+
+fruits.push("Слива");
+fruits.push("Апельсин");
+fruits.unshift("Манго");
+
+console.log(fruits);

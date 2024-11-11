@@ -111,6 +111,7 @@ console.log(`result = ${result}`);
 
 result = "";
 
+// for (const element of fruits) {
 for (let i = 0; i < fruits.length; i += 1) {
   const element = fruits[i];
 
@@ -127,3 +128,73 @@ console.log(`result = ${fruits.join(", ")}`);
 
 // result = "Яблуко, Банан, Груша"
 console.log(result.split(", "));
+
+// 16. Підрахунок сум і добутків елементів масиву з умовою
+// Дано масив [1, 4, 6, 8, 3].
+// Порахуйте окремо суму всіх парних чисел і добуток всіх непарних чисел у масиві.
+
+const arr16 = [1, 4, 6, 8, 3];
+
+let sum16 = 0;
+let dobutok16 = 1;
+
+for (const element of arr16) {
+  // for (let i = 0; i < arr16.length; i += 1) {
+  //   const element = arr16[i]
+  if (element % 2 == 0) {
+    // якшр елемент - це парне число
+    // додаємо до змінної сума
+    sum16 = sum16 + element; // sum16 += element
+    // sum16 += arr16[i]
+  } else {
+    // інакше (непарне число)
+    // множимо на добуток
+    dobutok16 = dobutok16 * element; // dobutok16 *= element
+  }
+}
+
+console.log(
+  `Сума парних елементів = ${sum16}, добуток непарних елементів = ${dobutok16}`,
+  "Сума парних елементів = ",
+  sum16,
+  ", ",
+  "добуток непарних елементів = ",
+  dobutok16
+);
+
+// 17. Вивести елементи масиву, крім певного числа
+// Дано масив [1, 2, 3, 4, 5, 6].
+// Використовуючи цикл і умовний оператор, виведіть усі елементи, крім числа 4.
+const arr17 = [1, 2, 3, 4, 5, 6];
+
+for (const element of arr17) {
+  // // Спосіб 1-1
+  // if (element === 4) {
+  //   //
+  // } else {
+  //   // не дорівнює 4
+  //   console.log(element);
+  // }
+
+  // // Спосіб 1-2
+  // if (element === 4) {
+  //   continue; // починає цикл з наступного кроку (знову переходимо на 170 рядок)
+  // } else {
+  //   // не дорівнює 4
+  //   console.log(element);
+  // }
+
+  // // Спосіб 1-3
+  // if (element === 4) {
+  //   continue; // починає цикл з наступного кроку (знову переходимо на 170 рядок)
+  // }
+
+  // // не дорівнює 4
+  // console.log(element);
+
+  // Спосіб 2
+  if (element !== 4) {
+    // не дорівнює 4
+    console.log(element);
+  }
+}

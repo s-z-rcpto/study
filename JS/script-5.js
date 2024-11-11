@@ -119,9 +119,46 @@ for (let i = 0; i < 5; i += 1) {
   }
 }
 */
+console.log(fruits);
 
-fruits.push("Слива");
+fruits.push("Виноград", "Слива");
 fruits.push("Апельсин");
 fruits.unshift("Манго");
 
 console.log(fruits);
+
+const orange = fruits.pop(); // видалили Апельсин з масиву і зберегли у змінну
+
+console.log(`orange = ${orange}`);
+
+fruits.length; // властивість, тому без (). властивість зберігає якісь дані
+fruits.pop(); // метод, тому з (). метод щось робить. тут - видалили Сливу з масиву
+
+console.log(fruits);
+
+console.log(`Елемент "${fruits.pop()}" видалено з масиву фруктів`, fruits);
+console.log(`Елемент "${fruits.shift()}" видалено з масиву фруктів`, fruits);
+
+const subfruits = fruits.slice(0, 1); // повертає новий масив,
+// копіюючи до нього всі елементи від індексу start до end (не включаючи end)
+
+console.log(`subfruits`, subfruits);
+// ['Яблуко', 'Груша', 'Абрикос']
+console.log(fruits.slice(1)); // копіює елементи масиву з 2 і до кінця
+console.log(fruits.slice(-2)); // копіює 2 останні елементи масиву
+console.log(`fruits`, fruits);
+
+// Вивести всі парні числа масиву
+// Дано масив чисел [1, 3, 4, 7, 10, 12, 15, 18].
+// Використовуючи цикл і умовний оператор, виведіть усі парні числа.
+const originalArr = [1, 3, 4, 7, 10, 12, 15, 18];
+const pairArr = []; // для парних елементів
+
+for (const element of originalArr) {
+  if (element % 2 === 0) {
+    pairArr.push(element);
+    // pairArr.unshift(element);
+  }
+}
+
+console.log(`Парні елементи масиву: `, pairArr);

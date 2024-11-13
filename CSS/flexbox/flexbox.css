@@ -33,6 +33,7 @@ div {
 .flexbox {
   display: flex;
   gap: 8px;
+  margin-bottom: 20px;
 }
 
 /* .box-1,
@@ -67,5 +68,156 @@ body {
 
   .box-3 {
     background-color: brown;
+  }
+}
+
+/* .menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+    }
+
+    .item {
+      width: 100px;
+      height: 60px;
+    }
+  }
+
+  .row:first-child {
+    .item {
+      background-color: orange;
+      border-top: 2px solid;
+
+      @media screen and (max-width: 480px) {
+        border: none;
+        border-left: 2px solid;
+        border-right: 2px solid;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .item:first-child {
+        border-top: 2px solid;
+      }
+    }
+
+    .item:hover {
+      background-color: orangered;
+    }
+  }
+
+  .row:last-child {
+    .item {
+      background-color: chartreuse;
+      border-bottom: 2px solid;
+
+      @media screen and (max-width: 480px) {
+        border: none;
+        border-left: 2px solid;
+        border-right: 2px solid;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .item:last-child {
+        border-bottom: 2px solid;
+      }
+    }
+
+    .item:hover {
+      background-color: green;
+    }
+  }
+
+  .item:first-child {
+    border-left: 2px solid;
+  }
+
+  .item:last-child {
+    border-right: 2px solid;
+  }
+} */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+
+    .item {
+      width: 100px;
+      height: 60px;
+    }
+  }
+
+  .row:first-child {
+    .item {
+      background-color: orange;
+      border-top: 2px solid;
+    }
+
+    .item:hover {
+      background-color: orangered;
+    }
+  }
+
+  .row:last-child {
+    .item {
+      background-color: chartreuse;
+      border-bottom: 2px solid;
+
+      .item:hover {
+        background-color: green;
+      }
+    }
+  }
+  .item:first-child {
+    border-left: 2px solid;
+  }
+
+  .item:last-child {
+    border-right: 2px solid;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu {
+    .row {
+      flex-direction: column;
+    }
+
+    .row:first-child {
+      .item {
+        border: none;
+        border-left: 2px solid;
+        border-right: 2px solid;
+      }
+
+      .item:first-child {
+        border-top: 2px solid;
+      }
+    }
+
+    .row:last-child {
+      .item {
+        border: none;
+        border-left: 2px solid;
+        border-right: 2px solid;
+      }
+
+      .item:last-child {
+        border-bottom: 2px solid;
+      }
+    }
   }
 }

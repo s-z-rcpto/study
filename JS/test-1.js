@@ -198,3 +198,27 @@ for (const element of arr17) {
     console.log(element);
   }
 }
+
+// Задати правильний пароль
+// Давати користувачу 3 спроби для введення
+// При правильному введенні вивести "Доступ надано"
+// Після третьої невдалої спроби вивести "Доступ заблоковано"
+
+const CORRECT_PASS = "qaz";
+const MAX_ATTEMPT = 3;
+let attempt = 1;
+
+while (attempt <= MAX_ATTEMPT) {
+  const userPass = prompt(`Введіть пароль. Спроба: ${attempt}/${MAX_ATTEMPT}`);
+
+  attempt = attempt + 1;
+
+  if (userPass === CORRECT_PASS) {
+    alert("Доступ надано");
+    break;
+  }
+}
+
+if (attempt > MAX_ATTEMPT) {
+  alert("Доступ заблоковано");
+}

@@ -252,12 +252,14 @@ console.log(`numMap: `, numMap);
 console.log(`numbers: `, numbers);
 
 const users = [
-  { id: 1, name: "Natalia" },
-  { id: 2, name: "Myroslava" },
-  { id: 3, name: "Sofia" },
-  { id: 4, name: "Olga" },
-  { id: 5, name: "Iryna" },
+  { age: 1, name: "Natalia" },
+  { age: 2, name: "Myroslava" },
+  { age: 3, name: "Sofia" },
+  { age: 4, name: "Olga" },
+  { age: 5, name: "Iryna" },
 ];
+
+console.log(users.find((user) => user.name === "John"));
 
 const userIds = users.map((user) => {
   console.log(user);
@@ -319,3 +321,6 @@ console.log("Чи кожен елемент масиву більше 0? - ", nu
 const unionArr = ["first", ...fruits, 12, ...result, true, letters[0]];
 
 console.log(unionArr);
+
+console.log(unionArr.concat(letters2));
+console.log([...unionArr, ...letters2]);

@@ -28,11 +28,12 @@ if (hour >= 8 && hour <= 12) {
   console.log("Доброї ночі");
 }
 
-const day = 8;
+const day = 5;
 
 switch (day) {
   case 1:
     console.log("Понеділок");
+    alert("Понеділок");
     break;
   case 2:
     console.log("Вівторок");

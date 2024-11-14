@@ -252,12 +252,14 @@ console.log(`numMap: `, numMap);
 console.log(`numbers: `, numbers);
 
 const users = [
-  { id: 1, name: "Natalia" },
-  { id: 2, name: "Myroslava" },
-  { id: 3, name: "Sofia" },
-  { id: 4, name: "Olga" },
-  { id: 5, name: "Iryna" },
+  { age: 1, name: "Natalia" },
+  { age: 2, name: "Myroslava" },
+  { age: 3, name: "Sofia" },
+  { age: 4, name: "Olga" },
+  { age: 5, name: "Iryna" },
 ];
+
+console.log(users.find((user) => user.name === "John"));
 
 const userIds = users.map((user) => {
   console.log(user);
@@ -319,3 +321,84 @@ console.log("Чи кожен елемент масиву більше 0? - ", nu
 const unionArr = ["first", ...fruits, 12, ...result, true, letters[0]];
 
 console.log(unionArr);
+
+console.log(unionArr.concat(letters2));
+console.log([...unionArr, ...letters2]);
+
+const q1 = 14;
+let q2 = q1;
+
+console.log(`q1 = ${q1}`); // 14
+console.log(`q2 = ${q2}`); // 14
+
+q2 = -7;
+
+console.log(`q1 = ${q1}`); // 14
+console.log(`q2 = ${q2}`); // -7
+
+const a1 = [24, "november", false];
+const a2 = a1;
+
+console.log(`a1 = [${a1}]`); // a1 = [24,november,false]
+console.log(`a2 = [${a2}]`); // a2 = [24,november,false]
+
+a2[1] = "листопад";
+
+console.log(`a1 = [${a1}]`); // a1 = [24,листопад,false]
+console.log(`a2 = [${a2}]`); // a2 = [24,листопад,false]
+
+if (a1[1] !== a2[1]) {
+  // ніколи не потрапите, бо a1[1] = a2[1]
+} else {
+  console.log(`a1[1] = ${a1[1]}`);
+  console.log(`a2[1] = ${a2[1]}`);
+}
+
+if (a1 === a2) {
+  console.log("Масиви однакові");
+  // тому що це один і той же масив
+} else {
+  console.log("Масиви різні");
+}
+
+const a3 = [24, "листопад", true];
+
+if (a1 === a3 || a2 === a3) {
+  console.log("Масиви однакові");
+} else {
+  console.log("Масиви різні");
+  console.log(`a1 = ${a1}`);
+  console.log(`a2 = ${a2}`);
+  console.log(`a3 = ${a3}`);
+}
+
+// Порівняти 2 масиви (спрощений варіант)
+let isEqual = a1.length === a3.length;
+
+if (isEqual) {
+  for (let i = 0; i < a1.length; i += 1) {
+    if (a1[i] !== a3[i]) {
+      isEqual = false;
+      break;
+    }
+  }
+}
+
+if (isEqual) {
+  console.log("Масиви однакові");
+} else {
+  console.log("Масиви різні");
+}
+
+// Створення копії масиву
+// const a4 = a1; // не правильно
+const a4 = [...a1]; // правильно
+
+// порівнюємо адреси
+if (a1 === a4) {
+  console.log("Масиви однакові");
+} else {
+  console.log("Масиви різні, тому що адреси різні");
+  console.log(`a1 = ${a1}`);
+  console.log(`a4 = ${a4}`);
+}

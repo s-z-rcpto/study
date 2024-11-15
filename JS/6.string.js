@@ -47,20 +47,39 @@ if (hello.indexOf("світ") !== -1) {
   console.log("Слово знайдено", hello.indexOf("світ"));
 }
 
-console.log(hello.indexOf("віт"));
-console.log(hello.indexOf("віт", 4));
+// ("Привіт, світе");
+console.log(hello.indexOf("віт")); // 3
+console.log(hello.indexOf("віт", 4)); // 9
+
+let position = 0;
+
+// while (true) {
+//   position = hello.indexOf("віт", position);
+
+//   if (position === -1) {
+//     break;
+//   }
+
+//   console.log(hello.slice(position));
+
+//   position += 1;
+// }
 
 // for (const letter of hello) {
 //   console.log(letter);
 // }
 
-// let reversed = '';
+// Привіт, світе
+// вирП
 
-// for (const letter of hello) {
-//     reversed = ? reversed ?;
-// }
+let reversed = "";
 
-// console.log(reversed);
+for (const letter of hello) {
+  console.log("Поточна літера: ", letter);
+  // reversed = reversed + i;
+}
+
+console.log(reversed);
 
 console.log(`Рядок містить склад "віт": ${hello.includes("віт")}`);
 console.log(`Рядок містить склад "лист": ${hello.includes("лист")}`);
@@ -116,7 +135,44 @@ console.log(
 
 console.log(
   "hello"
-    .split("") // пертворюємо на масив літер
+    .split("") // перетворюємо на масив літер
     .reverse() // розвертаємо масив задом наперед
     .join("") // об'єднуємо масив у рядок
 ); // olleh
+
+let myName = "sERHII";
+
+// Конкатенація рядків
+myName = myName[0].toUpperCase() + myName.slice(1).toLowerCase();
+myName = `${myName[0].toUpperCase()}${myName.slice(1).toLowerCase()}`;
+myName = myName[0].toUpperCase().concat(myName.slice(1).toLowerCase());
+
+console.log(myName);
+
+// "Привіт, світе"
+console.log(hello.replace("віт", "ват")); // Приват, світе
+console.log(hello.replace(/віт/g, "ват")); // Приват, свате
+console.log(hello.replaceAll("віт", "ват")); //Приват, свате
+
+const text = "Я впевнена(-ий), що у мене вийде вивчити ДжаваСкрипт у 2024 році";
+
+const vowels = ["а", "е", "и", "і", "о", "у", "А", "Е", "И", "І", "О", "У"];
+const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const punctuationMarks = [",", ".", "-", ":"];
+
+let vowelsCount = 0;
+let digitsCount = 0;
+let punctuationMarksCount = 0;
+let otherCount = 0;
+
+for (const letter of text) {
+  // якщо масив голосних включає в себе літеру,
+  // то "загинаємо пальчик" vowelsCount
+  // інакше якщо масив цифр включає в себе літеру,
+  // то "загинаємо пальчик" digitsCount
+  // інакше якщо масив розділових знаків включає в себе літеру,
+  // то "загинаємо пальчик" punctuationMarksCount
+  // інакше "загинаємо пальчик" otherCount
+}
+
+// виводимо результат - 4 числа

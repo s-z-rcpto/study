@@ -176,3 +176,83 @@ for (const letter of text) {
 }
 
 // виводимо результат - 4 числа
+let maxPos;
+for (let i = 0; i < 5; i += 1) {
+  console.log(i);
+}
+
+// console.log(i); // Uncaught ReferenceError: i is not defined
+
+const vyraz = prompt("Пояснення", "12-4");
+//          0123
+// vyraz = "12-4"
+
+let operPos;
+let oper;
+
+if (vyraz.includes("+")) {
+  // запам'ятовуємо де "+"
+  operPos = vyraz.indexOf("+");
+  oper = "+";
+} else if (vyraz.includes("-")) {
+  operPos = vyraz.indexOf("-"); // 2
+  oper = "-";
+} else if (vyraz.includes("*")) {
+  operPos = vyraz.indexOf("*");
+  oper = "*";
+} else if (vyraz.includes("/")) {
+  operPos = vyraz.indexOf("/");
+  oper = "/";
+} else {
+  alert("Немає арифтетичних операцій");
+}
+
+console.log(operPos);
+console.log(oper);
+
+//          0123
+// vyraz = "12-4"
+// Отримати підрядок "12"
+const number1 = Number(vyraz.slice(0, operPos));
+
+// Отримати підрядок "4"
+const number2 = Number(vyraz.slice(operPos + 1));
+
+console.log(number1);
+console.log(number2);
+
+switch (oper) {
+  case "-":
+    console.log(number1 - number2);
+    break;
+
+  default:
+    break;
+}
+// const plusExist = vyraz.indexOf('+')
+
+// if (vyraz.includes('+')) {
+// if (vyraz.indexOf('+') !== -1) {
+// if (plusExist !== -1) {
+//   // запам'ятовуємо де "+"
+//   operPos = plusExist
+//   // operPos = vyraz.indexOf('+')
+// }
+
+const num1 = Number("2");
+const num2 = Number("4");
+const operation = "+";
+
+if (operation === "+") {
+  //
+} else if (operation === "-") {
+  //
+} // ...
+
+switch (operation) {
+  case "+":
+    break;
+
+  default:
+    break;
+}

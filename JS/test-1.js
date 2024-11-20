@@ -222,3 +222,58 @@ while (attempt <= MAX_ATTEMPT) {
 if (attempt > MAX_ATTEMPT) {
   alert("Доступ заблоковано");
 }
+
+// 6. Функція перевірки наявності елемента в масиві
+// Умова: Створіть функцію, яка приймає масив і елемент, а потім перевіряє, чи є цей елемент у масиві.
+// Вхідні дані: [1, 2, 3, 4], 3
+// Очікуваний результат: true
+// Вхідні дані: [`a`, 2, `m`, -56], 45
+// Очікуваний результат: false
+
+function checkElement(masyv, element) {
+  // Перевіряємо чи змінна є масивом
+  if (Array.isArray(masyv)) {
+    // return masyv.includes(element);
+    // return masyv.indexOf(element) !== -1;
+    // const existElement = masyv.find((el) => el === element);
+
+    // return existElement != null;
+
+    // return masyv.filter((el) => el === element).length > 0;
+
+    for (const item of masyv) {
+      if (item === element) {
+        return true;
+      }
+    }
+  }
+
+  // Змінна не є масивом, тому повертаємо null
+  return null;
+}
+
+console.log(
+  `Масив ${[1, 2, 3, 4]} містить елемент ${3}? - ${checkElement(
+    [1, 2, 3, 4],
+    3
+  )}`
+);
+
+const array2 = [`a`, 2, `m`, -56];
+const element2 = 45;
+const result2 = checkElement(array2, element2);
+
+console.log(`Масив ${array2} містить елемент ${element2}? - ${result2}`);
+
+function numToArray(number) {
+  return String(number)
+    .split("")
+    .map((e) => Number(e));
+  const result = [];
+  for (const element of String(number)) {
+    result.push(Number(element));
+  }
+  return result;
+}
+
+console.log(numToArray(1234));

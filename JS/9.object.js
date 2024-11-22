@@ -5,8 +5,23 @@ const user = {
   name: "Serhii",
   shops: [34, 56, 11],
   isActive: true,
-  sayHi: function () {
-    alert("Привіт");
+
+  // sayHi: function () {
+  //   alert("Привіт");
+  // }, // метод
+
+  // this - це поточний об'єкт
+  // працює у межах поточного об'єкта
+  sayHi() {
+    console.log(this.id);
+    console.log(this.name);
+    console.log(this);
+
+    alert(`Привіт, це ${this.name}`);
+  }, // метод (рекомендований варіант)
+
+  shopsCount() {
+    return this.shops.length;
   }, // метод
   created: {
     id: 0,
@@ -16,6 +31,7 @@ const user = {
   twoWords: "Hello world",
 };
 
+// console.log(this);
 console.log(user.name); // Serhii
 console.log(user["name"]); // Serhii
 console.log(user["two words"]); // Hello world
@@ -39,7 +55,13 @@ console.log(user);
 
 // user = { id: 0, name: "admin" }; // помилка Assignment to constant variable.
 
+// Приклад виклику метода об'єкта
 user.sayHi();
+
+// Приклад виклику метода об'єкта, який щось повертає
+console.log(
+  `Користувач ${user.name} має доступ до ${user.shopsCount()} магазинів`
+);
 
 const user1 = {
   id: 1,
@@ -88,10 +110,31 @@ user5.name = "User5";
 console.log(`user1`, user1);
 console.log(`user5`, user5);
 
-const today = new Date();
-const yesterday = today;
+const startWeb = new Date("2024-09-19T08:30");
+let prevStartWeb = startWeb; // копіюється адреса
 
-yesterday.setDate(yesterday.getDate() - 1);
+// змінюємо і startWeb, і prevStartWeb
+prevStartWeb.setDate(prevStartWeb.getDate() - 1);
 
-console.log(yesterday);
-console.log(today);
+console.log(prevStartWeb);
+console.log(startWeb);
+
+// копіюємо startWeb у змінну prevStartWeb
+prevStartWeb = new Date(startWeb.getTime());
+
+prevStartWeb.setDate(prevStartWeb.getDate() - 1);
+
+console.log(prevStartWeb);
+console.log(startWeb);
+
+const car = {
+  model: "BMW",
+  number: "ВК6532ІК",
+};
+
+console.log(car);
+
+// Видаляємо властивіть об'єкта
+delete car.number;
+
+console.log(car);

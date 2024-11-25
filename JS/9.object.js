@@ -52,6 +52,7 @@ if (user.age < 18) {
 user.age = 24; // працює
 
 console.log(user);
+console.log(`${user}`);
 
 // user = { id: 0, name: "admin" }; // помилка Assignment to constant variable.
 
@@ -138,3 +139,70 @@ console.log(car);
 delete car.number;
 
 console.log(car);
+
+// Перевірка наявності властивості
+// Напишіть програму, яка перевіряє,
+// чи є властивість salary в об'єкті
+// employee = { name: "Kate", position: "Manager" }
+
+const employee = { name: "Kate", position: "Manager" };
+
+console.log(employee.name); // "Kate"
+console.log(employee.salary); // undefined
+console.log("salary" in employee); // false
+
+const employee2 = { name: "Kate", position: "Manager", salary: undefined };
+
+console.log(employee2.name); // "Kate"
+console.log(employee2.salary); // undefined
+console.log("salary" in employee2); // true
+
+const salary = "salary";
+console.log(salary in employee2); // true
+
+// Перебір властивостей об'єкта
+// Створіть об'єкт fruit = { apple: 10, banana: 5, orange: 8 }.
+// Виведіть у консоль кожну властивість і її значення за допомогою циклу for...in.
+const fruit = { apple: 10, banana: 5, orange: 8 };
+
+for (const key in fruit) {
+  console.log(`${key}: ${fruit[key]}`); // apple: 10
+}
+
+for (const [key, value] of Object.entries(fruit)) {
+  // key - змінна - ключ властивості об'єкта fruit, 0-й елемент масиву [key, value]
+  // value - змінна - значення властивості об'єкта fruit, 1-й елемент масиву [key, value]
+  console.log(key, value);
+}
+
+// Отримуємо всі ключі об'єкта fruit
+for (const key of Object.keys(fruit)) {
+  console.log(key);
+}
+
+// Отримуємо всі значення об'єкта fruit
+for (const value of Object.values(fruit)) {
+  console.log(value);
+}
+
+// Об'єднання об'єктів
+// Є два об'єкти:
+// user1 = { name: "John", age: 30 };
+// user2 = { city: "London", job: "Developer" };
+// Об'єднайте ці об'єкти в новий об'єкт user3 і виведіть результат.
+
+const user_1 = { name: "John", age: 30 };
+const user_2 = { city: "London", job: "Developer", age: 20 };
+
+// Спосіб 1
+let user_3 = {};
+
+Object.assign(user_3, user_1);
+Object.assign(user_3, user_2);
+
+console.log(user_3); // {name: 'John', age: 20, city: 'London', job: 'Developer'}
+
+// Спосіб 2
+user_3 = { ...user_1, ...user_2 };
+
+console.log(user_3); // {name: 'John', age: 20, city: 'London', job: 'Developer'}

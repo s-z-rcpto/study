@@ -277,3 +277,29 @@ function numToArray(number) {
 }
 
 console.log(numToArray(1234));
+
+function minArrayEl(numbers) {
+  if (!Array.isArray(numbers)) {
+    return null;
+  }
+
+  return Math.min(...numbers);
+}
+
+console.log(minArrayEl([4, 6, 9, 2, 3, 1]));
+
+function minArrayEl(masiv) {
+  if (!Array.isArray(masiv)) {
+    return null;
+  }
+
+  let minEl = masiv[0];
+
+  for (const element of masiv) {
+    if (element < minEl) {
+      minEl = element;
+    }
+  }
+
+  return minEl;
+}

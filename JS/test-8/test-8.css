@@ -1,0 +1,18 @@
+body {
+  background-color: antiquewhite;
+}
+
+#task-10-d {
+  width: 100px;
+  height: 100px;
+  border: 2px solid;
+  margin-top: 16px;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: greenyellow;
+}

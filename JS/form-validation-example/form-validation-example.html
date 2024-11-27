@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Приклад обробки форми</title>
+
+    <link rel="stylesheet" href="form-validation-example.css" />
+  </head>
+  <body>
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="name">Ім'я</label>
+        <input type="text" id="name" name="name" required />
+        <span class="required-mark">*</span>
+        <div id="nameHint" class="hint">
+          Введіть ваше ім'я українською або англійською
+        </div>
+        <div id="nameError" class="error-message"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <span class="required-mark">*</span>
+        <div id="emailHint" class="hint">Введіть коректну електронну пошту</div>
+        <div id="emailError" class="error-message"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="login">Логін (без кирилиці)</label>
+        <input type="text" id="login" name="login" required />
+        <span class="required-mark">*</span>
+        <div id="loginHint" class="hint">
+          Дозволені лише латинські літери, цифри та символи
+        </div>
+        <div id="loginError" class="error-message"></div>
+      </div>
+
+      <div class="form-group radio-group">
+        <label>Стать</label>
+        <label>
+          <input type="radio" name="gender" value="male" required />
+          Чоловік
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female" />
+          Жінка
+        </label>
+        <span class="required-mark">*</span>
+        <div id="genderError" class="error-message"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Країна</label>
+        <select id="country" name="country" required>
+          <option value="">Оберіть країну</option>
+          <option value="ukraine">Україна</option>
+          <option value="poland">Польща</option>
+          <option value="germany">Німеччина</option>
+        </select>
+        <span class="required-mark">*</span>
+        <div id="countryError" class="error-message"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="birthdate">Дата народження</label>
+        <input type="date" id="birthdate" name="birthdate" required />
+        <span class="required-mark">*</span>
+        <div id="birthdateHint" class="hint">
+          Дата не може бути в майбутньому
+        </div>
+        <div id="birthdateError" class="error-message"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password" required />
+        <span class="required-mark">*</span>
+        <div class="password-requirements">
+          <div id="lengthReq" class="password-requirement">
+            ✗ Мінімум 8 символів
+          </div>
+          <div id="uppercaseReq" class="password-requirement">
+            ✗ Мінімум 1 велика літера
+          </div>
+          <div id="numberReq" class="password-requirement">
+            ✗ Мінімум 1 цифра
+          </div>
+          <div id="specialReq" class="password-requirement">
+            ✗ Мінімум 1 спеціальний символ
+          </div>
+        </div>
+        <div id="passwordError" class="error-message"></div>
+      </div>
+
+      <button type="submit" id="submitButton">Зареєструватися</button>
+    </form>
+
+    <script src="form-validation-example.js"></script>
+  </body>
+</html>

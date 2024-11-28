@@ -1,3 +1,7 @@
+:root {
+  --gray: #777;
+}
+
 body {
   font-family: Arial, sans-serif;
   max-width: 500px;
@@ -5,75 +9,91 @@ body {
   padding: 20px;
   background-color: #f4f4f4;
 }
+
 form {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.form-group {
-  margin-bottom: 15px;
+
+section {
+  margin-bottom: 16px;
   position: relative;
 }
+
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
+
 input,
 select {
+  box-sizing: border-box;
   width: 100%;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
+
 .hint {
-  color: #666;
-  font-size: 0.8em;
-  margin-top: 5px;
+  color: var(--gray);
+  font-size: 12px;
+  margin-top: 4px;
   display: none;
 }
+
 .focused {
-  border-color: #4caf50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  background-color: #f4f4f4;
 }
+
 .error {
   border-color: #ff5722;
-  box-shadow: 0 0 5px rgba(255, 87, 34, 0.5);
+  box-shadow: 0 0 4px rgba(255, 87, 34, 0.5);
 }
+
 .required-mark {
   color: red;
   margin-left: 4px;
   position: absolute;
-  top: 5px;
+  top: 4px;
   right: 0;
 }
+
 .radio-group {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
+
 .radio-group input {
   width: auto;
-  margin-right: 10px;
 }
+
 .password-requirements {
-  font-size: 0.8em;
-  color: #666;
-  margin-top: 5px;
+  font-size: 12px;
+  color: var(--gray);
+  margin-top: 4px;
+
+  div {
+    margin-bottom: 4px;
+  }
 }
-.password-requirement {
-  margin-bottom: 3px;
-}
+
 .valid {
   color: green;
 }
+
 .invalid {
   color: red;
 }
+
 .error-message {
   color: red;
-  font-size: 0.8em;
-  margin-top: 5px;
+  font-size: 12px;
+  margin-top: 4px;
 }
+
 #submitButton:disabled {
   background-color: #cccccc;
   cursor: not-allowed;

@@ -5,44 +5,60 @@ function addFocusListeners(inputId, hintId) {
 
   input.addEventListener("focus", () => {
     input.classList.add("focused");
-    if (hint) hint.style.display = "block";
+
+    if (hint != null) {
+      hint.style.display = "block";
+    }
   });
 
   input.addEventListener("blur", () => {
     input.classList.remove("focused");
-    if (hint) hint.style.display = "none";
+
+    if (hint != null) {
+      hint.style.display = "none";
+    }
   });
 }
 
-// Додаємо підказки для полів
-addFocusListeners("name", "nameHint");
-addFocusListeners("email", "emailHint");
+// Додаємо очікування подій для полів
+addFocusListeners("name");
+addFocusListeners("email");
 addFocusListeners("login", "loginHint");
-addFocusListeners("birthdate", "birthdateHint");
+addFocusListeners("birthdate");
+addFocusListeners("password", "passwordHint");
 
 // Заборона кирилиці в логіні
 const loginInput = document.getElementById("login");
-loginInput.addEventListener("input", function (e) {
+
+loginInput.addEventListener("input", function (event) {
   // Перевірка на кириличні літери, включаючи і, є, ї
   const ukrainianLetters = /[а-яА-ЯіІєЄїЇ]/;
+
   if (ukrainianLetters.test(this.value)) {
     this.value = this.value.replace(ukrainianLetters, "");
-    alert("У логіні дозволені лише латинські літери!");
+
+    this.setCustomValidity("У логіні дозволені лише латинські літери!");
+  } else {
+    this.setCustomValidity("");
   }
+
+  this.reportValidity();
 });
 
 // Перевірка дати народження
 const birthdateInput = document.getElementById("birthdate");
+
 birthdateInput.addEventListener("change", function () {
   const selectedDate = new Date(this.value);
   const today = new Date();
 
   if (selectedDate > today) {
     this.setCustomValidity("Дата народження не може бути в майбутньому!");
-    this.reportValidity();
   } else {
     this.setCustomValidity("");
   }
+
+  this.reportValidity();
 });
 
 // Перевірка паролю
@@ -55,43 +71,58 @@ const specialReq = document.getElementById("specialReq");
 // Перевірка без регулярного виразу
 function checkPasswordRequirements() {
   const password = passwordInput.value;
-  let isLengthValid = password.length >= 8;
+
+  const isLengthValid = password.length >= 8;
+
   let hasUppercase = false;
   let hasNumber = false;
   let hasSpecialChar = false;
 
   for (let char of password) {
-    if (char >= "A" && char <= "Z") hasUppercase = true;
-    if (char >= "0" && char <= "9") hasNumber = true;
-    if ("!@#$%^&*()_+-=[]{}|;:,.<>?".includes(char)) hasSpecialChar = true;
+    if (char >= "A" && char <= "Z") {
+      hasUppercase = true;
+    }
+
+    if (char >= "0" && char <= "9") {
+      hasNumber = true;
+    }
+
+    if ("!@#$%^&*()_+-=[]{}|;:,.<>?".includes(char)) {
+      hasSpecialChar = true;
+    }
   }
 
   // Оновлення класів та вигляду вимог
   lengthReq.textContent = isLengthValid
     ? "✓ Мінімум 8 символів"
     : "✗ Мінімум 8 символів";
+
   lengthReq.classList.toggle("valid", isLengthValid);
   lengthReq.classList.toggle("invalid", !isLengthValid);
 
   uppercaseReq.textContent = hasUppercase
     ? "✓ Мінімум 1 велика літера"
     : "✗ Мінімум 1 велика літера";
+
   uppercaseReq.classList.toggle("valid", hasUppercase);
   uppercaseReq.classList.toggle("invalid", !hasUppercase);
 
   numberReq.textContent = hasNumber ? "✓ Мінімум 1 цифра" : "✗ Мінімум 1 цифра";
+
   numberReq.classList.toggle("valid", hasNumber);
   numberReq.classList.toggle("invalid", !hasNumber);
 
   specialReq.textContent = hasSpecialChar
     ? "✓ Мінімум 1 спеціальний символ"
     : "✗ Мінімум 1 спеціальний символ";
+
   specialReq.classList.toggle("valid", hasSpecialChar);
   specialReq.classList.toggle("invalid", !hasSpecialChar);
 
   // Додаткова перевірка з регулярним виразом
   const regex =
     /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=\[\]{};:,.<>?])(?=.{8,})/;
+
   return regex.test(password);
 }
 
@@ -103,6 +134,7 @@ passwordInput.addEventListener("input", function () {
 // Функція валідації форми
 function validateForm() {
   let isValid = true;
+
   const requiredFields = [
     { id: "name", errorId: "nameError", message: "Введіть ім'я" },
     { id: "email", errorId: "emailError", message: "Введіть email" },
@@ -120,12 +152,15 @@ function validateForm() {
     const element = document.getElementById(field.id);
     const errorElement = document.getElementById(field.errorId);
 
-    if (!element.value.trim()) {
+    if (element.value.trim() === "") {
       isValid = false;
+
       element.classList.add("error");
+
       errorElement.textContent = field.message;
     } else {
       element.classList.remove("error");
+
       errorElement.textContent = "";
     }
   });
@@ -139,6 +174,7 @@ function validateForm() {
 
   if (!genderSelected) {
     isValid = false;
+
     genderErrorElement.textContent = "Оберіть стать";
   } else {
     genderErrorElement.textContent = "";
@@ -146,8 +182,10 @@ function validateForm() {
 
   // Перевірка паролю
   const isPasswordValid = checkPasswordRequirements();
+
   if (!isPasswordValid) {
     isValid = false;
+
     document.getElementById("passwordError").textContent =
       "Пароль не відповідає вимогам безпеки";
   }
@@ -161,12 +199,13 @@ function validateSubmitButton() {
   const requiredFields = document.querySelectorAll(
     "input[required], select[required]"
   );
+
   const genderInputs = document.querySelectorAll('input[name="gender"]');
 
   let allFieldsFilled = true;
 
   requiredFields.forEach((field) => {
-    if (!field.value.trim()) {
+    if (field.value.trim() === "") {
       allFieldsFilled = false;
     }
   });
@@ -174,6 +213,7 @@ function validateSubmitButton() {
   const genderSelected = Array.from(genderInputs).some(
     (radio) => radio.checked
   );
+
   const isPasswordValid = checkPasswordRequirements();
 
   submitButton.disabled = !(
@@ -197,8 +237,8 @@ radioInputs.forEach((radio) => {
 });
 
 // Обробка форми
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 
   if (validateForm()) {
     alert("Форма успішно надіслана!");

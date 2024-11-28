@@ -16,3 +16,12 @@ body {
 .green {
   background-color: greenyellow;
 }
+
+.active {
+  background-color: cornflowerblue;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

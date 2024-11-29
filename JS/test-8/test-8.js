@@ -295,3 +295,116 @@ task14i.addEventListener("blur", function (event) {
 
   task14i.style.backgroundColor = "white";
 });
+
+// Завдання 15: Підрахунок довжини тексту
+// Створіть поле введення і порожній абзац.
+// В абзаці відображайте кількість символів, введених у поле.
+const task15i = document.getElementById("task-15-i");
+const task15p = document.getElementById("task-15-p");
+
+task15i.addEventListener("input", function (event) {
+  task15p.textContent = task15i.value.length;
+});
+
+// Завдання 16: Зміна розміру тексту
+// Створіть абзац із текстом і дві кнопки — "Збільшити" і "Зменшити".
+// При натисканні на відповідні кнопки збільшуйте або зменшуйте розмір тексту абзацу.
+
+const task16p = document.getElementById("task-16-p");
+const task16up = document.getElementById("task-16-up");
+const task16down = document.getElementById("task-16-down");
+
+task16up.addEventListener("click", function (event) {
+  // Якщо немає значення розміру
+  // встановлюємо якесь типове значення
+  if (task16p.style.fontSize === "") {
+    task16p.style.fontSize = "16px";
+  }
+
+  // Отримую поточний розмір, наприклад "16"
+  // перетворюю рядок "16" в число 16
+  // збільшую 16 на 2 щоб отримати розмір 18
+  let size = Number(task16p.style.fontSize.slice(0, -2)) + 2;
+
+  // Отримую поточні одиниці виміру
+  let unit = task16p.style.fontSize.slice(-2);
+
+  // Записали нове значення
+  task16p.style.fontSize = `${size}${unit}`;
+});
+
+task16down.addEventListener("click", function (event) {
+  if (task16p.style.fontSize === "") {
+    task16p.style.fontSize = "16px";
+  }
+
+  let size = Number(task16p.style.fontSize.slice(0, -2)) - 2;
+  let unit = task16p.style.fontSize.slice(-2);
+
+  task16p.style.fontSize = `${size}${unit}`;
+});
+
+// Завдання 18: Автоматичне видалення тексту
+// Створіть абзац із текстом і кнопку. При натисканні на кнопку через 5 секунд текст абзацу має зникнути.
+
+const task18i = document.getElementById("task-18-i");
+const task18b = document.getElementById("task-18-b");
+const task18s = document.getElementById("task-18-s");
+
+task18b.addEventListener("click", function (event) {
+  let time = 0;
+
+  // Виконуємо блок коду кожні 1000 мілісекунд
+  // (виконується багаторазово)
+  const intervalId = setInterval(() => {
+    // блок коду: початок
+    time += 1;
+    task18s.textContent = time;
+    // блок коду: кінець
+  }, 1000);
+
+  // Встановлюємо затримку виконання блоку коду
+  // (виконується 1 раз)
+  setTimeout(
+    () => {
+      // блок коду: початок
+      task18i.value = "";
+      task18s.textContent = "0";
+
+      clearInterval(intervalId);
+      // блок коду: кінець
+    },
+    5 * 1000 // час затримки у мілісекундах
+  );
+});
+
+const h2 = document.getElementById("time");
+
+setInterval(() => {
+  const now = new Date();
+
+  h2.textContent = `${now.toLocaleString()}`;
+}, 1000);
+
+// Завдання 3: Додавання нового елемента
+// Створіть список і кнопку.
+// При натисканні на кнопку додайте новий елемент до списку.
+
+const task3b = document.getElementById("task-3-b");
+const task3u = document.getElementById("task-3-u");
+
+task3b.addEventListener("click", function () {
+  // шукаємо всі теги li у тезі ul
+  const liList = task3u.querySelectorAll("li");
+
+  task3u.innerHTML += `<li>Item ${liList.length + 1}</li>`;
+  // task3u.innerHTML += "<li>Item</li>";
+  // task3u.innerHTML = task3u.innerHTML + "<li>Item</li>";
+
+  const li = document.createElement("li");
+
+  li.textContent = `Item ${liList.length + 1}`;
+  li.style.color = "red";
+
+  task3u.appendChild(li);
+});

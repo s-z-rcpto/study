@@ -1,3 +1,7 @@
+body {
+  background-color: blanchedalmond;
+}
+
 .item {
   display: flex;
   align-items: center;

@@ -398,6 +398,7 @@ task3b.addEventListener("click", function () {
   const liList = task3u.querySelectorAll("li");
 
   task3u.innerHTML += `<li>Item ${liList.length + 1}</li>`;
+
   // task3u.innerHTML += "<li>Item</li>";
   // task3u.innerHTML = task3u.innerHTML + "<li>Item</li>";
 
@@ -407,4 +408,33 @@ task3b.addEventListener("click", function () {
   li.style.color = "red";
 
   task3u.appendChild(li);
+});
+
+// Завдання 4: Видалення елемента
+// Створіть список із трьох елементів і кнопку.
+// При натисканні на кнопку видаліть останній елемент списку.
+
+const task4b = document.getElementById("task-4-b");
+
+task4b.addEventListener("click", function () {
+  // шукаємо всі теги li у тезі ul
+  const liList = task3u.querySelectorAll("li");
+
+  console.log(task3u.innerHTML);
+  console.log(liList[liList.length - 1]);
+
+  // видаляємо останній елемент списку
+  liList[liList.length - 1].remove();
+
+  // шукаємо останній елемент списку
+  // за допомогою псевдокласу :last-child
+  const lastLi = task3u.querySelector("li:last-child");
+
+  // шукаємо елемент списку li з класом red, ідентифікатором main
+  // <li class="red" id="main">
+  // task3u.querySelectorAll("li.red#main")
+
+  console.log(lastLi);
+
+  lastLi.remove();
 });

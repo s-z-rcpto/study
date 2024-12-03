@@ -5,13 +5,13 @@ document.querySelector("button").addEventListener("click", function () {
 localStorage.setItem("number", 2);
 localStorage.setItem("bool", true);
 localStorage.setItem("string", "December");
-localStorage.setItem("array", ["q", 3, false]);
+localStorage.setItem("array", JSON.stringify(["q", 3, false]));
 localStorage.setItem("object", JSON.stringify({ name: "Serhii", id: 1 }));
 
 const num = localStorage.getItem("number");
 const bool = localStorage.getItem("bool");
 const str = localStorage.getItem("string");
-const arr = localStorage.getItem("array");
+const arr = JSON.parse(localStorage.getItem("array"));
 const obj = JSON.parse(localStorage.getItem("object"));
 
 console.log(num, typeof num);
@@ -25,11 +25,58 @@ const inputField = document.getElementById("inputField");
 const addButton = document.getElementById("addButton");
 const itemContainer = document.getElementById("itemContainer");
 
-// Завантаження переліку з localStorage
-document.addEventListener("DOMContentLoaded", () => {
-  const savedItems = JSON.parse(localStorage.getItem("items")) ?? [];
+addButton.addEventListener("click", function () {
+  addDiv(inputField.value);
+  addToLocalStorage(inputField.value);
 
-  savedItems.forEach((text) => addItem(text));
+  inputField.value = "";
+});
+
+function addDiv(text) {
+  const itemDiv = document.createElement("div");
+
+  const span = document.createElement("span");
+
+  span.textContent = text;
+
+  const removeButton = document.createElement("button");
+
+  removeButton.textContent = "Delete";
+  removeButton.addEventListener("click", function () {
+    itemDiv.remove();
+  });
+
+  itemDiv.appendChild(span);
+  itemDiv.appendChild(removeButton);
+
+  itemContainer.appendChild(itemDiv);
+}
+
+function addToLocalStorage(text) {
+  // Отримуємо поточне значення, яке зберігається
+  // у localStorage
+  let currentStorage = localStorage.getItem("todo");
+
+  // Якщо у localStorage нічого немає
+  // то працюємо з порожнім масивом
+  if (currentStorage == null) {
+    currentStorage = [];
+  } else {
+    // інакше перетворюємо текстове представлення
+    // масиву в об'єкт масив
+    currentStorage = JSON.parse(currentStorage);
+  }
+
+  currentStorage.push(text);
+
+  localStorage.setItem("todo", JSON.stringify(currentStorage));
+}
+
+// Завантаження переліку з localStorage
+document.addEventListener("DOMContentLoaded", function () {
+  const savedItems = JSON.parse(localStorage.getItem("todo")) ?? [];
+
+  savedItems.forEach((text) => addDiv(text));
 });
 
 // Додавання нового елемента

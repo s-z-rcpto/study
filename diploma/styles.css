@@ -60,6 +60,105 @@ a {
   justify-content: space-between;
 }
 
+.example-1 {
+  margin-top: 20px;
+
+  .text-image-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: white;
+  }
+
+  .text {
+    flex: 1;
+    padding-right: 20px; /* Відступ між текстом і зображенням */
+    z-index: 2;
+
+    .text-container {
+      position: absolute;
+      z-index: 3;
+      transform: translateY(-50%);
+    }
+  }
+
+  .image {
+    position: relative;
+    flex: 1;
+  }
+
+  .image img {
+    width: 100%; /* Зображення займає всю доступну ширину */
+    object-fit: cover; /* Адаптивне масштабування */
+  }
+
+  .image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Налаштування ширини градієнта */
+    height: 100%;
+    background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+    z-index: 1; /* Градієнт поверх зображення */
+  }
+
+  .text-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%; /* Початок накладання тексту на зображення */
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+    z-index: 0; /* Для накладання тексту поверх */
+  }
+}
+
+.example-2 {
+  margin-top: 20px;
+
+  .text-image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .text {
+    position: absolute;
+    z-index: 2;
+    color: #000; /* Колір тексту */
+    padding: 20px;
+    max-width: 50%; /* Обмеження ширини тексту */
+  }
+
+  .image {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .image img {
+    width: 100%; /* Зображення займає всю ширину */
+    object-fit: cover; /* Масштабування зображення */
+    filter: brightness(
+      80%
+    ); /* Додатковий ефект для кращої читабельності тексту */
+  }
+
+  .image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Ширина градієнта */
+    height: 100%;
+    background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+    z-index: 1;
+  }
+}
+
 .custom-carousel-container {
   max-width: 800px;
   margin: 50px auto;
@@ -87,7 +186,7 @@ a {
 .custom-carousel-buttons {
   position: absolute;
   top: 50%;
-  width: 100%;
+  width: calc(100% - 40px);
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);

@@ -32,7 +32,16 @@ $categories = getUniqueCategories($products);
     </div>
   </div>
 
+  <div class="carousel-container">
+    <div class="carousel-track" id="carousel-track"></div>
+    <div class="carousel-buttons">
+      <button id="prev-btn">❮</button>
+      <button id="next-btn">❯</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
+  <script src="carousel.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const track = document.getElementById("carousel-track");
-  const prevBtn = document.getElementById("prev-btn");
-  const nextBtn = document.getElementById("next-btn");
+  const track = document.getElementById("custom-carousel-track");
+  const prevBtn = document.getElementById("custom-prev-btn");
+  const nextBtn = document.getElementById("custom-next-btn");
 
   let currentIndex = 0; // Початковий індекс каруселі
   let itemsPerScreen = 3; // Кількість елементів на екрані
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images.forEach((src) => {
         const item = document.createElement("div");
 
-        item.classList.add("carousel-item");
+        item.classList.add("custom-carousel-item");
 
         item.innerHTML = `<img src="${src}" alt="Image">`;
 

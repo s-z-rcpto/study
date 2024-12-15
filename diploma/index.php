@@ -14,6 +14,8 @@ $categories = getUniqueCategories($products);
 
   <title>Інтернет-магазин</title>
 
+  <!-- Підключення Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -32,15 +34,37 @@ $categories = getUniqueCategories($products);
     </div>
   </div>
 
-  <div class="carousel-container">
-    <div class="carousel-track" id="carousel-track"></div>
-    <div class="carousel-buttons">
-      <button id="prev-btn">❮</button>
-      <button id="next-btn">❯</button>
+  <div class="custom-carousel-container">
+    <div class="custom-carousel-track" id="custom-carousel-track"></div>
+    <div class="custom-carousel-buttons">
+      <button id="custom-prev-btn">❮</button>
+      <button id="custom-next-btn">❯</button>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" id="carousel-inner">
+        <!-- Динамічний контент -->
+      </div>
+
+      <!-- Кнопки навігації -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
 
   <script src="script.js"></script>
+
+  <!-- Підключення Bootstrap і JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="carousel-bootstrap.js"></script>
   <script src="carousel.js"></script>
 </body>
 

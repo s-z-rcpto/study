@@ -60,31 +60,31 @@ a {
   justify-content: space-between;
 }
 
-.carousel-container {
+.custom-carousel-container {
   max-width: 800px;
   margin: 50px auto;
   overflow: hidden;
   position: relative;
 }
 
-.carousel-track {
+.custom-carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
 
-.carousel-item {
+.custom-carousel-item {
   min-width: 33.333%; /* 3 елементи на екрані */
   box-sizing: border-box;
   padding: 10px;
 }
 
-.carousel-item img {
+.custom-carousel-item img {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-buttons {
+.custom-carousel-buttons {
   position: absolute;
   top: 50%;
   width: 100%;
@@ -93,7 +93,7 @@ a {
   transform: translateY(-50%);
 }
 
-.carousel-buttons button {
+.custom-carousel-buttons button {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
@@ -102,6 +102,6 @@ a {
   border-radius: 5px;
 }
 
-.carousel-buttons button:hover {
+.custom-carousel-buttons button:hover {
   background: rgba(0, 0, 0, 0.7);
 }

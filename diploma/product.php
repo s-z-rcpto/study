@@ -24,7 +24,12 @@ if (!$product) {
 
 <body>
   <div class="container">
-    <div class="product-details">
+    <div class="product-details"
+      data-id="<?= htmlspecialchars($product['id']) ?>"
+      data-name="<?= htmlspecialchars($product['name']) ?>"
+      data-price="<?= htmlspecialchars($product['price']) ?>"
+      data-description="<?= htmlspecialchars($product['description']) ?>">
+
       <h1><?= htmlspecialchars($product['name']) ?></h1>
 
       <p><strong>Категорія:</strong> <?= htmlspecialchars($product['category']) ?></p>

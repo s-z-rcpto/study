@@ -26,7 +26,12 @@ $categoryProducts = getProductsByCategory($products, $category);
 
     <div class="products">
       <?php foreach ($categoryProducts as $product): ?>
-        <div class="product">
+        <div class="product"
+          data-id="<?= htmlspecialchars($product['id']) ?>"
+          data-name="<?= htmlspecialchars($product['name']) ?>"
+          data-price="<?= htmlspecialchars($product['price']) ?>"
+          data-description="<?= htmlspecialchars($product['description']) ?>">
+
           <a href="product.php?id=<?= $product['id'] ?>">
             <h2><?= htmlspecialchars($product['name']) ?></h2>
 

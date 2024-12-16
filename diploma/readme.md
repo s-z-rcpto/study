@@ -59,3 +59,90 @@ composer require phpoffice/phpspreadsheet
 ```bash
 require 'vendor/autoload.php';
 ```
+
+# Скрол до елента із закріпленим `header`
+
+## Спосіб 1: CSS
+
+```
+html {
+  scroll-behavior: smooth;
+} // для плавного скролу
+
+.section {
+  scroll-margin-top: 140px; /* Висота хедера */
+} // для корекції скролу
+```
+
+## Спосіб 2: JS
+```
+const header = document.querySelector('header')
+const scrollLinks = document.querySelectorAll(".scroll-link");
+
+for (const link of scrollLinks) {
+  link.addEventListener("click", function (event) {
+    event.preventDefault(); // Забороняє стандартну поведінку посилання
+
+    const targetId = link.getAttribute("href"); // Отримує ID цільового елемента
+
+    const targetElement = document.querySelector(targetId);
+    // querySelector замість getElementById 
+    // тому що в targetId буде "#about", а не "about"
+
+    // Обчислення позиції з урахуванням хедера
+    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - header.offsetHeight; // Висота хедера
+
+    // Плавна прокрутка
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  });
+}
+```
+
+# Кнопка `Вгору`
+
+1. Встановіть кнопці значення `display: none`. Можна навіть прямо в HTML за допомогою атрибуту `style`. 
+2. У скрипті JS знайти кнопку за ID або класом.
+3. Додайте обробник натискання з таким кодом:
+```
+window.scrollTo({
+  top: 0,
+  behavior: "smooth", // Плавний скрол
+});
+```
+
+4. Додати подію, яка буде відслідковувати скрол й показувати кнопку, коли вона буде потрібною:
+```
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    scrollToTopButton.style.display = "block"; // Показуємо кнопку
+  } else {
+    scrollToTopButton.style.display = "none"; // Ховаємо кнопку
+  }
+});
+```
+
+# Share button
+
+## Telegram
+
+```
+window.open(
+  `https://t.me/share/url?url=${encodeURIComponent(
+    "#" // або location.origin
+  )}&text=${encodeURIComponent(`${message}`)}`,
+  "_blank"
+);
+```
+
+## Viber
+
+```
+window.open(
+  `viber://forward?text=${encodeURIComponent(text)}`,
+  '_blank',
+);
+```

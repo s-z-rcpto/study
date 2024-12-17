@@ -3,6 +3,7 @@
 Якщо вам потрібно працювати у WAMP з декількома папками одночасно, краще налаштувати віртуальні хости:
 
 1. У файлі httpd-vhosts.conf (можна знайти через меню WAMP: Apache > `httpd-vhosts.conf`) додайте:
+
 ```
 <VirtualHost *:80>
     DocumentRoot "D:/MyProjects"
@@ -14,7 +15,9 @@
     </Directory>
 </VirtualHost>
 ```
+
 2. Додайте запис до файлу hosts (у папці `C:\Windows\System32\drivers\etc`):
+
 ```
 127.0.0.1 myprojects.local
 ```
@@ -22,6 +25,7 @@
 3. Перезапустіть WAMP.
 
 Тепер ви зможете доступитися до ваших файлів за адресою:
+
 ```
 http://myprojects.local
 ```
@@ -29,35 +33,84 @@ http://myprojects.local
 # Встановлення Composer
 
 ## Завантажте інсталятор Composer:
+
 1. Перейдіть на офіційний сайт: [getcomposer.org/download](https://getcomposer.org/download).
 2. Завантажте `Composer-Setup.exe`.
 
 ## Встановіть Composer:
+
 1. Під час установки переконайтеся, що обираєте PHP-інтерпретатор, який використовується у вашій системі (наприклад, з WAMP, XAMPP або іншого веб-сервера).
 2. Інсталятор додасть Composer у змінні середовища `PATH`.
 
 ## Перевірте інсталяцію:
+
 1. Після установки відкрийте новий командний рядок і введіть:
    ```bash
    composer --version
    ```
 2. Натисніть `Enter` щоб побачити версію Composer.
 
-
 # Кроки для читання `xlsx` у PHP
 
-## 1. Встановіть PhpSpreadsheet
+## 1. Встановіть `PhpSpreadsheet`
 
 Використовуйте Composer, щоб встановити бібліотеку:
+
 ```bash
 composer require phpoffice/phpspreadsheet
 ```
 
+Вона автоматично додається до вашого проекту в папку `vendor`.
+
 ## 2. Завантажте бібліотеку у ваш проєкт
 
+```
+use PhpOffice\PhpSpreadsheet\IOFactory;
+```
+
 Переконайтеся, що ви підключили автозавантажувач Composer у вашому PHP-файлі:
-```bash
+
+```
 require 'vendor/autoload.php';
+```
+
+# Використання файла `.env` у PHP
+
+## 1. Встановіть `vlucas/phpdotenv`
+
+Використовуйте Composer, щоб встановити бібліотеку:
+
+```
+composer require vlucas/phpdotenv
+```
+
+Вона автоматично додається до вашого проекту в папку `vendor`.
+
+## 2. Завантажте бібліотеку у ваш проєкт
+
+```
+use Dotenv\Dotenv;
+```
+
+Переконайтеся, що ви підключили автозавантажувач Composer у вашому PHP-файлі:
+
+```
+require 'vendor/autoload.php';
+```
+
+## 3. Завантажте дані з файла `.env`
+
+```
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+```
+
+## 4. Використовуйте змінні
+
+```
+$db_host = $_ENV['SMTP_HOST'];
+$db_user = $_ENV['SMTP_USER'];
+$db_pass = $_ENV['SMTP_PASS'];
 ```
 
 # Скрол до елента із закріпленим `header`
@@ -75,6 +128,7 @@ html {
 ```
 
 ## Спосіб 2: JS
+
 ```
 const header = document.querySelector('header')
 const scrollLinks = document.querySelectorAll(".scroll-link");
@@ -86,7 +140,7 @@ for (const link of scrollLinks) {
     const targetId = link.getAttribute("href"); // Отримує ID цільового елемента
 
     const targetElement = document.querySelector(targetId);
-    // querySelector замість getElementById 
+    // querySelector замість getElementById
     // тому що в targetId буде "#about", а не "about"
 
     // Обчислення позиції з урахуванням хедера
@@ -104,9 +158,10 @@ for (const link of scrollLinks) {
 
 # Кнопка `Вгору`
 
-1. Встановіть кнопці значення `display: none`. Можна навіть прямо в HTML за допомогою атрибуту `style`. 
+1. Встановіть кнопці значення `display: none`. Можна навіть прямо в HTML за допомогою атрибуту `style`.
 2. У скрипті JS знайти кнопку за ID або класом.
 3. Додайте обробник натискання з таким кодом:
+
 ```
 window.scrollTo({
   top: 0,
@@ -115,6 +170,7 @@ window.scrollTo({
 ```
 
 4. Додати подію, яка буде відслідковувати скрол й показувати кнопку, коли вона буде потрібною:
+
 ```
 window.addEventListener("scroll", () => {
   if (window.scrollY > 100) {

@@ -34,6 +34,26 @@ $categories = getUniqueCategories($products);
     </div>
   </div>
 
+  <section>
+    <form id="feedbackForm">
+      <h2>Зворотний зв'язок</h2>
+      <label for="name">Ім'я</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Телефон</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="email">Електронна пошта</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Ваше питання</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Відправити</button>
+      <p id="responseMessage" style="color: green; display: none;">Повідомлення надіслано!</p>
+    </form>
+  </section>
+
   <section class="container example-1">
     <div class="text-image-container">
       <div class="text">
@@ -42,7 +62,7 @@ $categories = getUniqueCategories($products);
           <p>Це приклад тексту, який напливає на зображення з ефектом вицвітання.</p>
         </div>
       </div>
-      
+
       <div class="image">
         <img src="assets/images/188383.jpg" alt="Приклад зображення" />
       </div>

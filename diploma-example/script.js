@@ -40,3 +40,24 @@ function addToCart(button) {
   // Додаємо товар до кошика
   cart.addToCart(product);
 }
+
+const form = document.getElementById("feedbackForm");
+const responseMessage = document.getElementById("responseMessage");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+
+  const response = await fetch("send-feedback.php", {
+    method: "POST",
+    body: formData,
+  });
+
+  const result = await response.text();
+  if (result === "success") {
+    responseMessage.style.display = "block";
+    form.reset();
+  } else {
+    alert("Помилка! Спробуйте ще раз.");
+  }
+});

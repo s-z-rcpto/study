@@ -108,3 +108,76 @@ orderForm.addEventListener("submit", async (event) => {
     alert("Помилка! Спробуйте ще раз.");
   }
 });
+
+// Об'єкт для зберігання товарів у кошику
+const cart = {};
+
+// Функція для оновлення кількості товару в кошику
+function updateCart(productId, productData, delta) {
+  if (!cart[productId]) {
+    cart[productId] = { ...productData, quantity: 0 };
+  }
+
+  cart[productId].quantity += delta;
+
+  // Якщо кількість стає 0 або менше, видаляємо товар із кошика
+  if (cart[productId].quantity <= 0) {
+    delete cart[productId];
+  }
+}
+
+// Функція для оновлення інтерфейсу
+function updateUI(orderElement, quantity) {
+  const quantitySpan = orderElement.querySelector(".quantity");
+  quantitySpan.textContent = quantity > 0 ? quantity : 0;
+
+  updateCartSummary(); // Оновлення інформації про кошик
+}
+
+// Функція для оновлення інформації про кошик
+function updateCartSummary() {
+  const cartSummary = document.getElementById("cart-summary");
+  const uniqueProducts = Object.keys(cart).length;
+
+  if (uniqueProducts === 0) {
+    cartSummary.textContent = "Кошик порожній";
+    return;
+  }
+
+  const totalPrice = Object.values(cart).reduce(
+    (sum, product) => sum + product.quantity * product.price,
+    0
+  );
+
+  cartSummary.textContent = `У кошику ${uniqueProducts} унікальних найменувань на суму ${totalPrice.toFixed(
+    2
+  )} грн`;
+}
+
+// Слухачі для кнопок + і -
+document.addEventListener("click", (event) => {
+  if (
+    event.target.classList.contains("plus") ||
+    event.target.classList.contains("minus")
+  ) {
+    const orderElement = event.target.closest(".order");
+    const productId = orderElement.dataset.id;
+    const productData = {
+      name: orderElement.dataset.name,
+      price: parseFloat(orderElement.dataset.price),
+      description: orderElement.dataset.description,
+    };
+
+    const delta = event.target.classList.contains("plus") ? 1 : -1;
+
+    // Оновлення кошика
+    updateCart(productId, productData, delta);
+
+    // Оновлення інтерфейсу
+    const quantity = cart[productId]?.quantity || 0;
+
+    updateUI(orderElement, quantity);
+
+    console.log(cart); // Вивід кошика у консоль для перевірки
+  }
+});

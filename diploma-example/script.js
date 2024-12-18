@@ -41,12 +41,15 @@ function addToCart(button) {
   cart.addToCart(product);
 }
 
-const form = document.getElementById("feedbackForm");
-const responseMessage = document.getElementById("responseMessage");
+const feedbackForm = document.getElementById("feedbackForm");
+const feedbackResponseMessage = document.getElementById(
+  "feedbackResponseMessage"
+);
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const formData = new FormData(form);
+feedbackForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(feedbackForm);
 
   const response = await fetch("send-feedback.php", {
     method: "POST",
@@ -54,9 +57,53 @@ form.addEventListener("submit", async (e) => {
   });
 
   const result = await response.text();
+
   if (result === "success") {
-    responseMessage.style.display = "block";
-    form.reset();
+    feedbackResponseMessage.style.color = "green";
+    feedbackResponseMessage.style.display = "block";
+
+    feedbackForm.reset();
+  } else {
+    alert("Помилка! Спробуйте ще раз.");
+  }
+});
+
+const orderForm = document.getElementById("orderForm");
+const orderResponseMessage = document.getElementById("orderResponseMessage");
+
+orderForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const cart = [
+    { name: "Продукт 1", quantity: 2, price: 100 },
+    { name: "Продукт 2", quantity: 1, price: 200 },
+    { name: "Продукт 3", quantity: 3, price: 150 },
+  ];
+
+  const products = cart
+    .map(
+      (item) => `${item.name} - ${item.quantity} шт. (${item.price} грн/шт.)`
+    )
+    .join("\n");
+
+  const productsField = document.getElementById("products");
+
+  productsField.value = products;
+
+  const formData = new FormData(orderForm);
+
+  const response = await fetch("send-order.php", {
+    method: "POST",
+    body: formData,
+  });
+
+  const result = await response.text();
+
+  if (result === "success") {
+    orderResponseMessage.style.color = "green";
+    orderResponseMessage.style.display = "block";
+
+    orderForm.reset();
   } else {
     alert("Помилка! Спробуйте ще раз.");
   }

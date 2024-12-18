@@ -12,7 +12,8 @@ $dotenv->load();
 function sendEmail($body)
 {
   try {
-    return sendEmailWithSMTP($_ENV['EMAIL_FEEDBACK'], 'Форма зворотного зв\'язку', $body);
+
+    return sendEmailWithSMTP($_ENV['EMAIL_FEEDBACK'], "Нове замовлення", $body);
   } catch (Exception $e) {
     error_log("Error: {$e->getMessage()}");
     return false;
@@ -21,16 +22,26 @@ function sendEmail($body)
 
 // Перевірка методу запиту
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $name = htmlspecialchars($_POST['name']);
+  $lastName = htmlspecialchars($_POST['lastName']);
+  $firstName = htmlspecialchars($_POST['firstName']);
+  $middleName = htmlspecialchars($_POST['middleName']);
   $phone = htmlspecialchars($_POST['phone']);
   $email = htmlspecialchars($_POST['email']);
-  $message = htmlspecialchars($_POST['message']);
+  $city = htmlspecialchars($_POST['city']);
+  $department = htmlspecialchars($_POST['department']);
+  $comment = htmlspecialchars($_POST['comment']);
+  $products = htmlspecialchars($_POST['products']);
 
   $data = [
-    "Ім'я: {$name}",
+    "Прізвище: {$lastName}",
+    "Ім'я: {$firstName}",
+    "По батькові: {$middleName}",
     "Телефон: {$phone}",
     "Електронна пошта: {$email}",
-    "nПовідомлення: {$message}",
+    "Місто: {$city}",
+    "Відділення: {$department}",
+    "Коментар: {$comment}",
+    "Замовлення:\n{$products}",
   ];
 
   $body = implode("\n", $data);

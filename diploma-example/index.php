@@ -20,7 +20,7 @@ $categories = getUniqueCategories($products);
 </head>
 
 <body>
-  <div class="container">
+  <section>
     <h1>Категорії товарів</h1>
 
     <div class="categories">
@@ -32,7 +32,7 @@ $categories = getUniqueCategories($products);
         </div>
       <?php endforeach; ?>
     </div>
-  </div>
+  </section>
 
   <section>
     <form id="feedbackForm">
@@ -50,11 +50,47 @@ $categories = getUniqueCategories($products);
       <textarea id="message" name="message" rows="5" required></textarea>
 
       <button type="submit">Відправити</button>
-      <p id="responseMessage" style="color: green; display: none;">Повідомлення надіслано!</p>
+      <p id="feedbackResponseMessage" style="display: none;">Повідомлення надіслано!</p>
     </form>
   </section>
 
-  <section class="container example-1">
+  <section>
+    <form id="orderForm">
+      <h2>Форма замовлення</h2>
+
+      <label for="lastName">Прізвище</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="firstName">Ім'я</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="middleName">По батькові</label>
+      <input type="text" id="middleName" name="middleName" required>
+
+      <label for="phone">Телефон</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="email">Електронна пошта</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="city">Місто</label>
+      <input type="text" id="city" name="city" required>
+
+      <label for="department">Відділення</label>
+      <input type="text" id="department" name="department" required>
+
+      <label for="comment">Коментар</label>
+      <textarea id="comment" name="comment" rows="4"></textarea>
+
+      <!-- Приховане поле для продуктів -->
+      <input type="hidden" id="products" name="products">
+
+      <button type="submit">Відправити замовлення</button>
+      <p id="orderResponseMessage" style="display: none;">Замовлення надіслано!</p>
+    </form>
+  </section>
+
+  <section class="example-1">
     <div class="text-image-container">
       <div class="text">
         <div class="text-container">
@@ -69,7 +105,7 @@ $categories = getUniqueCategories($products);
     </div>
   </section>
 
-  <section class="container example-2">
+  <section class="example-2">
     <div class="text-image-container">
       <div class="text">
         <h2>Заголовок тексту</h2>
@@ -82,15 +118,15 @@ $categories = getUniqueCategories($products);
     </div>
   </section>
 
-  <div class="container custom-carousel-container">
+  <section class="custom-carousel-container">
     <div class="custom-carousel-track" id="custom-carousel-track"></div>
     <div class="custom-carousel-buttons">
       <button id="custom-prev-btn">❮</button>
       <button id="custom-next-btn">❯</button>
     </div>
-  </div>
+  </section>
 
-  <div class="container mt-5">
+  <section class="mt-5">
     <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner" id="carousel-inner">
         <!-- Динамічний контент -->
@@ -106,7 +142,7 @@ $categories = getUniqueCategories($products);
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 

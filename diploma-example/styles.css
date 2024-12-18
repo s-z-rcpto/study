@@ -6,9 +6,9 @@ body {
   background-color: #f4f4f4;
 }
 
-.container {
+section {
   width: 80%;
-  margin: auto;
+  margin: 24px auto;
   overflow: hidden;
   padding: 20px;
   background-color: white;
@@ -160,8 +160,7 @@ a {
 }
 
 .custom-carousel-container {
-  max-width: 800px;
-  margin: 50px auto;
+  margin: auto;
   overflow: hidden;
   position: relative;
 }
@@ -193,12 +192,13 @@ a {
 }
 
 .custom-carousel-buttons button {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  width: 60px;
 }
 
 .custom-carousel-buttons button:hover {

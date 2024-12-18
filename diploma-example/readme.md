@@ -50,7 +50,7 @@ http://myprojects.local
    ```
 2. Натисніть `Enter` щоб побачити версію Composer.
 
-# Кроки для читання `xlsx` у PHP
+# Читання `xlsx` у PHP
 
 ## 1. Встановіть `PhpSpreadsheet`
 
@@ -111,6 +111,31 @@ $dotenv->load();
 $db_host = $_ENV['SMTP_HOST'];
 $db_user = $_ENV['SMTP_USER'];
 $db_pass = $_ENV['SMTP_PASS'];
+```
+
+# Надсилання електронної пошти у PHP
+
+## 1. Встановіть `PHPMailer`
+
+Використовуйте Composer, щоб встановити бібліотеку:
+
+```bash
+composer require phpmailer/phpmailer
+```
+
+Вона автоматично додається до вашого проекту в папку `vendor`.
+
+## 2. Завантажте бібліотеку у ваш проєкт
+
+```
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+```
+
+Переконайтеся, що ви підключили автозавантажувач Composer у вашому PHP-файлі:
+
+```
+require 'vendor/autoload.php';
 ```
 
 # Скрол до елента із закріпленим `header`

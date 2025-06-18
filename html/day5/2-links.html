@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Гіперпосилання</title>
+  </head>
+  <body>
+    <h3>Приклади гіперпосилань</h3>
+
+    <ul>
+      <li>
+        <a href="">Порожнє гіперпосилання</a>
+      </li>
+      <li>
+        <a href="google.com">Посилання на файл Google.com у папці day5</a>
+      </li>
+      <li>
+        <a href="https://google.com">Посилання на сайт Google</a>
+      </li>
+      <li>
+        <a href="https://google.com" target="_blank"
+          >Посилання на сайт Google у новій вкладці</a
+        >
+      </li>
+    </ul>
+
+    <!-- Правильно -->
+    <h3>
+      <a href=""> <i>Wiki</i> </a>
+    </h3>
+
+    <!-- Не правильно -->
+    <!-- H3 - блочний контейнер, тому 
+         не має бути в середині рядкових (інлайнових) контейнерів (тегів) 
+    -->
+    <a href=""
+      ><i><h3>Wiki</h3></i></a
+    >
+  </body>
+</html>

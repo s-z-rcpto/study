@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Робота над помилками</title>
+  </head>
+  <body>
+    <h3>Порядок вкладеності тегів</h3>
+
+    <p>
+      Some text <i>for <b>example</b></i>
+    </p>
+
+    <p>
+      Some text <i> for <b> example </b> </i>
+    </p>
+
+    <p>
+      <mark> Тег, який раніше відкривається, має пізніше закриватися. </mark>
+    </p>
+
+    <p>
+      <mark> Тег, який останнім відкривається, має закритися першим. </mark>
+    </p>
+
+    <h3>Зловживання абзацами</h3>
+
+    <p>
+      <mark>
+        В середині абзацу має бути текст або зображення, <br />
+        а не список, таблиця, заголовок або інший блочний контейнер (тег)
+      </mark>
+    </p>
+
+    <table border="1" class="w1" id="t1">
+      <caption>
+        <mark>
+          <b>
+            <i>
+              <u>Title</u>
+            </i>
+          </b>
+        </mark>
+      </caption>
+      <tr>
+        <td colspan="2"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td rowspan="2"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

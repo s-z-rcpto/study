@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Адаптивні зображення</title>
+  </head>
+  <body>
+    <picture>
+      <source
+        media="(orientation: landscape)"
+        srcset="../../assets/images/cat-4.jpg"
+      />
+      <source media="(min-width: 600px)" srcset="../day6/images/cat-2.jpg" />
+      <source media="(max-width: 400px)" srcset="../day6/images/cat-3.jpg" />
+      <img src="../day6/cat-1.jpg" alt="Біле кошеня" />
+    </picture>
+  </body>
+</html>

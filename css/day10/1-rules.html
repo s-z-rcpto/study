@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Правила CSS</title>
+
+    <style>
+      body {
+        color: darkgray;
+        background-color: beige;
+      }
+
+      p {
+        color: black;
+      }
+
+      /* Селектор для класу */
+      /* .(крапка)+назва_класу */
+      .bold {
+        font-weight: bold;
+      }
+
+      /* Селектор для ідентифікатора */
+      /* #(грати)+назва_ідентифікатора */
+      #a1 {
+        font-style: italic;
+      }
+
+      #a2 {
+        text-decoration: underline;
+        background-color: aquamarine;
+      }
+
+      #a3 {
+        color: blue;
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      .trip {
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: center;
+        line-height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Це звичайний абзац</p>
+    <p>Це ще один звичайний абзац</p>
+
+    <ul>
+      <li>Елемент списку</li>
+    </ul>
+
+    <b>
+      <i>
+        <u> Просто текст </u>
+      </i>
+    </b>
+
+    <p class="bold">Це класний абзац</p>
+    <p class="bold">Це ще один класний абзац</p>
+
+    <p id="a1">Це унікальний абзац</p>
+    <p id="a2" class="bold">Це унікальний класний абзац</p>
+    <p id="a3" class="bold">Ще один унікальний класний абзац</p>
+
+    <hr />
+
+    <p class="trip">
+      Подорожі - це неймовірний спосіб розширити свій світогляд, пізнати нові
+      культури та створити незабутні спогади. Європа, з її багатою історією,
+      різноманітними залишається одним з найпопулярніших напрямків для
+      мандрівників з усього світу. У цій розповіді ми поділимося враженнями від
+      подорожі трьома захоплюючими країнами:<b> Францією, Італією</b> та
+      <b>Грецією.</b>
+    </p>
+  </body>
+</html>

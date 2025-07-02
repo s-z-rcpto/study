@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Межі</title>
+
+    <style>
+      .one-line {
+        /* Згортає межі таблиці в 1 */
+        border-collapse: collapse;
+      }
+
+      .no-space {
+        border-spacing: 0px;
+      }
+
+      .border-table {
+        border: 1px solid black;
+      }
+
+      /* Підхід 1: класичний */
+      .border-table td {
+        border: 1px solid red;
+      }
+
+      /* Підхід 2: натхненний препроцесорами */
+      .border-table {
+        td {
+          border: 1px solid violet;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1" class="one-line">
+      <tr>
+        <td colspan="2">1</td>
+        <td colspan="2" rowspan="2">2</td>
+      </tr>
+      <tr>
+        <td rowspan="3">3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td colspan="3">5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <table border="1" class="no-space">
+      <tr>
+        <td colspan="2">1</td>
+        <td colspan="2" rowspan="2">2</td>
+      </tr>
+      <tr>
+        <td rowspan="3">3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td colspan="3">5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <!-- 
+    <element class="border-table">
+        …
+            <td> 
+                -->
+    <table class="border-table">
+      <tr>
+        <td colspan="2">1</td>
+        <td colspan="2" rowspan="2">2</td>
+      </tr>
+      <tr>
+        <td rowspan="3">3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td colspan="3">5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+  </body>
+</html>

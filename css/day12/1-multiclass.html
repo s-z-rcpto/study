@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Таблиці</title>
+
+    <style>
+      caption {
+        font-weight: bold;
+      }
+
+      tfoot {
+        background-color: #86b5fd;
+        font-weight: bold;
+      }
+
+      #yellow-header {
+        background-color: yellow;
+      }
+
+      .gray-bg {
+        background-color: lightgray;
+      }
+
+      .red-text {
+        color: red;
+      }
+
+      .green-text {
+        color: green;
+      }
+
+      .blue-text {
+        color: blue;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+
+      .green-header {
+        background-color: greenyellow;
+      }
+
+      .c1,
+      .c2,
+      .c3 {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td colspan="2">1</td>
+        <td colspan="2" rowspan="2">2</td>
+      </tr>
+      <tr>
+        <td rowspan="3">3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td colspan="3">5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <table border="1">
+      <caption class="c1 c2 c3">
+        Таблиця кольорів
+      </caption>
+
+      <thead>
+        <tr>
+          <th rowspan="2" class="gray-bg">Назва кольору</th>
+          <th colspan="3" id="yellow-header">
+            Інтенсивність основних кольорів
+          </th>
+        </tr>
+
+        <tr>
+          <th class="red-text underline">Червоного</th>
+          <th class="green-text underline">Зеленого</th>
+          <th class="blue-text underline">Блакитного</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="gray-bg">Чорний</td>
+          <td class="red-text center">0</td>
+          <td class="green-text center">0</td>
+          <td class="blue-text center">0</td>
+        </tr>
+
+        <tr>
+          <td class="gray-bg">Жовтий</td>
+          <td class="red-text center">255</td>
+          <td class="green-text center">179</td>
+          <td class="blue-text center">0</td>
+        </tr>
+
+        <tr>
+          <td class="gray-bg">Оранжевий</td>
+          <td class="red-text center">185</td>
+          <td class="green-text center">6</td>
+          <td class="blue-text center">255</td>
+        </tr>
+
+        <tr>
+          <td class="gray-bg">Бузковий</td>
+          <td class="red-text center">255</td>
+          <td class="green-text center">89</td>
+          <td class="blue-text center">255</td>
+        </tr>
+
+        <tr>
+          <td class="gray-bg">Фіолетовий</td>
+          <td class="red-text center">255</td>
+          <td class="green-text center">255</td>
+          <td class="blue-text center">134</td>
+        </tr>
+
+        <tr>
+          <td class="gray-bg">Білий</td>
+          <td class="red-text center">255</td>
+          <td class="green-text center">255</td>
+          <td class="blue-text center">255</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+
+    <table border="1">
+      <caption>
+        Звіт про залишки товарів на складі
+      </caption>
+
+      <thead class="green-header">
+        <tr>
+          <th>Артикул</th>
+          <th>Найменування товару</th>
+          <th>Категорія</th>
+          <th class="right">Кількість</th>
+          <th class="right">Ціна за одиницю</th>
+        </tr>
+
+        <tr>
+          <th>Код</th>
+          <th>Опис</th>
+          <th>Тип</th>
+          <th class="right">шт.</th>
+          <th class="right">грн</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="center">А001</td>
+          <td>Ноутбук Dell Inspiron</td>
+          <td>Електроніка</td>
+          <td class="right">15</td>
+          <td class="right">25500</td>
+        </tr>
+
+        <tr class="gray-bg">
+          <td class="center">А002</td>
+          <td>Миша бездротова Logitech</td>
+          <td>Електроніка</td>
+          <td class="right">45</td>
+          <td class="right">850</td>
+        </tr>
+
+        <tr>
+          <td class="center">В101</td>
+          <td>Стіл офісний дерев'яний</td>
+          <td>Меблі</td>
+          <td class="right">8</td>
+          <td class="right">3200</td>
+        </tr>
+
+        <tr class="gray-bg">
+          <td class="center">В102</td>
+          <td>Крісло офісне ергономічне</td>
+          <td>Меблі</td>
+          <td class="right">12</td>
+          <td class="right">4500</td>
+        </tr>
+
+        <tr>
+          <td class="center">С201</td>
+          <td>Папір офісний А4 (пачка)</td>
+          <td>Канцтовари</td>
+          <td class="right">120</td>
+          <td class="right">180</td>
+        </tr>
+
+        <tr class="gray-bg">
+          <td class="center">С202</td>
+          <td>Ручка кулькова синя</td>
+          <td>Канцтовари</td>
+          <td class="right">200</td>
+          <td class="right">15</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td class="center">Всього</td>
+          <td>6 позицій</td>
+          <td>3 категорії</td>
+          <td class="right">400</td>
+          <td class="right">34245</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

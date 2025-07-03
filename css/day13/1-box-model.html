@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box model</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: beige;
+        font-size: 32px;
+      }
+
+      div {
+        margin: 8px;
+
+        /* Спосіб 1: Каскадність */
+        margin-left: 0px;
+        margin-right: 0px;
+
+        /* Спосіб 2: Розширення скороченого запису */
+        margin: 8px 0px;
+
+        /* Порядок за годинниковою стрілкою: верх, право, низ, ліво */
+        margin: 8px 0px 8px 0px;
+      }
+
+      span {
+        margin: 16px;
+        padding: 12px;
+      }
+
+      .border {
+        border: 1px solid black;
+      }
+
+      .top-border {
+        border-top: 4px dotted blueviolet;
+      }
+
+      .right-border {
+        border-right: 2px dashed green;
+      }
+
+      .bottom-border {
+        border-bottom: 2px double red;
+      }
+
+      .left-border {
+        border-left: 2px dashed green;
+      }
+
+      .round-b-10 {
+        border-radius: 10px;
+      }
+
+      .div-text {
+        background-color: bisque;
+        font-size: 20px;
+        line-height: 32px;
+        padding: 8px 16px;
+      }
+
+      .div-300 {
+        width: 300px;
+      }
+
+      .div-50p {
+        width: 50%;
+      }
+
+      .div-height-100 {
+        height: 100px;
+      }
+
+      .div-height-50p {
+        height: 50%;
+      }
+
+      .no-side-border {
+        border-right: none;
+        border-left: none;
+      }
+
+      .div-total {
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        margin: 30px;
+        font-size: 20px;
+        line-height: 20px;
+      }
+
+      .content-box {
+        box-sizing: content-box;
+      }
+
+      .border-box {
+        box-sizing: border-box;
+      }
+
+      .center {
+        margin: 30px auto;
+      }
+
+      .main-content {
+        width: 80%;
+        margin: auto;
+        background-color: antiquewhite;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid lightgray;
+      }
+
+      .inline-example {
+        padding: 20px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-content">
+      <p>Це звичайний параграф</p>
+
+      <div>Це звичайний блочний контейнер</div>
+      <div class="border">Контейнер - 1</div>
+      <div class="top-border right-border bottom-border left-border round-b-10">
+        Контейнер - 2
+      </div>
+
+      <div class="top-border bottom-border div-text">
+        Вже давно відомо, що читабельний зміст буде заважати зосередитись
+        людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum
+        полягає в тому, що цей текст має більш-менш нормальне розподілення літер
+        на відміну від, наприклад, "Тут іде текст. Тут іде текст." Це робить
+        текст схожим на оповідний. Багато програм верстування та веб-дизайну
+        використовують Lorem Ipsum як зразок і пошук за терміном "lorem ipsum"
+        відкриє багато веб-сайтів, які знаходяться ще в зародковому стані. Різні
+        версії Lorem Ipsum з'явились за минулі роки, деякі випадково, деякі було
+        створено зумисно (зокрема, жартівливі).
+      </div>
+
+      <div class="border">Ще один звичайний контейнер</div>
+
+      <div class="border div-300">Контейнер шириною 300px</div>
+      <div class="border div-300 no-side-border">Контейнер шириною 300px</div>
+      <div class="border div-50p">Контейнер шириною 50%</div>
+
+      <div class="border div-height-100">Контейнер висотою 100px</div>
+      <div class="border div-height-50p">
+        Контейнер висотою 50%
+        <br />
+        Властивість не спрацювала, оскільки для батьківського елемента (body) не
+        задана висота
+      </div>
+
+      <div class="border">Ще один звичайний контейнер</div>
+
+      <div class="border div-300 div-height-100">
+        Контейнер з заданою висотою і шириною
+      </div>
+
+      <div
+        class="div-total top-border right-border bottom-border left-border round-b-10 content-box center"
+      >
+        Богатий контейнер шириною 300px і висотою 200px та внутрішніми
+        відступами 20px, різними рамками і зовнішнім відсупом 30px <br /><br />
+        Насправді: 344px х 246px<br /><br />
+
+        box-sizing: content-box; (за замовчуванням)
+      </div>
+
+      <div
+        class="div-total top-border right-border bottom-border left-border round-b-10 border-box center"
+      >
+        Богатий контейнер шириною 300px і висотою 200px та внутрішніми
+        відступами 20px, різними рамками і зовнішнім відсупом 30px <br /><br />
+
+        box-sizing: border-box;
+      </div>
+
+      <div class="border inline-example">
+        <span class="border div-300 div-height-100">Четвер</span>
+        <span class="border div-50p div-height-50p">03.07</span>
+        звичайний текст
+        <br />
+        <br />
+        <span
+          >Для рядкових (інлайнових тегів) властивості довжини та висоти не
+          працюють</span
+        >
+      </div>
+    </div>
+  </body>
+</html>

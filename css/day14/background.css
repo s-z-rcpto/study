@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: bisque;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/72/O_Partenon_de_Atenas.jpg");
+}
+
+div {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 16px;
+  /* Прозорість 71.1% */
+  background-color: rgba(240, 255, 255, 0.711);
+}

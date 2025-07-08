@@ -1,0 +1,37 @@
+body {
+  /* 4 варіанти запису кольору bisque */
+  background-color: bisque;
+  background-color: rgb(255, 228, 196);
+  background-color: rgba(255, 228, 196, 1);
+  background-color: #ffe4c4;
+
+  background-image: url("https://static.vecteezy.com/system/resources/previews/022/952/682/non_2x/geometric-pattern-seamless-trendy-design-background-for-web-backdrop-or-paper-print-vector.jpg");
+  background-image: url("pattern.jpg");
+}
+
+div {
+  margin: 16px auto;
+  width: 60%;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.start {
+  background-color: rgba(165, 42, 42, 0.801);
+  color: beige;
+}
+
+.linear {
+  background-image: linear-gradient(red, rgb(255, 0, 115), rgb(255, 0, 217));
+}
+
+.radial {
+  background-image: radial-gradient(ellipse at top, #e66465, transparent),
+    radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+}
+
+.conic {
+  background: conic-gradient(green, yellow);
+}

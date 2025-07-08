@@ -1,0 +1,46 @@
+body {
+  /* 4 варіанти запису кольору bisque */
+  background-color: bisque;
+  background-color: rgb(255, 228, 196);
+  background-color: rgba(255, 228, 196, 1);
+  background-color: #ffe4c4;
+
+  /* Колір фону у випадку відсутності зображення */
+  background-color: rgb(8 88 139);
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/72/O_Partenon_de_Atenas.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  /* cover - розтягує зображення таким чином щоб заповнити вікно перегляду,
+    за потреби обрізає частини зображення
+    
+    contain - масштабує зображення до меншої сторони відповідно до пропорції,
+    за потреби додає порожні поля до фону*/
+  background-size: cover;
+
+  background-attachment: fixed;
+
+  /* Задає висоту body відповідно висоті вікна перегляду 
+     з врахуванням зовнішніх відтупів доданих браузером автоматично */
+  height: calc(100vh - 16px);
+
+  /* Задає висоту body відповідно висоті вікна перегляду */
+  height: 100vh;
+
+  /* Прибирає зовнішні відступи додані браузером автоматично */
+  margin: 0px;
+}
+
+div {
+  margin: 16px auto;
+  width: 60%;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.start {
+  background-color: rgba(165, 42, 42, 0.801);
+  color: beige;
+}

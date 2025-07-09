@@ -41,3 +41,61 @@ p {
   font-weight: 400;
   font-style: normal;
 }
+
+/* Приклад задання кількох резервних шрифтів */
+/* Першим браузер буде намагатися використити 1-е значення "Lucida Sans"
+  якщо не зможе, то "Lucida Sans Regular" і т.д. по списку 
+  */
+/* Останнім потрібно вказувати назву сімейства шрифтів,
+  наприклад sans-serif - шрифти без засічок
+  */
+.some-font {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+p {
+  /* Можна використовувати завантажені напряму, 
+    без запропонованих Google класів
+    */
+  font-family: "Pacifico", cursive;
+  font-family: "Oswald", sans-serif;
+  font-weight: 200;
+}
+
+/* Для використання потрібно замінити шаблон підстановки 
+  <uniquifier> на бажане значення товщини тексту, яку пропонує шрифт, 
+  наприклад, для Oswald це від 200 до 700
+  */
+/* .oswald-<uniquifier> { */
+.oswald-200 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  /* Аналогічно з властивістю товщини тексту,
+    замінити шаблон підстановки <weight> на бажане значення 
+    */
+  /* font-weight: <weight>; */
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  /* Вказуємо псевдонім шрифта, який будемо використовувати
+    для тексту
+    */
+  font-family: "Bender Font";
+  src: url("../../assets/fonts/Bender.woff2");
+}
+
+.bender {
+  font-family: "Bender Font", sans-serif;
+}
+
+@font-face {
+  font-family: "PoetsenOne";
+  src: url("../../assets/fonts/PoetsenOne-Regular.woff2");
+}
+
+.poetsen-one {
+  font-family: "PoetsenOne", sans-serif;
+}

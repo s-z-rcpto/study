@@ -5,10 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Шрифти</title>
 
+    <!-- Наступні 2 теги призначені для оптимізації завантаження шрифтів -->
+    <!-- Мають бути в одному екземплярі -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 1 тег link завантажує одразу 2 шрифта: Oswald і Pacifico -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 1 тег link завантажує лише Pacifico -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 1 тег link завантажує лише Oswald -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
     />
 
@@ -38,6 +58,12 @@
       Добрі вісті не лежать на місці. (єїґ) Good news 1234567890
     </p>
     <p class="montserrat-400">
+      Добрі вісті не лежать на місці. (єїґ) Good news 1234567890
+    </p>
+    <p class="bender">
+      Добрі вісті не лежать на місці. (єїґ) Good news 1234567890
+    </p>
+    <p class="poetsen-one">
       Добрі вісті не лежать на місці. (єїґ) Good news 1234567890
     </p>
   </body>

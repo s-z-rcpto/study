@@ -1,0 +1,67 @@
+h1 {
+  color: green;
+  text-align: center;
+}
+
+h1:hover {
+  color: white;
+  background-color: green;
+}
+
+.parent {
+  /* Не працює автодоповнення від редактора коду */
+  /* Можна змінити цю поведінку, 
+     якщо додати .перед селектором-тегом і 
+     прибрати її після вибору псевдокласу 
+    */
+  p:first-child {
+    color: red;
+  }
+}
+
+/* Парні елементи */
+.parent p:nth-child(2n),
+.parent p:nth-child(even) {
+  color: blueviolet;
+}
+
+/* Непарні елементи */
+.parent p:nth-child(2n + 1),
+.parent p:nth-child(odd) {
+  color: chartreuse;
+}
+
+.parent p:first-child {
+  color: red;
+}
+
+.parent p:last-child {
+  color: violet;
+}
+
+.parent p:not(:first-child) {
+  font-size: 24px;
+}
+
+.links {
+  font-size: 24px;
+}
+
+.links a:link {
+  color: lime;
+  text-decoration-style: dotted;
+}
+
+.links a:visited {
+  color: brown;
+  text-decoration-style: double;
+}
+
+.links a:hover {
+  color: red;
+}
+
+/* Застусовується під час натискання на гіперпосилання */
+.links a:active {
+  color: chocolate;
+}

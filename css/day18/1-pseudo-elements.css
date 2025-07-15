@@ -1,0 +1,47 @@
+body {
+  font-size: 48px;
+}
+
+li::first-letter {
+  color: red;
+}
+
+li::marker {
+  color: green;
+  content: "+ ";
+}
+
+li::after {
+  content: url("https://7ca774d8-cb50-48c9-b8b4-f624edb5fac7.mdnplay.dev/shared-assets/images/examples/firefox-logo.svg");
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin-left: 16px;
+}
+
+p::first-line {
+  color: blueviolet;
+}
+
+p::selection {
+  background-color: brown;
+  /* text-decoration: underline dotted; */
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+p::before {
+  color: chocolate;
+  content: "♥";
+}
+
+p::after {
+  color: crimson;
+  content: "<<";
+}
+
+span::before {
+  content: "☎";
+  color: gray;
+  margin-right: 4px;
+}

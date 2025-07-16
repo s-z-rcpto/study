@@ -1,0 +1,89 @@
+/* Універсальний селектор */
+/* Впливає на всі теги */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 200vh;
+}
+
+img {
+  border: 1px solid black;
+}
+
+.box {
+  border: 2px solid black;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.relative {
+  width: 500px;
+}
+
+.default-position {
+  border: 1px solid red;
+  padding: 0;
+  width: 50%;
+  background-color: bisque;
+}
+
+.relative img {
+  position: relative;
+  /* Зміщення відносно початкового положення */
+  top: 100px; /* Рух від верхнього краю. Можна від'ємні значення */
+  left: 100px; /* Рух від лівого краю. Можна від'ємні значення */
+  /* bottom: 100px; */ /* Рух від нижнього краю. Можна від'ємні значення */
+  /* right: 100px; */ /* Рух від правого краю. Можна від'ємні значення */
+
+  /* Порядок накладання об'єктів */
+  z-index: -1;
+}
+
+.deep-box {
+  background-color: antiquewhite;
+  position: relative;
+  z-index: -2;
+}
+
+.fixed {
+  width: 200px;
+  border-color: blueviolet;
+  /* Не залишає місця з початкового розташування */
+  position: fixed;
+  /* right: 8px; */
+  left: calc(100% - 208px);
+}
+
+.sticky {
+  background-color: rgba(221, 245, 220, 0.7);
+  border-color: green;
+  position: sticky;
+  /* Розташування на СТОРІНЦІ, після якого
+  елемент прибирається з загального потоку
+  і закріплюється */
+  top: 8px;
+}
+
+.absolute {
+  width: 500px;
+  border-color: blue;
+  /* Якщо не static, то 
+  зображення "прив'язується" до цього елемента,
+  інакше шукає іншого предка аж до body */
+  position: relative;
+}
+
+.absolute .default-position {
+  /* Якщо не static, то 
+  зображення "прив'язується" до цього елемента,
+  інакше шукає іншого предка аж до body */
+  position: relative;
+}
+
+.absolute img {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+}

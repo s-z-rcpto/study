@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blanchedalmond;
+  font-size: 48px;
+}
+
+div {
+  padding: 16px;
+  text-align: center;
+}
+
+.box {
+  border: 2px solid black;
+  margin-bottom: 16px;
+}
+
+.box-1 {
+  background-color: aquamarine;
+}
+
+.box-2 {
+  background-color: blueviolet;
+}
+
+.box-3 {
+  background-color: chartreuse;
+}
+
+.box-4 {
+  background-color: palevioletred;
+}
+
+/* Підхід 1 */
+/*
+.flexbox div {
+  display: inline-block;
+  width: 50px;
+}
+*/
+
+.flex-column {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-column div {
+  width: 60%;
+}
+
+.flex-row {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-row div {
+  width: 200px;
+  height: 100px;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 400px;
+  justify-content: center;
+  align-content: center;
+}
+
+.flex-wrap div {
+  width: 200px;
+  height: 100px;
+}

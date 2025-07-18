@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(218, 165, 32, 0.513);
+  font-size: 2em;
+}
+
+/* Тимчасово для полегшення сприйняття */
+div {
+  /* border: 1px solid; */
+}
+
+.article {
+  display: flex;
+  width: 60%;
+  background-color: azure;
+  border-radius: 4px;
+}
+
+.article_media {
+  width: 40%;
+  padding: 8px;
+}
+
+.article_content {
+  width: 60%;
+  padding: 8px;
+}
+
+.article_content h3 {
+  margin: 0px;
+}
+
+.article_content a {
+  color: black;
+  text-decoration: none;
+}
+
+.article_content a:hover {
+  color: darkgrey;
+  text-decoration: underline;
+}
+
+.article_content .article_info {
+  margin: 0.25em 0em;
+  font-size: 0.75em;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.article_content .article_category {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.article_content .article_author {
+  color: blueviolet;
+}
+
+.article_content .article_date {
+  font-weight: 200;
+}

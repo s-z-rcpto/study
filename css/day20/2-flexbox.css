@@ -7,11 +7,6 @@ body {
   font-size: 2em;
 }
 
-/* Тимчасово для полегшення сприйняття */
-div {
-  /* border: 1px solid; */
-}
-
 .article {
   display: flex;
   width: 60%;
@@ -62,4 +57,43 @@ div {
 
 .article_content .article_date {
   font-weight: 200;
+}
+
+.goods {
+  background-color: aliceblue;
+  width: 200px;
+  border: 2px solid blueviolet;
+  color: blueviolet;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.goods img {
+  border-radius: 8px;
+}
+
+.goods p {
+  margin: 4px 0px;
+  font-size: 24px;
+}
+
+.goods p:first-of-type {
+  text-align: center;
+}
+
+.goods p:last-of-type {
+  text-align: right;
+}
+
+.goods .order {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.goods button {
+  height: 32px;
+  width: 32px;
 }

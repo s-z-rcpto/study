@@ -1,0 +1,99 @@
+/* Підхід 2: Ієрархічний (Nested CSS) */
+/*
+body {
+  font-size: 20px;
+
+  picture {
+    background-color: red;
+
+    source {
+      border-radius: 20px;
+    }
+  }
+}
+*/
+
+/* Підхід 1: Класичний */
+/*
+body {
+  font-size: 20px;
+}
+
+body picture {
+  background-color: red;
+}
+
+body picture source {
+  border-radius: 20px;
+}
+*/
+
+body {
+  background-color: burlywood;
+  font-size: 24px;
+
+  /* Підхід 2: Ієрархічний (Nested CSS) */
+  @media screen and (orientation: landscape) {
+    background-color: cadetblue;
+  }
+}
+
+/* Підхід 1: Класичний */
+@media screen and (orientation: landscape) {
+  /* Правило діє для екранів у альбомній орієнтації
+  (ширина більша за висоту) */
+  body {
+    /* Змінюємо існуючу властивість */
+    background-color: cadetblue;
+
+    /* Додаємо нову властивість */
+    font-style: italic;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  /* Правило діє для екранів у портретній орієнтації
+  (висота більша за ширину) */
+  body {
+    background-color: darksalmon;
+  }
+}
+
+div {
+  width: 60%;
+  border: 2px solid black;
+  border-radius: 16px;
+  background-color: azure;
+  padding: 16px;
+  margin: auto;
+}
+
+@media screen and (min-width: 600px) {
+  /* Правило діє для екранів, 
+  якщо ширина області перегляду (вкладки) 
+  більша або рівна 600px */
+  div {
+    background-color: blueviolet;
+    color: aliceblue;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* Правило діє для екранів, 
+  якщо ширина області перегляду (вкладки) 
+  менша або рівна 400px */
+  div {
+    background-color: chartreuse;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 550px) {
+  /* Правило діє для екранів, 
+  якщо ширина області перегляду (вкладки) 
+  більша за 450px і менша за 550px*/
+  div {
+    background-color: gold;
+    color: darkblue;
+  }
+}

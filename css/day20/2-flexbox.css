@@ -97,3 +97,21 @@ body {
   height: 32px;
   width: 32px;
 }
+
+.flex {
+  width: 428px;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex img {
+  width: 200px;
+}
+
+.flex .flex-info {
+  width: 200px;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+nav {
+  padding: 16px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+  list-style: none;
+}
+
+.menu li {
+  padding: 8px 16px;
+  background-color: #ccc;
+  width: 20%;
+  text-align: center;
+}
+
+/* Два ряди на середніх екранах */
+@media (max-width: 1280px) {
+  .menu {
+    flex-wrap: wrap;
+  }
+
+  .menu li {
+    /* flex: 1 1 45%; */
+    width: 45%;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  position: relative;
+}
+
+.menu-toggle span {
+  display: block;
+  padding: 8px 16px;
+  background-color: #aaa;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  flex-direction: column;
+  background-color: #ddd;
+  width: 150px;
+}
+
+.dropdown li {
+  padding: 8px 16px;
+}
+
+.menu-toggle:hover .dropdown {
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+  }
+}

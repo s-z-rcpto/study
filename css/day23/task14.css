@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  font-weight: bold;
+}
+
+h3 {
+  color: blue;
+}
+
+span {
+  padding: 0px 20px;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.warning {
+  color: red;
+}
+
+.note {
+  border: 1px solid;
+}
+
+p.special {
+  font-style: italic;
+}
+
+span.primary {
+  color: blueviolet;
+}
+
+div.content-box p {
+  font-size: 20px;
+  text-decoration: overline;
+}
+
+div.mixed-content p {
+  color: chartreuse;
+}
+
+div.nested span {
+  text-decoration: underline;
+}
+
+#special-container p.emphasized {
+  background-color: lightgreen;
+}
+
+li:first-child {
+  color: red;
+}
+
+table tr:nth-child(2n) {
+  background-color: lightgrey;
+}
+
+.navigation a:hover {
+  font-size: 48px;
+  color: darksalmon;
+}
+
+/*
+Застосуйте стилі до span елементів з класом 
+"secondary", які знаходяться всередині div 
+з класом "primary"
+*/
+div.primary span.secondary {
+  background-color: cornflowerblue;
+  text-decoration: double;
+}
+
+/*
+Змініть стилі тільки для тих абзаців з класом 
+"note", які знаходяться всередині div з класом 
+"box"
+*/
+div.box p.note {
+  color: red;
+  background-color: azure;
+}

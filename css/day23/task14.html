@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Практика CSS селекторів</title>
+
+    <link rel="stylesheet" href="task14.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Практика CSS селекторів</h1>
+
+      <!-- Секція 1: Прості абзаци для практики з тегами -->
+      <section class="basic-paragraphs">
+        <h2>Основні абзаци</h2>
+        <p>Це перший абзац для практики з селекторами тегів.</p>
+        <p>Другий абзац також призначений для базових вправ.</p>
+        <p>Третій абзац допоможе зрозуміти групові селектори.</p>
+      </section>
+
+      <!-- Секція 2: Абзаци з класами -->
+      <section class="class-examples">
+        <h2>Абзаци з класами</h2>
+        <p class="highlight">Цей абзац має клас "highlight".</p>
+        <p class="warning">Цей абзац має клас "warning".</p>
+        <p class="info">Цей абзац має клас "info".</p>
+        <p class="highlight info">
+          Цей абзац має два класи: "highlight" та "info".
+        </p>
+      </section>
+
+      <!-- Секція 3: Абзаци в різних контейнерах -->
+      <div class="content-box">
+        <h3>Контентний блок</h3>
+        <p>Абзац всередині div з класом "content-box".</p>
+        <p class="special">Абзац з класом "special" всередині content-box.</p>
+        <div class="nested">
+          <p>Абзац у вкладеному div з класом "nested".</p>
+          <p class="highlight">Абзац з класом "highlight" у вкладеному div.</p>
+        </div>
+      </div>
+
+      <!-- Секція 4: Різні елементи з класами -->
+      <div class="mixed-content">
+        <h3>Змішаний контент</h3>
+        <p class="primary">Перший абзац з класом "primary".</p>
+        <span class="primary">Span елемент з класом "primary".</span>
+        <p class="secondary">Другий абзац з класом "secondary".</p>
+        <div class="primary">
+          <p>Абзац всередині div з класом "primary".</p>
+          <span class="secondary"
+            >Span з класом "secondary" всередині primary div.</span
+          >
+        </div>
+      </div>
+
+      <!-- Секція 5: Елементи з ідентифікаторами -->
+      <section class="id-examples">
+        <h3>Елементи з ID</h3>
+        <p id="unique-paragraph">
+          Унікальний абзац з ідентифікатором "unique-paragraph".
+        </p>
+        <div id="special-container">
+          <p>Абзац всередині div з ID "special-container".</p>
+          <p class="emphasized">
+            Абзац з класом "emphasized" всередині special-container.
+          </p>
+        </div>
+      </section>
+
+      <!-- Секція 6: Списки для псевдокласів -->
+      <section class="lists">
+        <h3>Списки</h3>
+        <ul class="navigation">
+          <li><a href="#">Перший пункт</a></li>
+          <li><a href="#">Другий пункт</a></li>
+          <li><a href="#">Третій пункт</a></li>
+          <li><a href="#">Четвертий пункт</a></li>
+          <li><a href="#">П'ятий пункт</a></li>
+        </ul>
+
+        <ol class="ordered-list">
+          <li>Перший нумерований елемент</li>
+          <li>Другий нумерований елемент</li>
+          <li>Третій нумерований елемент</li>
+        </ol>
+      </section>
+
+      <!-- Секція 7: Додаткові елементи -->
+      <div class="additional">
+        <h3>Додаткові елементи</h3>
+        <p>Звичайний абзац в additional секції.</p>
+        <p class="note">Абзац-примітка з класом "note".</p>
+        <span class="inline-text">Inline текст з класом "inline-text".</span>
+        <div class="box">
+          <span>Span всередині box.</span>
+          <p class="note">Абзац з класом "note" всередині box.</p>
+        </div>
+      </div>
+
+      <!-- Секція 8: Таблиця для складніших селекторів -->
+      <section class="table-section">
+        <h3>Таблиця</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Назва</th>
+              <th>Значення</th>
+              <th>Опис</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-even">
+              <td>Перший</td>
+              <td>100</td>
+              <td class="description">Опис першого елемента</td>
+            </tr>
+            <tr class="row-odd">
+              <td>Другий</td>
+              <td>200</td>
+              <td class="description">Опис другого елемента</td>
+            </tr>
+            <tr class="row-even">
+              <td>Третій</td>
+              <td>300</td>
+              <td class="description">Опис третього елемента</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>

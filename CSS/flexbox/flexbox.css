@@ -175,12 +175,13 @@ body {
     .item {
       background-color: chartreuse;
       border-bottom: 2px solid;
+    }
 
-      .item:hover {
-        background-color: green;
-      }
+    .item:hover {
+      background-color: green;
     }
   }
+
   .item:first-child {
     border-left: 2px solid;
   }

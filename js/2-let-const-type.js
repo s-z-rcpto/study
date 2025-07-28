@@ -58,7 +58,7 @@ console.log("cost =", cost);
 console.log("amount * price =", amount * price);
 
 // Правильні імена змінних
-const username = "Serhii";
+const username = "Дем'ян";
 const user123 = "Serhii_123";
 const $price = 100;
 const _private_word = "secret";
@@ -75,3 +75,51 @@ const COLOR_BLUE = "#0000ff";
 // Стала Планка
 const PLANK = 6.62607015 * 10 ** -34; // рекомендовано
 const plank = 6.62607015 * 10 ** -34; // не рекомендовано
+
+// Типи даних у JS
+
+// Числа Number
+const age = 35; // ціле число
+const smallPrice = 0.23; // число з плаваючою комою
+const num = 0;
+
+// Рядки String
+const name = "Serhii"; // 'Serhii' Prettier заміняє одинарні лапки на подвійні
+const lastName = "Zubriyuk";
+const middleName = `Anatoliyovich`;
+const petName = ""; // порожній рядок
+
+console.log(`Привіт, ${name}`);
+console.log(`Привіт, ${name} ${middleName} ${lastName}`);
+console.log(`Hello, $ {name}`); // не буде підстановки значення name
+
+// 5 кг яблук по 53 грн коштує 265 ₴
+console.log(`${amount} кг яблук по ${price} грн коштує ${cost} ₴`);
+
+// Логічний (булевий) Boolean
+const isCorrect = true; // істина/правда/так
+const hasChild = false; // хиба/неправда/ні
+
+// Нічого Null
+const border = null; // border: none;
+
+// Не задано (Невизначено) Undefined
+let catsCount; // undefined, тому що немає "="
+
+console.log(`Кількість котів: ${catsCount}`);
+
+// Перевірка типів даних
+let t;
+console.log("t =", t, typeof t); // undefined
+
+t = "Test";
+console.log("t =", t, typeof t); // Test
+
+t = 23;
+console.log("t =", t, typeof t); // 23
+
+t = false;
+console.log("t =", t, typeof t); // false
+
+t = null;
+console.log("t =", t, typeof t); // null

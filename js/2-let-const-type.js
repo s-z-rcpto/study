@@ -89,7 +89,7 @@ const lastName = "Zubriyuk";
 const middleName = `Anatoliyovich`;
 const petName = ""; // порожній рядок
 
-console.log(`Привіт, ${name}`);
+console.log(`Привіт, ${name}`); // -> `Привіт, Serhii`
 console.log(`Привіт, ${name} ${middleName} ${lastName}`);
 console.log(`Hello, $ {name}`); // не буде підстановки значення name
 

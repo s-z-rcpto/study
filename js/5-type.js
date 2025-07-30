@@ -49,3 +49,15 @@ console.log(`""`, `->`, Boolean("")); // false
 console.log(`"0"`, `->`, Boolean("0")); // true
 console.log(null, `->`, Boolean(null)); // false
 console.log(undefined, `->`, Boolean(undefined)); // false
+
+// Перетворення чисел у рядок
+const testNum = 1 / 3;
+
+console.log(String(testNum)); // 0.3333333333333333
+console.log(`${testNum}`); // 0.3333333333333333
+console.log(testNum.toString()); // 0.3333333333333333
+
+// Вказуємо кількість знаків після коми
+console.log(testNum.toFixed(4)); // 0.3333
+console.log(testNum.toFixed(2)); // 0.33
+console.log(testNum.toFixed()); // 0 через заокруглення до цілого

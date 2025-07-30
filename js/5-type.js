@@ -14,7 +14,8 @@ console.log("------------------------");
 
 // NaN - Not a Number (не число)
 // Спеціальне зарезервоване значення
-const testNaN = 3 * "q";
+const q = "q";
+const testNaN = 3 * q; // "q";
 
 console.log("Змінна testNaN =", testNaN, "тип:", typeof testNaN); // NaN
 
@@ -40,6 +41,7 @@ console.log(-29, `->`, Boolean(-29)); // true
 console.log(-3.4, `->`, Boolean(-3.4)); // true
 console.log(-0.4, `->`, Boolean(-0.4)); // true
 console.log(0, `->`, Boolean(0)); // false
+console.log(NaN, `->`, Boolean(NaN)); // false
 console.log(`"true"`, `->`, Boolean("true")); // true
 console.log(`"false"`, `->`, Boolean("false")); // true
 console.log(`"q"`, `->`, Boolean("q")); // true

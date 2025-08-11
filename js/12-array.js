@@ -65,8 +65,8 @@ const multiArr = [
 ];
 
 console.log("multiArr =", multiArr);
-console.log("multiArr[2] =", multiArr[2]);
-console.log("multiArr[2][2] =", multiArr[2][2]);
+console.log("multiArr[2] =", multiArr[2]); // [7, 8, 9]
+console.log("multiArr[2][2] =", multiArr[2][2]); // 9
 
 const n = 42;
 const w = "word";

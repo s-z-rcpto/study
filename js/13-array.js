@@ -11,14 +11,14 @@ fruits.push("Груша"); // Додаємо елемент "Груша" у кі
 
 console.log(fruits); // ["Яблуко", "Банан", "Груша"]
 
-fruits.push("Виноград", "Слива"); // Додаємо 2 елементи у еінець масиву fruits
+fruits.push("Виноград", "Слива"); // Додаємо 2 елементи у кінець масиву fruits
 fruits.push("Апельсин");
 
 console.log(fruits);
 
-fruits.unshift("Манго");
+fruits.unshift("Манго"); // Додаємо елемент "Манго" на початок масиву fruits
 
-console.log(fruits); // Додає елемент "Манго" на початок масиву fruits
+console.log(fruits); // ['Манго', 'Яблуко', 'Банан', 'Груша', 'Виноград', 'Слива', 'Апельсин']
 
 const orange = fruits.pop(); // видаляє останній елемент з масиву fruits і повертає його
 // ми записали повернений елемент у змінну orange
@@ -27,7 +27,7 @@ console.log(fruits);
 console.log(orange);
 console.log(`Елемент "${orange}" видалено з кошика. У кошику:`, fruits);
 
-fruits.shift();
+fruits.shift(); // видаляє перший елемент з масиву fruits і повертає його
 
 //                          0         1        2         3          4
 console.log(fruits); // ['Яблуко', 'Банан', 'Груша', 'Виноград', 'Слива']

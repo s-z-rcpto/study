@@ -58,16 +58,27 @@ select {
   position: absolute;
   top: 4px;
   right: 0;
+  font-size: 11px; /* зменшено */
 }
 
 .radio-group {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* мітка зверху, опції нижче */
+  align-items: stretch;
 }
 
-.radio-group input {
-  width: auto;
+.radio-options {
+  display: flex;
+  justify-content: space-between; /* розміщення по ширині */
+  gap: 8px;
+  width: 100%;
+}
+
+.radio-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .password-requirements {

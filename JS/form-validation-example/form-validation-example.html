@@ -19,7 +19,7 @@
           required
         />
 
-        <span class="required-mark">*</span>
+        <span class="required-mark">Обов'язкове</span>
 
         <div id="nameError" class="error-message"></div>
       </section>
@@ -35,7 +35,7 @@
           required
         />
 
-        <span class="required-mark">*</span>
+        <span class="required-mark">Обов'язкове</span>
 
         <div id="emailError" class="error-message"></div>
       </section>
@@ -51,7 +51,7 @@
           required
         />
 
-        <span class="required-mark">*</span>
+        <span class="required-mark">Обов'язкове</span>
 
         <div id="loginHint" class="hint">
           Дозволені лише латинські літери, цифри та символи
@@ -63,17 +63,24 @@
       <section class="radio-group">
         <label>Стать</label>
 
-        <label>
-          <input type="radio" name="gender" value="male" required />
-          Чоловік
-        </label>
+        <div class="radio-options">
+          <label>
+            <input type="radio" name="gender" value="male" required />
+            Чоловік
+          </label>
 
-        <label>
-          <input type="radio" name="gender" value="female" />
-          Жінка
-        </label>
+          <label>
+            <input type="radio" name="gender" value="female" />
+            Жінка
+          </label>
 
-        <span class="required-mark">*</span>
+          <label>
+            <input type="radio" name="gender" value="prefer_not" />
+            Приховати
+          </label>
+        </div>
+
+        <span class="required-mark">Обов'язкове</span>
 
         <div id="genderError" class="error-message"></div>
       </section>
@@ -88,7 +95,7 @@
           <option value="germany">Німеччина</option>
         </select>
 
-        <span class="required-mark">*</span>
+        <span class="required-mark">Обов'язкове</span>
 
         <div id="countryError" class="error-message"></div>
       </section>
@@ -98,7 +105,7 @@
 
         <input type="date" id="birthdate" name="birthdate" required />
 
-        <span class="required-mark">*</span>
+        <span class="required-mark">Обов'язкове</span>
 
         <div id="birthdateError" class="error-message"></div>
       </section>
@@ -108,7 +115,7 @@
 
         <input type="password" id="password" name="password" required />
 
-        <span class="required-mark">*</span>
+        <span class="required-mark">Обов'язкове</span>
 
         <div id="passwordHint" class="hint password-requirements">
           <div id="lengthReq">✗ Мінімум 8 символів</div>

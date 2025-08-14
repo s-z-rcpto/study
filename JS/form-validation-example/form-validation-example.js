@@ -79,7 +79,7 @@ function checkPasswordRequirements() {
   let hasSpecialChar = false;
 
   for (let char of password) {
-    if (char >= "A" && char <= "Z") {
+    if ((char >= "A" && char <= "Z") || (char >= "А" && char <= "Я")) {
       hasUppercase = true;
     }
 

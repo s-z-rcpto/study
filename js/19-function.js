@@ -100,15 +100,11 @@ function calc(viraz) {
         fin = number[0] / number[1];
       }
 
-      console.log(number, fin);
-
       return fin;
     }
-
-    console.log(fin);
-
-    return fin;
   }
+
+  return fin;
 }
 
 console.log(calc("2+2") * calc("12/2") - calc("4-2"));

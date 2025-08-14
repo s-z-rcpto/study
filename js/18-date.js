@@ -117,3 +117,37 @@ console.log(zavtra.toLocaleDateString()); // 14.12.2030
 const zavtra2 = new Date(year, month - 1, day + 1);
 
 console.log(zavtra2.toLocaleDateString());
+
+// Обчислення дати і часу
+const start = new Date(2025, 0, 1); // 01.01.2025
+const end = new Date(); // 14.08.2025
+
+// Порахувати кількість днів від нового року
+let diff = end - start; // неявне перетворення дати і часу у мілісекунди
+
+console.log(diff); // 19_471_615_996 мілісекунд з початку року до моменту виконання коду
+
+// Перетворимо мілісекунди у дні
+diff = diff / 1000 / 60 / 60 / 24;
+//            сек    хв   год  дні
+
+console.log("Днів з початку року:", diff);
+
+// Дату через місяць
+const today2 = new Date(); // поточна дата і час
+
+// Спосіб 1
+const nextMonthDate = today2.getTime() + 30 * 24 * 60 * 60 * 1000; //
+// перетворили поточну дату і час в мілісекунди з 01.01.1970 і
+// додали 30 днів у вигляді мілісекунд
+// отримали нову дату від 01.01.1970 у вигляді мілісекунд
+
+console.log("Дата через місяць", new Date(nextMonthDate)); // Перетворюємо
+// мілісекунди від 01.01.1970 у дату
+
+// Спосіб 2
+const nextMonthDate2 = new Date(); // поточна дата і час
+
+nextMonthDate2.setMonth(nextMonthDate2.getMonth() + 1);
+
+console.log("Дата через місяць", nextMonthDate2);

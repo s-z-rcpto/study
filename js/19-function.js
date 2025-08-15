@@ -17,12 +17,16 @@ function showMessage() {
 // назва функції + круглі дужки ()
 showMessage();
 
-// Не виклик функції
+// Не виклик функції, тому що немає ()
 showMessage;
 // У консоль нічого не виводиться
 
+console.log(showMessage); // через відсутність () у консолі буде код функції
+console.log(new Date().toLocaleDateString); // через відсутність () у консолі буде toLocaleDateString() { [native code] }
+
 // Не можна використовувати змінну до оголошення з const або let
 // console.log("Змінна a:", a); // ReferenceError: a is not defined
+// Cannot access 'a' before initialization
 
 let a = 0; // глобальна змінна, оголошена не в () і не в {}
 
@@ -45,7 +49,7 @@ setA(); // виклик функції
 // Оголошення функції з параметрами і значенням, яке повертається
 // x, y - параметри функції, назви придумує програміст
 // x, y - виконують роль локальних змінних
-// в x та y записуються дані, які хочемо передати у функцію
+// в x та y записуються дані, які хочемо передати у функцію під час виклику
 function add(x, y) {
   console.log("x =", x);
   console.log("y =", y);
@@ -60,7 +64,7 @@ function add(x, y) {
 
 const sum = add(3, 2); // присвоюємо результат роботи функції у змінну
 
-console.log("sum =", add(3, 2)); // 5
+console.log("sum =", add(8, 4)); // 12
 console.log("sum =", sum); // 5
 
 function addNoReturn(x, y) {
@@ -88,7 +92,10 @@ function calc(viraz) {
 
   for (const element of arr1) {
     if (viraz.includes(element)) {
+      // element = "+" | "/" | "-"
+      // "2+2" | 12/2 | "4-2"
       const number = viraz.split(element).map((strNumber) => Number(strNumber)); // перетворюємо рядки в числа за допомогою map
+      // [2, 2] | [12, 2] | [4, 2]
 
       if (element === "+") {
         fin = number[0] + number[1];
@@ -100,11 +107,73 @@ function calc(viraz) {
         fin = number[0] / number[1];
       }
 
-      return fin;
+      // break; // завершуємо роботу циклу, якщо виконали потрібну операцію
+      // тобто, якщо у нас у виразі "+", то щоб не перевіряти решту операцій
+
+      return fin; // завершуємо роботу циклу і функції вцілому
+      // повертаємо результат, який записаний у змінній fin
     }
   }
 
   return fin;
 }
 
+//                 4    *         6    -        2      = 22
 console.log(calc("2+2") * calc("12/2") - calc("4-2"));
+
+function milisecondsToDays(miliseconds) {
+  const seconds = miliseconds / 1000; // секунди
+  const minutes = seconds / 60; // хвилини
+  const hours = minutes / 60; // години
+  const days = hours / 24; // години
+
+  return Math.ceil(days);
+}
+
+function daysUntilNextMonth() {
+  const today = new Date(); // Поточна дата і час
+  const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1); // 1-й день наступного місяця
+
+  lastDayOfMonth.setDate(lastDayOfMonth.getDate() - 1); // останній день поточного місяця
+
+  const diff = lastDayOfMonth - today; // різниця між датами у мілісекундах
+  const diffDays = milisecondsToDays(diff); // різниця між датами у днях
+
+  return diffDays; // повертаємо різницю між датами у днях як результат роботи функції
+}
+
+function daysUntilNextYear() {
+  const today = new Date(); // Поточна дата і час
+  const lastDayOfYear = new Date(today.getFullYear() + 1, 0, 1); // 1-й день наступного року
+
+  lastDayOfYear.setDate(lastDayOfYear.getDate() - 1); // останній день поточного року
+
+  const diff = lastDayOfYear - today; // різниця між датами у мілісекундах
+  const diffDays = milisecondsToDays(diff); // різниця між датами у днях
+
+  return diffDays; // повертаємо різницю між датами у днях як результат роботи функції
+}
+
+console.log("Днів до кінця місяця:", daysUntilNextMonth());
+console.log("Днів до кінця року:", daysUntilNextYear());
+
+// Значення параметрів за замовчуванням
+function greet(name) {
+  alert(`Привіт, ${name}`);
+}
+
+greet("Serhii"); // виклик функції, тому (),
+// значення "Serhii" буде записано у параметр name функції greet
+
+greet(); // виклик функції, тому (),
+// оскільки немає даних, які передаємо у функцію, то
+// параметр name функції greet буде мати значення undefined
+
+function hello(name = "гість") {
+  alert(`Привіт, ${name}`);
+}
+
+hello("Serhii"); // виклик функції, тому ()
+hello(); // виклик функції, тому (),
+// оскільки немає даних, які передаємо у функцію, то
+// параметр name функції hello отримає значення "гість"

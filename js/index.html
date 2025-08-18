@@ -9,10 +9,42 @@
       body {
         background-color: bisque;
       }
+
+      div {
+        margin-top: 20px;
+        font-size: 40px;
+        background-color: aquamarine;
+      }
+
+      .c3 {
+        background-color: blueviolet;
+      }
+
+      #d2 {
+        background-color: chartreuse;
+      }
+
+      div div {
+        background-color: dimgray;
+      }
     </style>
   </head>
   <body>
     <h1>Теорія</h1>
+
+    <button onclick="let h = 'Привіт!'; alert(h)">Натисни мене</button>
+    <button onclick="showMessage('Hello, world!')">Натисни мене також</button>
+    <button onclick="elementInfo(this)">Деталі</button>
+    <button id="bHello"><b>Hello</b></button>
+    <button id="example">Правильний шлях</button>
+
+    <div>1</div>
+    <div id="d2">2</div>
+    <div class="c3">3</div>
+    <div>
+      4
+      <div>5</div>
+    </div>
 
     <!-- <script src="1-hello.js"></script> -->
     <!-- <script src="2-let-const-type.js"></script> -->
@@ -32,6 +64,8 @@
     <!-- <script src="16-string.js"></script> -->
     <!-- <script src="17-string.js"></script> -->
     <!-- <script src="18-date.js"></script> -->
-    <script src="19-function.js"></script>
+    <!-- <script src="19-function.js"></script> -->
+    <!-- <script src="20-object.js"></script> -->
+    <script src="21-event.js"></script>
   </body>
 </html>

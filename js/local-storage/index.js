@@ -49,86 +49,114 @@ const addButton = document.getElementById("addButton");
 const inputField = document.getElementById("inputField");
 const taskList = document.getElementById("taskList");
 
+// Додавання нового елемента
 addButton.addEventListener("click", function () {
-  const text = inputField.value;
+  const text = inputField.value.trim();
 
-  const currentStorage = localStorage.getItem("todo");
-
-  let currentList = [];
-
-  if (currentStorage !== null) {
-    currentList = JSON.parse(currentStorage);
+  if (text.length === 0) {
+    return;
   }
 
-  currentList.push(text);
+  // Додавання нового елемента у перелік на сторінці
+  addDiv(inputField.value);
 
-  localStorage.setItem("todo", JSON.stringify(currentList));
+  // Додавання нового елемента у localStorage
+  addToLocalStorage(inputField.value);
 
-  addDiv(text);
+  inputField.value = ""; // Очистити поле вводу
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const currentStorage = localStorage.getItem("todo");
-
-  let currentList = [];
-
-  if (currentStorage !== null) {
-    currentList = JSON.parse(currentStorage);
-  }
-
-  console.log(currentList);
-
-  for (const text of currentList) {
-    addDiv(text);
-  }
-});
-
+// Функція для створення нового контейнера для відображення й керування завданням
 function addDiv(text) {
+  // Створення нового контейнера для завдання
   const itemDiv = document.createElement("div");
 
+  // Додавання класу для стилізації контейнера завдання
   itemDiv.classList.add("item");
 
+  // Створення нового елемента для відображення тексту завдання
   const span = document.createElement("span");
 
   span.textContent = text;
 
+  // Додавання елемента з текстом до контейнера завдання
   itemDiv.appendChild(span);
 
-  const button = document.createElement("button");
+  // Створення кнопки для видалення завдання
+  const removeButton = document.createElement("button");
 
-  button.textContent = "Видалити";
+  // Напис на кнопці
+  removeButton.textContent = "Видалити";
 
-  button.addEventListener("click", function () {
+  // Обробник кліку по кнопці видалення
+  removeButton.addEventListener("click", function () {
+    // Видалення контейнера завдання
     itemDiv.remove();
 
-    // видалення з локальної пам'яті
+    // Видалення елемента з localStorage
+    removeItem(text);
   });
 
-  itemDiv.appendChild(button);
+  // Додавання кнопки видалення до контейнера завдання
+  itemDiv.appendChild(removeButton);
 
+  // Додавання контейнера завдання до основного контейнера з переліком завдань
   taskList.appendChild(itemDiv);
 }
 
-const priceList = [
-  {
-    id: 1,
-    name: "МЕДИЧНИЙ ПЕДИКЮР",
-    description: "гігієнічний",
-    price: 700,
-    upPrice: false,
-  },
-  {
-    id: 2,
-    name: "МЕДИЧНИЙ ПЕДИКЮР",
-    description: "різна патологія нігтів або шкіри",
-    price: 800,
-    upPrice: true,
-  },
-  {
-    id: 3,
-    name: "МЕДИЧНИЙ ПЕДИКЮР 2",
-    description: "sdfsdfsdf",
-    price: 900,
-    upPrice: true,
-  },
-];
+// Функція для отримання поточного стану localStorage
+function getCurrentStorageData() {
+  const currentStorage = localStorage.getItem("todo");
+
+  // За замовчуванням (на початку) у localStorage нічого немає,
+  // тому працюємо з порожнім масивом
+  let currentList = [];
+
+  // Якщо у локальній пам'яті є збережена інформація,
+  // то перетворюємо текстове представлення масиву в об'єкт масив
+  if (currentStorage != null) {
+    currentList = JSON.parse(currentStorage);
+  }
+
+  return currentList;
+}
+
+// Функція для оновлення даних у localStorage
+function setNewDataIntoStorage(taskList) {
+  localStorage.setItem("todo", JSON.stringify(taskList));
+}
+
+// Функція для додавання нового елемента в localStorage
+function addToLocalStorage(text) {
+  // Отримуємо поточне значення, яке зберігається у localStorage
+  const currentList = getCurrentStorageData();
+
+  // Додаємо новий елемент до масиву
+  currentList.push(text);
+
+  // Оновлюємо значення переліку завдань у localStorage
+  setNewDataIntoStorage(currentList);
+}
+
+// Функція для видалення елемента з localStorage
+function removeItem(text) {
+  // Отримуємо поточне значення, яке зберігається у localStorage
+  const currentList = getCurrentStorageData();
+
+  // Фільтруємо масив щоб видалити елемент
+  const updatedList = currentList.filter((item) => item !== text);
+
+  // Оновлюємо значення переліку завдань у localStorage
+  setNewDataIntoStorage(updatedList);
+}
+
+// Завантаження переліку з localStorage
+document.addEventListener("DOMContentLoaded", function () {
+  // Отримуємо поточний перелік завдань з localStorage
+  const currentList = getCurrentStorageData();
+
+  // Додаємо кожен елемент з поточного переліку у DOM (на сторінку)
+  for (const text of currentList) {
+    addDiv(text);
+  }
+});

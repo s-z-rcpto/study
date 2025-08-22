@@ -1,0 +1,10 @@
+body {
+  background-color: beige;
+}
+
+.item {
+  width: 300px;
+  display: flex;
+  margin: 8px 0px;
+  justify-content: space-between;
+}

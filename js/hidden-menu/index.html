@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Приховане меню</title>
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button id="menuToggle" class="burger-btn">
+        <span class="burger-icon">&#x2630;</span>
+      </button>
+
+      <div id="menuOverlay" class="menu-overlay hidden"></div>
+
+      <nav id="hiddenMenu" class="menu hidden">
+        <button id="closeMenu" class="close-btn">&times;</button>
+
+        <ul>
+          <li><a href="#">Пункт 1</a></li>
+          <li><a href="#">Пункт 2</a></li>
+          <li><a href="#">Пункт 3</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

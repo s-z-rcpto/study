@@ -15,5 +15,10 @@
 - [Фото як фон](https://github.com/s-z-rcpto/study/blob/master/css/day15/1-background.css)
 - [Паттерн як фон](https://github.com/s-z-rcpto/study/blob/master/css/day15/2-background.css)
 - [Протоколи контактів, кнопки соціальних мереж](https://github.com/s-z-rcpto/s-z-rcpto.github.io/blob/main/index.html)
+- [Локальне сховище браузера](https://github.com/s-z-rcpto/study/tree/master/js/local-storage)
+- [Горизонтальна галерея](https://github.com/s-z-rcpto/study/tree/master/js/horizontal-gallery)
+- [Обробка форми](https://github.com/s-z-rcpto/study/tree/master/js/form-validation)
 
 ## Для натхнення
+
+- [Брендування одягу та текстилю](https://branding.in.ua/)

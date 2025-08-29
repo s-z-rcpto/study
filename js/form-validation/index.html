@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Обробка форми</title>
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <form id="registrationForm">
+      <section>
+        <label for="name">Ім'я</label>
+
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Введіть ім'я"
+          required
+        />
+
+        <span class="required-mark">Обов'язкове</span>
+
+        <div id="nameError" class="error-message"></div>
+      </section>
+
+      <section>
+        <label for="email">Email</label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Введіть електронну пошту"
+          required
+        />
+
+        <span class="required-mark">Обов'язкове</span>
+
+        <div id="emailError" class="error-message"></div>
+      </section>
+
+      <section>
+        <label for="login">Логін</label>
+
+        <input
+          type="text"
+          id="login"
+          name="login"
+          placeholder="Введіть логін"
+          required
+        />
+
+        <span class="required-mark">Обов'язкове</span>
+
+        <div id="loginHint" class="hint">
+          Дозволені лише латинські літери, цифри та символи
+        </div>
+
+        <div id="loginError" class="error-message"></div>
+      </section>
+
+      <section class="radio-group">
+        <label>Стать</label>
+
+        <div class="radio-options">
+          <label>
+            <input type="radio" name="gender" value="male" required />
+            Чоловік
+          </label>
+
+          <label>
+            <input type="radio" name="gender" value="female" />
+            Жінка
+          </label>
+
+          <label>
+            <input type="radio" name="gender" value="prefer_not" />
+            Приховати
+          </label>
+        </div>
+
+        <span class="required-mark">Обов'язкове</span>
+
+        <div id="genderError" class="error-message"></div>
+      </section>
+
+      <section>
+        <label for="country">Країна</label>
+
+        <select id="country" name="country" required>
+          <option value="">Оберіть країну</option>
+          <option value="ukraine">Україна</option>
+          <option value="poland">Польща</option>
+          <option value="germany">Німеччина</option>
+        </select>
+
+        <span class="required-mark">Обов'язкове</span>
+
+        <div id="countryError" class="error-message"></div>
+      </section>
+
+      <section>
+        <label for="birthdate">Дата народження</label>
+
+        <input type="date" id="birthdate" name="birthdate" required />
+
+        <span class="required-mark">Обов'язкове</span>
+
+        <div id="birthdateError" class="error-message"></div>
+      </section>
+
+      <section>
+        <label for="password">Пароль</label>
+
+        <input type="password" id="password" name="password" required />
+
+        <span class="required-mark">Обов'язкове</span>
+
+        <div id="passwordHint" class="hint password-requirements">
+          <div id="lengthReq">✗ Мінімум 8 символів</div>
+          <div id="uppercaseReq">✗ Мінімум 1 велика літера</div>
+          <div id="numberReq">✗ Мінімум 1 цифра</div>
+          <div id="specialReq">✗ Мінімум 1 спеціальний символ</div>
+        </div>
+
+        <div id="passwordError" class="error-message"></div>
+      </section>
+
+      <button type="submit" id="submitButton">Зареєструватися</button>
+    </form>
+
+    <script src="index.js"></script>
+  </body>
+</html>

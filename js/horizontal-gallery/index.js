@@ -86,27 +86,25 @@ function createInitialImages() {
 // Рух праворуч
 function moveRight() {
   const imagesRow = document.getElementById("imagesRow");
-  const maxPosition = totalImages - visibleImages;
 
-  // Якщо всі зображення з масиву вже показані, не рухаємо далі
-  if (totalImages >= imageUrls.length && currentPosition >= maxPosition) {
-    updateButtons();
-    return;
+  // Якщо є ще картинки в масиві — додаємо наступну
+  if (totalImages < imageUrls.length) {
+    totalImages += 1;
+
+    const newImage = createImage(totalImages);
+    
+    imagesRow.appendChild(newImage);
   }
 
+  // Обчислюємо максимально можливу позицію після додавання (щоб коректно прокрутити)
+  const maxPosition = Math.max(0, totalImages - visibleImages);
+
+  // Якщо можна зрушити вправо — робимо це
   if (currentPosition < maxPosition) {
     currentPosition += 1;
   } else {
-    // Створюємо нове зображення, якщо ще є у масиві
-    if (totalImages < imageUrls.length) {
-      totalImages += 1;
-
-      const newImage = createImage(totalImages);
-
-      imagesRow.appendChild(newImage);
-
-      currentPosition += 1;
-    }
+    // коли тільки що додали нову картинку і вже дійшли до кінця — зміщуємо на останню позицію
+    currentPosition = maxPosition;
   }
 
   imagesRow.style.transform = `translateX(-${currentPosition * imageWidth}px)`;

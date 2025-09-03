@@ -3,6 +3,7 @@ let currentPosition = 0; // Поточна позиція прокрутки
 let totalImages = 0; // Загальна кількість створених зображень
 let visibleImages = 4; // Скільки зображень видно на екрані
 let imageWidth = 215; // Ширина одного зображення + відступ
+const gapSize = 15; // Відступ між зображеннями (однаковий для всіх розмірів екрана)
 
 // Масив об'єктів з шляхом і alt
 const imageUrls = [
@@ -92,7 +93,7 @@ function moveRight() {
     totalImages += 1;
 
     const newImage = createImage(totalImages);
-    
+
     imagesRow.appendChild(newImage);
   }
 
@@ -107,25 +108,60 @@ function moveRight() {
     currentPosition = maxPosition;
   }
 
-  imagesRow.style.transform = `translateX(-${currentPosition * imageWidth}px)`;
+  // Рахуємо реальні розміри для компенсації
+  const containerSize = imagesRow.getBoundingClientRect();
+  const visibleWidth = visibleImages * imageWidth;
+
+  // Для останнього зображення відступ зайвий, тому віднімаємо його з загальної ширини
+  const totalContentWidth = totalImages * imageWidth - gapSize;
+
+  let translateX = currentPosition * imageWidth;
+
+  // Якщо ми на останній позиції і є різниця між контейнером і контентом
+  const maxTranslate = totalContentWidth - visibleWidth;
+  if (translateX >= maxTranslate && containerSize.width > visibleWidth) {
+    const excess = containerSize.width - visibleWidth;
+
+    translateX = Math.max(0, maxTranslate - excess);
+  }
+
+  imagesRow.style.transform = `translateX(-${translateX}px)`;
 
   updateButtons();
 }
 
 // Рух ліворуч
 function moveLeft() {
-  if (currentPosition > 0) {
-    currentPosition -= 1;
-
-    // Рухаємо контейнер
-    const imagesRow = document.getElementById("imagesRow");
-
-    imagesRow.style.transform = `translateX(-${
-      currentPosition * imageWidth
-    }px)`;
-
-    updateButtons();
+  if (currentPosition === 0) {
+    return;
   }
+
+  currentPosition -= 1;
+
+  // Рухаємо контейнер
+  const imagesRow = document.getElementById("imagesRow");
+
+  // Рахуємо реальні розміри для компенсації
+  const containerSize = imagesRow.getBoundingClientRect();
+  const visibleWidth = visibleImages * imageWidth;
+
+  // Для останнього зображення відступ зайвий, тому віднімаємо його з загальної ширини
+  const totalContentWidth = totalImages * imageWidth - gapSize;
+
+  let translateX = currentPosition * imageWidth;
+
+  // Якщо ми на останній позиції і є різниця між контейнером і контентом
+  const maxTranslate = totalContentWidth - visibleWidth;
+
+  if (translateX >= maxTranslate && containerSize.width > visibleWidth) {
+    const excess = containerSize.width - visibleWidth;
+
+    translateX = Math.max(0, maxTranslate - excess);
+  }
+
+  imagesRow.style.transform = `translateX(-${translateX}px)`;
+
+  updateButtons();
 }
 
 // Оновлення стану кнопок
@@ -206,19 +242,37 @@ function updateResponsive() {
 
   if (screenWidth <= 480) {
     visibleImages = 3;
-    imageWidth = 135; // 120px + 15px gap
+    imageWidth = 135; // 120px зображення + 15px відступ
   } else if (screenWidth <= 768) {
     visibleImages = 4;
-    imageWidth = 165; // 150px + 15px gap
+    imageWidth = 165; // 150px зображення + 15px відступ
   } else {
     visibleImages = 4;
-    imageWidth = 215; // 200px + 15px gap
+    imageWidth = 215; // 200px зображення + 15px відступ
   }
 
   // Перераховуємо позицію після зміни розміру
   const imagesRow = document.getElementById("imagesRow");
 
-  imagesRow.style.transform = `translateX(-${currentPosition * imageWidth}px)`;
+  // Рахуємо реальні розміри для компенсації
+  const containerWidth = imagesRow.getBoundingClientRect().width;
+  const visibleWidth = visibleImages * imageWidth;
+
+  // Для останнього зображення відступ зайвий, тому віднімаємо його з загальної ширини
+  const totalContentWidth = totalImages * imageWidth - gapSize;
+
+  let translateX = currentPosition * imageWidth;
+
+  // Якщо ми на останній позиції і є різниця між контейнером і контентом
+  const maxTranslate = totalContentWidth - visibleWidth;
+
+  if (translateX >= maxTranslate && containerWidth > visibleWidth) {
+    const excess = containerWidth - visibleWidth;
+
+    translateX = Math.max(0, maxTranslate - excess);
+  }
+
+  imagesRow.style.transform = `translateX(-${translateX}px)`;
 }
 
 // Ініціалізація при завантаженні сторінки

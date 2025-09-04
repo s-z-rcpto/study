@@ -24,6 +24,37 @@ h1 {
   text-align: center;
 }
 
+/* Стилі для пошуку */
+.search-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #3498db;
+}
+
+.search-info {
+  margin-top: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
 .products-table {
   width: 100%;
   border-collapse: collapse;

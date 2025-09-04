@@ -45,6 +45,13 @@ if (!empty($products)) {
 
 <body>
   <section>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="Пошук по назві, категорії або опису...">
+      <div class="search-info" id="searchInfo"></div>
+    </div>
+  </section>
+
+  <section>
     <h1>Товари з Excel файлу</h1>
 
     <?php if (!empty($products)): ?>
@@ -57,7 +64,7 @@ if (!empty($products)) {
             <th>Опис</th>
           </tr>
         </thead>
-        
+
         <tbody>
           <?php foreach ($products as $product): ?>
             <tr>

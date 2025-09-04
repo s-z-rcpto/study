@@ -21,6 +21,7 @@
 - [Обробка форми](https://github.com/s-z-rcpto/study/tree/master/js/form-validation)
 - [Горизонтальна галерея з динамічним наповненням з папки і 2 розмірами зображень](https://github.com/s-z-rcpto/study/tree/master/php/horizontal-gallery)
 - [Форма зворотного зв'язку і переправлення даних на електронну пошту](https://github.com/s-z-rcpto/study/tree/master/php/feedback)
+- [Зчитування даних з Excel файла](https://github.com/s-z-rcpto/study/tree/master/php/excel)
 
 ## Для натхнення
 

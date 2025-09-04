@@ -19,6 +19,7 @@
 - [Горизонтальна галерея](https://github.com/s-z-rcpto/study/tree/master/js/horizontal-gallery)
 - [Приховане меню](https://github.com/s-z-rcpto/study/tree/master/js/hidden-menu)
 - [Обробка форми](https://github.com/s-z-rcpto/study/tree/master/js/form-validation)
+- [Горизонтальна галерея з динамічним наповненням з папки і 2 розмірами зображень](https://github.com/s-z-rcpto/study/tree/master/php/horizontal-gallery)
 
 ## Для натхнення
 

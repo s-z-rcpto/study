@@ -17,6 +17,7 @@
 - [Протоколи контактів, кнопки соціальних мереж](https://github.com/s-z-rcpto/s-z-rcpto.github.io/blob/main/index.html)
 - [Локальне сховище браузера](https://github.com/s-z-rcpto/study/tree/master/js/local-storage)
 - [Горизонтальна галерея](https://github.com/s-z-rcpto/study/tree/master/js/horizontal-gallery)
+- [Приховане меню](https://github.com/s-z-rcpto/study/tree/master/js/hidden-menu)
 - [Обробка форми](https://github.com/s-z-rcpto/study/tree/master/js/form-validation)
 
 ## Для натхнення

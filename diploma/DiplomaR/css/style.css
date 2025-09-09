@@ -60,3 +60,9 @@
   max-height: 80vh;
   min-width: 50vh;
 }
+
+@media (max-width: 768px) {
+  .clearfix img {
+    width: 100%;
+  }
+}

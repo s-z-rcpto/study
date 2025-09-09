@@ -1,0 +1,706 @@
+/* Загальні стилі */
+body {
+  font-family: "Geologica", sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Шапка */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c3e50;
+  color: #fff;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .logo {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #0fbd72;
+}
+
+.price-table tr:hover {
+  background-color: #0fbd7269; /* світло-зелений фон при наведенні */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Головний екран */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(rgba(44, 62, 80, 0), rgba(44, 62, 80, 0.7)),
+    url("images/52.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Універсальний стиль кнопок */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #099768;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  border-color: #08ad65;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+/* Ефект при наведенні */
+.btn:hover {
+  background: #57d772;
+}
+
+/* Секції */
+.section {
+  padding: 60px 20px;
+  background: #fff;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  opacity: 1; /* змінив 0 -> 1 */
+  transform: translateY(0); /* щоб не зсувався вниз */
+  transition: all 0.6s ease-in-out;
+}
+
+/* Анімація секцій */
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Стилі модалки */
+#modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+#modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Кнопки управління */
+#close,
+#prev,
+#next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+#close {
+  top: 20px;
+  right: 30px;
+  transform: none;
+  font-size: 45px;
+}
+
+#prev {
+  left: 5%;
+}
+#next {
+  right: 5%;
+}
+
+.objects-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+}
+
+.objects-list li {
+  background: #2c3e50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Таблиця прайсу */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.price-table th,
+.price-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.price-table th {
+  background: #2c3e50;
+  color: #fff;
+}
+
+.price-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* Підсвітка при наведенні */
+.price-table tr:hover {
+  background-color: #0fbd722b; /* можна замінити колір на інший */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* ===== Галерея ===== */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-block: 15px;
+
+  width: 100%; /* щоб займати всю ширину секції */
+  max-width: none; /* прибрати обмеження ширини, якщо воно є */
+  margin: 0 auto; /* по центру сторінки */
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Контейнер що рухається */
+.images-row {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Стилі для одного зображення */
+.image-box {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  /* flex-shrink: 0; — забороняє елементу зменшуватися у flex-контейнері, завжди фіксований розмір */
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.image-box:hover {
+  transform: scale(1.05);
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  /* 
+    object-fit: cover; — зображення повністю заповнює контейнер, 
+    зберігаючи пропорції, краї можуть обрізатися 
+  */
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder для завантаження зображень */
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Індикатор завантаження */
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #e0e0e0;
+  border-top: 3px solid #666;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+/* Анімація обертання для індикатора завантаження */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Кнопки керування всередині галереї */
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.gallery-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(1);
+}
+
+.gallery-btn-left {
+  left: 10px;
+  background: transparent;
+  color: white;
+}
+
+.gallery-btn-left:hover:not(:disabled) {
+  background: #2c3e50;
+}
+
+.gallery-btn-right {
+  right: 10px;
+  background: transparent;
+  color: white;
+}
+
+.gallery-btn-right:hover:not(:disabled) {
+  background: #2c3e50;
+}
+
+/* ===== Модальне вікно ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.97);
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.modal img {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: scale(0.8); /* стартовый размер меньше */
+  opacity: 0; /* сначала прозрачное */
+  max-width: 80vw; /* чтобы не занимало весь экран */
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ===== Навігація ===== */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-btn:hover {
+  color: #0fbd72;
+}
+
+.nav-btn.prev {
+  left: 20px;
+}
+.nav-btn.next {
+  right: 20px;
+}
+
+/* Вирівнювання тексту в секції */
+#about {
+  text-align: center; /* заголовки і абзаци по центру */
+}
+
+/* Список переваг по центру */
+.advantages-list {
+  list-style: none; /* прибираємо стандартні маркери */
+  padding: 0;
+  margin: 20px auto 0; /* центруємо блок */
+  display: inline-block; /* список займає ширину контенту */
+  text-align: left; /* текст пунктів залишаємо вирівняним ліворуч */
+}
+
+.advantages-list li {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #2c3e50;
+
+  text-align: left; /* текст у пунктах залишиться ліворуч */
+}
+
+/* Форма */
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.form-section input,
+.form-section button {
+  padding: 12px;
+  font-size: 16px;
+}
+
+/* Контакти */
+.contacts p {
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Підвал */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #2c3e50;
+  color: #fff;
+  margin-top: 40px;
+}
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  background-color: #fff;
+  color: #2c3e50;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* спочатку прихована */
+  transition: 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background-color: #0fbd72;
+  color: #fff;
+}
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  border: none;
+  background: none; /* фон не перекриває картинку */
+  cursor: pointer;
+  display: none; /* спочатку прихована */
+  padding: 0;
+  width: 60px;
+  height: 60px;
+}
+
+#scrollTopBtn img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+}
+
+#scrollTopBtn:hover img {
+  transform: scale(1.1); /* ефект збільшення при наведенні */
+}
+
+/* Кнопка "Подивитись всі послуги" */
+#price h3 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#price .btn-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #0fbd72; /* зелена як у інших кнопок */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#price .btn-link:hover {
+  background: #57d772;
+  transform: translateY(-2px);
+}
+
+/* ==== Telegram & Viber кнопки ==== */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* ще менший відступ */
+  margin: 15px 0;
+}
+
+.social-buttons .btn-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px; /* компактний відступ */
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 12px; /* ще менший текст */
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex: 1;
+  max-width: 120px; /* ще менша ширина */
+  min-width: 100px; /* щоб виглядали рівно */
+}
+
+.social-buttons .btn-social img {
+  width: 14px; /* маленька іконка */
+  height: 14px;
+  filter: invert(1);
+}
+
+.social-buttons .btn-social:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.social-buttons .telegram {
+  background-color: #0088cc;
+}
+
+.social-buttons .viber {
+  background-color: #7360f2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Анимация появления модалки с увеличением */
+.modal img {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: scale(0.8); /* стартовый размер меньше */
+  opacity: 0;
+}
+
+.modal.active img {
+  transform: scale(1); /* увеличиваем до нормального размера */
+  opacity: 1;
+}
+/* Плавное увеличение картинки при открытии модалки */
+.modal img {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: scale(0.8); /* стартовый размер меньше */
+  opacity: 0; /* сначала прозрачное */
+}
+
+body.modal-open {
+  overflow: hidden; /* блокируем скролл страницы */
+}
+
+.email-link {
+  color: #0073e6;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.email-link:hover {
+  color: #005bb5;
+  text-decoration: none;
+}
+
+/* ===== АДАПТИВ ===== */
+
+/* Планшети (до 992px) */
+@media (max-width: 992px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .nav ul {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .objects-list {
+    gap: 15px;
+  }
+
+  .price-table th,
+  .price-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* Смартфони (до 900px) */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .hero {
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 40px 15px;
+    width: 95%;
+  }
+
+  .gallery {
+    gap: 10px;
+  }
+
+  .form-section form {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .social-buttons .btn-social {
+    max-width: 200px;
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .contacts p {
+    font-size: 16px;
+  }
+}

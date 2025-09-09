@@ -1,0 +1,62 @@
+.bg-gray {
+  background-color: gray;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-palevioletred {
+  background-color: palevioletred;
+}
+
+.bg-lightcyan {
+  background-color: lightcyan;
+}
+
+.bg-lightsalmon {
+  background-color: lightsalmon;
+}
+
+.bg-gray2 {
+  background-color: var(--bs-gray-500);
+}
+
+.h-50 {
+  height: 50px;
+}
+
+.h-250 {
+  height: 250px;
+}
+
+.h-500 {
+  height: 500px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-img {
+  position: relative;
+}
+
+.img-block {
+  position: absolute;
+}
+
+.content-img img {
+  z-index: 10;
+}
+
+.spin-center {
+  left: 50%;
+  top: 50px;
+}
+.carousel-item {
+  max-height: 80vh;
+  min-width: 50vh;
+}

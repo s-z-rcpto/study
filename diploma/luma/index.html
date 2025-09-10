@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Клуб "Мафія" - ЛуМа</title>
+
+    <!-- Підключення Tailwind CSS для стилів -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Підключення шрифтів з Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Підключення іконок Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body class="bg-gray-900 text-white">
+    <!-- HEADER -->
+    <header
+      id="header"
+      class="bg-black bg-opacity-80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold font-serif text-red-500">ЛуМа</a>
+        <nav class="hidden md:flex space-x-8">
+          <a href="#about" class="hover:text-red-500 transition">Про нас</a>
+          <a href="#schedule" class="hover:text-red-500 transition">Розклад</a>
+          <a href="#registration" class="hover:text-red-500 transition"
+            >Запис на гру</a
+          >
+          <a href="#gallery" class="hover:text-red-500 transition">Галерея</a>
+          <a href="#contact" class="hover:text-red-500 transition">Контакти</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90">
+        <a
+          href="#about"
+          class="block text-center py-3 hover:bg-red-500 transition"
+          >Про нас</a
+        >
+        <a
+          href="#schedule"
+          class="block text-center py-3 hover:bg-red-500 transition"
+          >Розклад</a
+        >
+        <a
+          href="#registration"
+          class="block text-center py-3 hover:bg-red-500 transition"
+          >Запис на гру</a
+        >
+        <a
+          href="#gallery"
+          class="block text-center py-3 hover:bg-red-500 transition"
+          >Галерея</a
+        >
+        <a
+          href="#contact"
+          class="block text-center py-3 hover:bg-red-500 transition"
+          >Контакти</a
+        >
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section
+      id="hero"
+      class="hero-bg h-screen flex items-center justify-center text-center"
+    >
+      <div class="container mx-auto px-6">
+        <h1
+          class="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight animate-fade-in-down"
+        >
+          Місто засинає...
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-300 mb-8 font-serif italic animate-fade-in-up"
+        >
+          Прокидається твій азарт та інтелект. Приєднуйся до гри.
+        </p>
+        <a
+          href="#registration"
+          class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105"
+          >Записатись на гру</a
+        >
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Про Наш Клуб</h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2">
+            <img
+              src="images/table.png"
+              alt="Гравці в мафію"
+              class="rounded-lg shadow-2xl w-full"
+            />
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="text-3xl font-serif text-red-500 mb-4">
+              Це більше, ніж просто гра
+            </h3>
+            <p class="text-gray-300 mb-4 leading-relaxed">
+              Наш клуб – це спільнота однодумців, закоханих в атмосферу
+              детективу, психології та здорового азарту. Ми збираємося, щоб не
+              просто вирахувати мафію, а й для того, щоб розвивати логіку,
+              інтуїцію та навички переконання.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+              Ми раді як досвідченим гравцям, так і новачкам. Наші професійні
+              ведучі завжди пояснять правила та допоможуть швидко зануритись у
+              гру. Головне – це бажання грати та отримувати задоволення!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE SECTION -->
+    <section id="schedule" class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Розклад Ігор</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Картка гри 1 -->
+          <div
+            class="bg-gray-900 rounded-lg p-8 text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <div class="text-red-500 text-5xl mb-4">
+              <i class="fas fa-hat-wizard"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Ігри для Новачків</h3>
+            <p class="text-gray-400 font-bold text-lg mb-4">Щосереди, 19:00</p>
+            <p class="text-gray-300 mb-6">
+              Ідеальний вечір, щоб познайомитись з правилами та відчути
+              атмосферу гри. Досвідчений ведучий все покаже і розкаже.
+            </p>
+            <a href="#contact" class="text-red-500 font-bold hover:underline"
+              >Записатись <i class="fas fa-arrow-right ml-1"></i
+            ></a>
+          </div>
+          <!-- Картка гри 2 -->
+          <div
+            class="bg-gray-900 rounded-lg p-8 text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <div class="text-red-500 text-5xl mb-4">
+              <i class="fas fa-mask"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Класична Мафія</h3>
+            <p class="text-gray-400 font-bold text-lg mb-4">
+              Щоп'ятниці, 19:30
+            </p>
+            <p class="text-gray-300 mb-6">
+              Збираємось на напружені ігри за класичними правилами. Блеф,
+              дедукція та незабутні емоції гарантовані.
+            </p>
+            <a href="#contact" class="text-red-500 font-bold hover:underline"
+              >Записатись <i class="fas fa-arrow-right ml-1"></i
+            ></a>
+          </div>
+          <!-- Картка гри 3 -->
+          <div
+            class="bg-gray-900 rounded-lg p-8 text-center shadow-lg transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <div class="text-red-500 text-5xl mb-4">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Турнірний Вечір</h3>
+            <p class="text-gray-400 font-bold text-lg mb-4">
+              Остання субота місяця
+            </p>
+            <p class="text-gray-300 mb-6">
+              Для найдосвідченіших гравців. Боротьба за звання найкращого гравця
+              місяця та цінні призи. Слідкуйте за анонсами!
+            </p>
+            <a href="#contact" class="text-red-500 font-bold hover:underline"
+              >Дізнатись деталі <i class="fas fa-arrow-right ml-1"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION FORM SECTION -->
+    <section id="registration" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-8">Запис на Гру</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+          Заповніть форму, і наш адміністратор зв'яжеться з вами для
+          підтвердження участі.
+        </p>
+        <form
+          id="feedbackForm"
+          class="max-w-xl mx-auto bg-gray-800 p-8 rounded-lg shadow-xl text-left"
+        >
+          <div
+            id="form-success-message"
+            class="hidden mb-6 p-4 bg-green-500 text-white rounded-lg"
+          >
+            Дякуємо! Ваша заявка прийнята. Ми скоро з вами зв'яжемося.
+          </div>
+          <div class="mb-6">
+            <label for="name" class="block text-gray-300 text-sm font-bold mb-2"
+              >Ваше Ім'я:</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="w-full bg-gray-700 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-red-500 transition"
+              placeholder="Іван"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="contact-info"
+              class="block text-gray-300 text-sm font-bold mb-2"
+              >Телефон або Telegram (@username):</label
+            >
+            <input
+              type="text"
+              id="contact-info"
+              name="phone"
+              class="w-full bg-gray-700 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-red-500 transition"
+              placeholder="@ivan_mafia"
+              required
+            />
+          </div>
+          <div class="mb-8">
+            <label
+              for="comments"
+              class="block text-gray-300 text-sm font-bold mb-2"
+              >На яку гру хочете потрапити?</label
+            >
+            <select
+              id="game-choice"
+              name="game"
+              class="w-full bg-gray-700 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-red-500 transition"
+            >
+              <option>Ігри для Новачків (Щосереди)</option>
+              <option>Класична Мафія (Щоп'ятниці)</option>
+              <option>Турнірний Вечір</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105"
+          >
+            Відправити заявку
+          </button>
+
+          <p id="feedbackResponseMessage" style="display: none">
+            <br />
+            Запис створено!
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Моменти Гри</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="overflow-hidden rounded-lg shadow-lg">
+            <img
+              src="https://placehold.co/400x400/2d3748/ffffff?text=Емоції"
+              alt="Фото з гри 1"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-lg">
+            <img
+              src="https://placehold.co/400x400/1a202c/ffffff?text=Обговорення"
+              alt="Фото з гри 2"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-lg">
+            <img
+              src="https://placehold.co/400x400/4a5568/ffffff?text=Жести"
+              alt="Фото з гри 3"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-lg">
+            <img
+              src="https://placehold.co/400x400/2d3748/ffffff?text=Перемога"
+              alt="Фото з гри 4"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-4">Залишились Питання?</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+          Зв'яжіться з нами будь-яким зручним способом. Ми завжди на зв'язку!
+        </p>
+        <div class="flex justify-center items-center gap-6 mb-10 flex-wrap">
+          <a
+            href="https://t.me/your_telegram_username"
+            target="_blank"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 transform hover:scale-105 flex items-center gap-3"
+          >
+            <i class="fab fa-telegram-plane"></i>
+            Наш Telegram
+          </a>
+          <a
+            href="https://instagram.com/your_instagram_username"
+            target="_blank"
+            class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-300 transform hover:scale-105 flex items-center gap-3"
+          >
+            <i class="fab fa-instagram"></i>
+            Наш Instagram
+          </a>
+        </div>
+        <div class="text-gray-400 space-y-4">
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8"
+          >
+            <a
+              href="tel:+380991234567"
+              class="hover:text-white transition flex items-center gap-2 text-lg"
+            >
+              <i class="fas fa-phone-alt text-red-500"></i>
+              +38 (099) 123-45-67
+            </a>
+            <a
+              href="mailto:contact@luma.club"
+              class="hover:text-white transition flex items-center gap-2 text-lg"
+            >
+              <i class="fas fa-envelope text-red-500"></i>
+              contact@luma.club
+            </a>
+          </div>
+          <div class="pt-4">
+            <p class="text-lg mb-2 flex justify-center items-center gap-2">
+              <i class="fas fa-map-marker-alt text-red-500"></i>Наша адреса:
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=проспект+Волі,+2,+Луцьк"
+              target="_blank"
+              class="hover:text-white transition underline"
+            >
+              проспект Волі, 2, м. Луцьк (Центральний універмаг)
+            </a>
+          </div>
+          <div class="pt-6 mt-6 border-t border-gray-700">
+            <p class="text-lg mb-3 flex justify-center items-center gap-2">
+              <i class="fas fa-bus-alt text-red-500"></i>Як дістатися?
+            </p>
+            <p class="text-gray-400">Найближча зупинка - "ЦУМ".</p>
+            <p class="text-gray-400 mt-2">
+              <span class="font-bold text-gray-300">Тролейбуси:</span> 1, 2, 4,
+              8, 12<br />
+              <span class="font-bold text-gray-300">Маршрутки:</span> 2, 9, 10,
+              11, 16, 22, 23, 24, 31, 32
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-6">
+      <div class="container mx-auto px-6 text-center text-gray-500">
+        <p>&copy; 2025 Клуб "ЛуМа". Всі права захищено.</p>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a
+      href="#hero"
+      id="to-top-button"
+      title="Наверх"
+      class="hidden fixed bottom-8 right-8 z-50 p-4 bg-red-600 text-white rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 opacity-0 transform translate-y-4"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="index.js"></script>
+  </body>
+</html>

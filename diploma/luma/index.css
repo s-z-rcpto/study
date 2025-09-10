@@ -11,7 +11,7 @@ h3,
 }
 .hero-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://placehold.co/1920x1080/1a202c/ffffff?text=Атмосферне+фото+вашої+гри");
+    url("images/header.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

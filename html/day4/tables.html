@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Таблиці</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th>Заголовок 1</th>
+        <th>Заголовок 2</th>
+      </tr>
+      <tr>
+        <td>Дані 1.1</td>
+        <td>Дані 1.2</td>
+      </tr>
+      <tr>
+        <td>Дані 2.1</td>
+        <td>Дані 2.2</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <table border="1">
+      <tr>
+        <th>Заголовок 1</th>
+        <td>Дані 1.1</td>
+        <td>Дані 1.2</td>
+      </tr>
+      <tr>
+        <th>Заголовок 2</th>
+        <td>Дані 2.1</td>
+        <td>Дані 2.2</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <table border="1">
+      <tr>
+        <th>C1</th>
+        <th>C2</th>
+        <th>C3</th>
+      </tr>
+      <tr>
+        <td>1.1</td>
+        <td>1.2</td>
+        <td>1.3</td>
+      </tr>
+      <tr>
+        <td>2.1</td>
+        <td>2.2</td>
+        <td>2.3</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <table border="1">
+      <tr>
+        <th>C1</th>
+        <th>C2</th>
+        <th>C3</th>
+      </tr>
+      <tr>
+        <td rowspan="2">1.1</td>
+        <td>1.2</td>
+        <td>1.3</td>
+      </tr>
+      <tr>
+        <td colspan="2">2.2</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <table border="1">
+      <tr>
+        <td colspan="2" rowspan="2">1.1</td>
+        <td>1.3</td>
+        <td rowspan="3">1.4</td>
+      </tr>
+      <tr>
+        <td>2.3</td>
+      </tr>
+      <tr>
+        <td>3.1</td>
+        <td>3.2</td>
+        <td>3.3</td>
+      </tr>
+      <tr>
+        <td colspan="3">4.1</td>
+        <td>4.4</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <table border="1">
+      <caption>
+        Оцінка доцільності
+      </caption>
+
+      <thead>
+        <tr>
+          <th rowspan="3">№</th>
+          <th rowspan="3">Характеристики ринку</th>
+          <th colspan="6">Шкала оцінок</th>
+        </tr>
+        <tr>
+          <th colspan="3">Несприйнятлива</th>
+          <th colspan="3">Задовільна</th>
+        </tr>
+        <tr>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Ділова активність</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Екологічна діяльність</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="2">Всього</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

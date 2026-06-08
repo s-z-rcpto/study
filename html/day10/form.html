@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форми</title>
+  </head>
+  <body>
+    <input type="text" />
+
+    <!-- form - контейнер форми, 
+     збирає дані для відправки на сервер,
+     активує можливості перевірки даних
+     
+     значення атрибута action - це адреса обробника 
+     на сервері, поки що - заглушка -->
+    <form action="#">
+      <p>
+        <!-- label + for=id - підпис, прив'язаний до поля 
+         потрібний для зчитувачів екрану -->
+        <label for="name">Ваше ім'я:</label>
+
+        <!-- Атрибут type визначає тип даних, які вносяться.
+       Тут нижче - це текст, а інші типи див. у довідниках
+       
+       Атрибут id потрібен для прив'язки підпису
+       
+       Атрибут name задає ім'я для значення, 
+       яке буде відправлене на сервер: client_name=Антон
+       
+       Атрибут placeholder задає підказку (сірий колір), 
+       яка зникає після початку введення, це приклад заповнення.
+       Не замінює label, а доповнює
+       
+       Атрибут required не вимагає значення, але вимагає 
+       заповнення поля введення -->
+        <input
+          type="text"
+          id="name"
+          name="client_name"
+          placeholder="Сергій"
+          required
+        />
+      </p>
+
+      <p>
+        <label for="phone">Телефон:</label>
+        <!-- Значення атрибуту type=tel помітне на телефоні,
+         телефон запропонує цифрову клавіатуру -->
+        <input
+          type="tel"
+          id="phone"
+          name="client_phone"
+          placeholder="+380..."
+          required
+          minlength="10"
+          maxlength="12"
+          pattern="\d{10,12}"
+        />
+
+        <!-- minlength - не дозволяє відправити дані, якщо
+         введена довжина менша 10 символів
+         
+        maxlength - забороняє ввести більше 12 символів
+        
+        pattern перевіряє чи введене значення складається
+        з цифр: від 10 до 12
+
+        Підсумок: контроль введення номерів у форматі
+        - 380998887777
+        - 0998887777
+        -->
+      </p>
+
+      <p>
+        <label for="service">Послуга:</label>
+        <select name="client_service" id="service" required>
+          <!-- value - значення, яке буде відправлене на сервер
+             у вигляді client_service=Фарбування
+             
+             Якщо value="" а select має required, то форма не відправиться 
+             
+             Атрибут disabled забороняє вибір рядка
+             Атрибут selected задає значення за замовчуванням
+             -->
+          <option value="" disabled selected>-Оберіть послугу-</option>
+          <option value="Стрижка">Стрижка</option>
+          <option value="Фарбування">Фарбування</option>
+          <option value="Манікюр">Манікюр</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="date">Бажана дата:</label>
+        <input type="date" name="client_date" id="date" required />
+      </p>
+
+      <p>
+        <label for="time">Бажаний час:</label>
+        <input type="time" name="client_time" id="time" required />
+      </p>
+
+      <p>
+        <input type="checkbox" name="client_first" id="first" />
+        <label for="first">Перший візит</label>
+
+        <input type="checkbox" name="client_help" id="help" />
+        <label for="help">Потрібна консультація</label>
+      </p>
+
+      <p>
+        <!-- input type="radio" - це перемикач "один з групи"
+         Група задається завдяки однаковому значенню атрибута name
+         
+         Атрибут checked - задає значення за замовчуванням
+         -->
+        <input type="radio" name="client_contact" id="call" checked />
+        <label for="call">Дзвінок</label>
+
+        <input type="radio" name="client_contact" id="sms" />
+        <label for="sms">SMS</label>
+
+        <input type="radio" name="client_contact" id="viber" />
+        <label for="viber">Viber</label>
+      </p>
+
+      <p>
+        <!-- Багаторядкове поле для довгого тексту
+         
+        Атрибут rows задає початкову висоту в 4 рядки,
+        але може розтягуватися-->
+        <label for="comment">Коментар:</label>
+        <br />
+        <textarea
+          name="client_comment"
+          id="comment"
+          rows="4"
+          placeholder="Ваші побажання"
+        ></textarea>
+      </p>
+
+      <p>
+        <button type="submit">Записатися</button>
+      </p>
+    </form>
+  </body>
+</html>

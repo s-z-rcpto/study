@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форматування тексту</title>
+
+    <style>
+      body {
+        text-align: center;
+        background-color: bisque;
+      }
+
+      p {
+        color: rgb(7, 3, 112);
+        border: 1px solid black;
+      }
+
+      .italic {
+        font-style: italic;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+
+      .high-row {
+        /* Висота рядка, НЕ розмір шрифту */
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="high-row">
+      <b>Жирний текст: b</b><br />
+      <strong>Жирний текст: strong</strong><br />
+      <i>Курсив: i</i><br />
+      <em>Курсив: em</em><br />
+      <u>Підкреслений текст</u>
+    </p>
+
+    <p class="italic">CSS: Курсив</p>
+    <p class="bold">CSS: Жирний текст</p>
+    <p class="underline">CSS: Підкреслений текст</p>
+  </body>
+</html>

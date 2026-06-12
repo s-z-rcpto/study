@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box-model</title>
+
+    <style>
+      .box {
+        /* Рамка: товщина_лінії вид_лінії колір_лінії */
+        border: 3px solid #fcdb9a;
+
+        /* Внутрішній відступ від рамки до вмісту */
+        padding: 8px;
+
+        /* Зовнішній відступ від рамки до сусіднього елемента
+        або краю батьківського елемента */
+        margin: 12px;
+        /* Зовнішні відступи зверху (top) та знизу (bottom)
+        не додаються, а накладаються один на одного  */
+
+        background-color: #adb77b;
+      }
+
+      .content {
+        background-color: #8cb6c0;
+        text-align: center;
+      }
+
+      .outer-box {
+        background-color: #f9cb9d;
+        padding: 1px;
+      }
+
+      li {
+        margin: 10px;
+      }
+
+      span {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer-box">
+      <div class="box">
+        <div class="content">Hello weekend!</div>
+      </div>
+    </div>
+
+    <ul>
+      <li>Червень</li>
+      <!-- Зовнішній відступ = 10px між li -->
+      <li>Липень</li>
+      <li>Серпень</li>
+    </ul>
+
+    <p>
+      <span>Літо</span>
+      <!-- Зовнішній відступ = 20px, тому що 
+       зовнішні відступи ліворуч (left) та праворуч (right)
+       додаються -->
+      <span>Осінь</span>
+    </p>
+  </body>
+</html>

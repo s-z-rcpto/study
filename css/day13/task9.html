@@ -3,18 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ПР№8. Перші стилі</title>
+    <title>ПР№9. Перші стилі</title>
 
-    <style></style>
+    <style>
+      body {
+        background-color: gainsboro;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      li {
+        font-weight: bold;
+      }
+
+      .blue-italic {
+        color: blue;
+        font-style: italic;
+      }
+
+      .green {
+        color: green;
+      }
+
+      .common-rule {
+        text-align: center;
+        background-color: brown;
+      }
+
+      #id-p-2 {
+        font-size: 18px;
+      }
+
+      #id-p-3 {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <ul>
-      <li>Що таке Lorem Ipsum?</li>
-      <li>Звідки він походить?</li>
-      <li>Чому ми ним користуємось?</li>
+      <li class="blue-italic">Що таке Lorem Ipsum?</li>
+      <li class="green">Звідки він походить?</li>
+      <li class="common-rule">Чому ми ним користуємось?</li>
     </ul>
 
-    <p>
+    <p class="blue-italic">
       Lorem Ipsum - це текст-"риба", що використовується в друкарстві та
       дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя,
       коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку
@@ -26,7 +61,7 @@
       використовували різні версії Lorem Ipsum.
     </p>
 
-    <p>
+    <p id="id-p-2" class="green">
       На відміну від поширеної думки Lorem Ipsum не є випадковим набором літер.
       Він походить з уривку класичної латинської літератури 45 року до н.е.,
       тобто має більш як 2000-річну історію. Річард Макклінток, професор латини
@@ -40,14 +75,14 @@
       рядків розділу 1.10.32.
     </p>
 
-    <p>
+    <p id="id-p-3" class="green">
       Класичний текст, використовуваний з XVI сторіччя, наведено нижче для всіх
       зацікавлених. Також точно за оригіналом наведено розділи 1.10.32 та
       1.10.33 цицеронівського "de Finibus Bonorum et Malorum" разом із
       перекладом англійською, виконаним 1914 року Х.Рекемом.
     </p>
 
-    <p>
+    <p class="common-rule">
       Вже давно відомо, що читабельний зміст буде заважати зосередитись людині,
       яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в
       тому, що цей текст має більш-менш нормальне розподілення літер на відміну

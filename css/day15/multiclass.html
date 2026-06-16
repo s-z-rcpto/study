@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Поєднання класів</title>
+    <style>
+      table {
+        /* Задає рамку навколо таблиці,
+        комірки - без рамки */
+        border: 1px solid black;
+
+        /* Керує виглядом рамки таблиці:
+        - collapse = об'єднання рамок, рамка комірки головна
+        - separate = звичайна поведінка (2 рамки)
+        Застосовується для тегу table, можна у класі */
+        border-collapse: separate;
+        /* border-collapse: collapse; */
+
+        /* Керує відстанню між рамками таблиці та комірок
+        Не працює при border-collapse: collapse */
+        border-spacing: 0px;
+      }
+
+      /* Конструкція "th, td" задає одне спільне правило
+      для 2-х селекторів тегу, розділених комою */
+      th,
+      td {
+        /* Задає рамку ЛИШЕ навколо комірок th і td */
+        border: 1px solid gold;
+      }
+
+      /* Конструкція "caption, tfoot" задає жирний текст
+      для назви таблиці і рядка підсумків */
+      caption,
+      tfoot {
+        font-weight: bold;
+      }
+
+      tfoot {
+        background-color: rgb(121, 181, 161);
+      }
+
+      /* Альтернативний варіант */
+      /* caption {
+        font-weight: bold;
+      }
+
+      tfoot {
+        font-weight: bold;
+        background-color: rgb(121, 181, 161);
+      } */
+
+      .bg-grey {
+        background-color: lightgray;
+      }
+
+      .bg-green {
+        background-color: rgb(147, 203, 61);
+      }
+
+      #yellow-header {
+        background-color: yellow;
+      }
+
+      .text-red {
+        color: red;
+        border-color: red;
+      }
+
+      .text-green {
+        color: green;
+        border-color: green;
+      }
+
+      .text-blue {
+        color: blue;
+        border-color: blue;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-end {
+        text-align: end;
+      }
+
+      .text-u {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <td colspan="2">1</td>
+        <td rowspan="2" colspan="2">2</td>
+      </tr>
+
+      <tr>
+        <td rowspan="3">3</td>
+        <td>4</td>
+      </tr>
+
+      <tr>
+        <td colspan="3">5</td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <table>
+      <caption>
+        Таблиця кольорів
+      </caption>
+
+      <thead>
+        <tr>
+          <th rowspan="2" class="bg-grey">Назва кольору</th>
+          <th colspan="3" id="yellow-header">
+            Інтенсивність основних кольорів
+          </th>
+        </tr>
+        <tr>
+          <!-- Значення атрибуту class означає:
+           - поєднання 3-х селекторів класу
+           - селектори розділені пробілом " "
+           - правило кожного селектора задає своє оформлення
+           - результат: колір + вирівнювання + підкреслення -->
+          <th class="text-red text-center text-u">Червоного</th>
+          <th class="text-green text-center text-u">Зеленого</th>
+          <th class="text-blue text-center text-u">Блакитного</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="bg-grey">Чорний</td>
+          <td class="text-red text-center">0</td>
+          <td class="text-green text-center">0</td>
+          <td class="text-blue text-center">0</td>
+        </tr>
+        <tr>
+          <td class="bg-grey">Жовтий</td>
+          <td class="text-red text-center">255</td>
+          <td class="text-green text-center">179</td>
+          <td class="text-blue text-center">0</td>
+        </tr>
+        <tr>
+          <td class="bg-grey">Оранжевий</td>
+          <td class="text-red text-center">185</td>
+          <td class="text-green text-center">6</td>
+          <td class="text-blue text-center">255</td>
+        </tr>
+        <tr>
+          <td class="bg-grey">Бузковий</td>
+          <td class="text-red text-center">255</td>
+          <td class="text-green text-center">89</td>
+          <td class="text-blue text-center">255</td>
+        </tr>
+        <tr>
+          <td class="bg-grey">Фолетовий</td>
+          <td class="text-red text-center">255</td>
+          <td class="text-green text-center">255</td>
+          <td class="text-blue text-center">134</td>
+        </tr>
+        <tr>
+          <td class="bg-grey">Білий</td>
+          <td class="text-red text-center">255</td>
+          <td class="text-green text-center">255</td>
+          <td class="text-blue text-center">255</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <table>
+      <caption>
+        Звіт про залишки товарів на складі
+      </caption>
+
+      <thead class="bg-green">
+        <tr>
+          <th>Артикул</th>
+          <th>Найменування товару</th>
+          <th>Категорія</th>
+          <th>Кількість</th>
+          <th>Ціна за одиницю</th>
+        </tr>
+        <tr>
+          <th>Код</th>
+          <th>Опис</th>
+          <th>Тип</th>
+          <th class="text-end">шт.</th>
+          <th class="text-end">грн</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="text-center">A001</td>
+          <td>Ноутбук Dell Inspiron</td>
+          <td>Електроніка</td>
+          <td class="text-end">15</td>
+          <td class="text-end">25500</td>
+        </tr>
+        <tr class="bg-grey">
+          <td class="text-center">A002</td>
+          <td>Миша бездротова Logitech</td>
+          <td>Електроніка</td>
+          <td class="text-end">45</td>
+          <td class="text-end">850</td>
+        </tr>
+        <tr>
+          <td class="text-center">B101</td>
+          <td>Стіл офісний дерев'яний</td>
+          <td>Меблі</td>
+          <td class="text-end">8</td>
+          <td class="text-end">3200</td>
+        </tr>
+        <tr class="bg-grey">
+          <td class="text-center">B102</td>
+          <td>Крісло офісне ергономічне</td>
+          <td>Меблі</td>
+          <td class="text-end">12</td>
+          <td class="text-end">4500</td>
+        </tr>
+        <tr>
+          <td class="text-center">C201</td>
+          <td>Папір офісний А4 (пачка)</td>
+          <td>Канцтовари</td>
+          <td class="text-end">120</td>
+          <td class="text-end">180</td>
+        </tr>
+        <tr class="bg-grey">
+          <td class="text-center">C202</td>
+          <td>Ручка кулькова синя</td>
+          <td>Канцтовари</td>
+          <td class="text-end">200</td>
+          <td class="text-end">15</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td class="text-center">Всього</td>
+          <td>6 позицій</td>
+          <td>3 категорії</td>
+          <td class="text-end">400</td>
+          <td class="text-end">34245</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

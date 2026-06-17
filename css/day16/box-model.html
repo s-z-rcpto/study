@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Робота з контейнерами</title>
+
+    <style>
+      p,
+      div {
+        border: 1px solid black;
+      }
+
+      div {
+        /* Однаковий зовнішній відступ від сусідніх елементів */
+        /* Зовнішні відступи зверху і знизу не сумуються, а накладаються */
+        margin: 8px;
+
+        /* Як задати різні зовнішні відступи? */
+
+        /* Спосіб 1: Каскадність */
+        margin-left: 0px;
+        margin-right: 0px;
+
+        /* Спосіб 2: Розширення скороченого запису */
+        /* верх+низ право+ліво */
+        margin: 8px 0px;
+
+        /* Порядок за годинниковою стрілкою: */
+        /* верх, право, низ, ліво */
+        margin: 8px 0px 8px 0px;
+
+        /* Спосіб 3: Повний запис */
+        margin-top: 8px;
+        margin-right: 0px;
+        margin-bottom: 8px;
+        margin-left: 0px;
+      }
+
+      span {
+        background-color: burlywood;
+        margin: 10px;
+        padding: 20px;
+      }
+
+      .top-border {
+        border-top: 4px dotted blue;
+      }
+
+      .right-border {
+        border-right: 2px dashed green;
+      }
+
+      .bottom-border {
+        border-bottom: 2px double red;
+      }
+
+      .left-border {
+        border-left: 4px groove blueviolet;
+      }
+
+      .round-border {
+        /* px - абсолютна величина */
+        /* % - відносна, 
+        езультат залежить від ширини та висоти елемента */
+        border-radius: 8px;
+      }
+
+      .no-side-border {
+        /* none - зарезервоване значення, скасовує властивість */
+        border-right: none;
+        border-left: none;
+
+        /* Не всі властивості підтримують none */
+        /* margin: none; */
+      }
+
+      .width-300 {
+        width: 300px;
+      }
+
+      .width-50p {
+        width: 50%;
+      }
+
+      .height-100 {
+        height: 100px;
+      }
+
+      .height-50p {
+        height: 50%;
+      }
+
+      .height-50vh {
+        height: 50vh;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="round-border">Це звичайний параграф (абзац)</p>
+
+    <div>Контейнер - 1</div>
+
+    <div class="round-border">Контейнер - 2</div>
+
+    <div class="top-border right-border bottom-border left-border">
+      Lorem Ipsum - це текст-"риба", що використовується в друкарстві та
+      дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя,
+      коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку
+      зразків шрифтів. "Риба" не тільки успішно пережила п'ять століть, але й
+      прижилася в електронному верстуванні, залишаючись по суті незмінною. Вона
+      популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків
+      шрифтів Letraset, які містили уривки з Lorem Ipsum, і вдруге - нещодавно
+      завдяки програмам комп'ютерного верстування на кшталт Aldus Pagemaker, які
+      використовували різні версії Lorem Ipsum.
+    </div>
+
+    <div class="no-side-border">Контейнер без бокових рамок</div>
+
+    <div class="width-300">
+      Контейнер з шириною 300px, але все ще залишається блочним елементом, тому
+      займає всю ширину батьківського елемента
+    </div>
+
+    <div class="width-300">
+      Контейнер з шириною 300px, але все ще залишається блочним елементом, тому
+      займає всю ширину батьківського елемента
+    </div>
+
+    <p>
+      <span class="width-300 top-border right-border bottom-border left-border">
+        Рядковий (інлайн) контейнер з шириною 300px
+      </span>
+
+      <span class="width-300 top-border right-border bottom-border left-border">
+        Рядковий (інлайн) контейнер з шириною 300px
+      </span>
+
+      <span class="width-300 top-border right-border bottom-border left-border">
+        Рядковий (інлайн) контейнер з шириною 300px
+      </span>
+    </p>
+
+    <p>
+      Для рядкових контейнерів вище не працюють властивості ширини та висоти<br />
+      Для рядкових контейнерів краще утриматися від задання фону та відступів
+      зверху та знизу
+    </p>
+
+    <div class="width-50p">
+      Контейнер з шириною 50% відносно ширини батьківського елемента <br />
+      (поки що це body)
+    </div>
+
+    <div class="height-100">Контейнер висотою 100px</div>
+
+    <div class="height-50p">
+      Контейнер висотою 50% <br />
+      Властивість не спрацювала, оскільки для батьківського елемента не задана
+      висота <br />
+      Висота body, за замовчуванням, динамічна - коли вміст не влазить по ширині
+      тоді з'являються смуги прокручування (скрол)
+    </div>
+
+    <div class="height-50vh">
+      Контейнер з висотою 50vh <br />
+      Властивість працює, оскільки значення бере за основу не батьківський
+      елемент, а висоту видимої частини сторінки
+    </div>
+
+    <div class="width-50p height-50vh">
+      Контейнер з заданими висотою і шириною
+    </div>
+  </body>
+</html>

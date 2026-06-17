@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вирівнювання по середині</title>
+    <style>
+      /* Універсальний селектор */
+      /* Його правило застосовується до всіх тегів */
+      /* Специфічність = 0 */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: azure;
+      }
+
+      .box {
+        width: 500px;
+        height: 300px;
+        padding: 20px;
+        margin: 30px;
+        font-size: 20px;
+        line-height: 20px;
+
+        border-top: 4px dotted blueviolet;
+        border-bottom: 2px double red;
+        border-left: 2px dashed green;
+        border-right: 2px dashed green;
+      }
+
+      .content-box {
+        /* Розміри застосовуються до вмісту (контент, наповнення),
+        далі до заданих розмірів додаються:
+        - внутрішні відступи
+        - товщина рамок
+        (елемент розтягується)
+        Поведінка за замовчуванням */
+        box-sizing: content-box;
+      }
+
+      .border-box {
+        /* Розміри застосовуються до елемента вцілому,
+        далі від них віднімаються:
+        - внутрішні відступи
+        - товщина рамок
+        (контент стискається) */
+        box-sizing: border-box;
+      }
+
+      .main {
+        background-color: bisque;
+        width: 60%;
+        border-radius: 30px;
+        padding: 20px 0px;
+      }
+
+      .center {
+        /* auto - зарезервоване слово */
+        /* auto - працює не для всіх властивостей */
+        /* auto для відступів праворуч і ліворуч 
+        для блочних елементів з заданою шириною
+        забезпечує вирівнювання по середині */
+        margin: 30px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main center">
+      <div class="box content-box center">
+        Контейнер 1 <br />
+        Задані розміри: 500х300px<br />
+        Внутрішні відступи: 20px по периметру <br />
+        Зовнішні відступи: 30px по периметру <br /><br />
+        Реальні розміри: 544х346px<br /><br />
+        Реальна ширина = width + padding-left + padding-right + border-left +
+        border-right <br />
+        Реальна висота = height + padding-top + padding-bottom + border-top +
+        border-bottom<br /><br />
+        box-sizing: content-box; (поведінка за замовчуванням)
+      </div>
+
+      <div class="box border-box center">
+        Контейнер 2 <br />
+        Задані розміри: 500х300px <br />
+        Внутрішні відступи: 20px по периметру <br />
+        Зовнішні відступи: 30px по периметру <br /><br />
+        Реальні розміри: 500х300px<br /><br />
+        box-sizing: border-box;
+      </div>
+
+      <div class="box center">
+        Контейнер 3
+        <br />
+        Отримав box-sizing: border-box; від універсального селектора "*", тому
+        схожий на контенер 2
+      </div>
+    </div>
+  </body>
+</html>

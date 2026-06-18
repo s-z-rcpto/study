@@ -1,0 +1,40 @@
+body {
+  /* 4 варіанти запису кольору bisque */
+  background-color: bisque; /* назва кольору */
+  background-color: rgb(255, 228, 196); /* функція rgb */
+  background-color: rgba(
+    /* інтенсивність червоного кольору */ 255,
+    /* інтенсивність зеленого кольору*/ 228,
+    /* інтенсивність синього кольору*/ 196,
+    /* коефіцієнтом прозорості*/ 0.99
+  ); /* функція rgb з коефіцієнтом прозорості */
+  background-color: #ffe4c4; /* 16-ковий запис rgb */
+
+  /* url - це функція, яка приймає параметр, 
+  що вказує на шлях до зображення
+  або посилання на зображення */
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/72/O_Partenon_de_Atenas.jpg);
+
+  /* Забороняє повторення зображення для заповнення вільного простору */
+  background-repeat: no-repeat;
+
+  /* Розтягнення зображення для заповнення вікна перегляду */
+  /* за потреби обрізає частини зображення */
+  background-size: cover;
+
+  /* Розташовує зображення по середині по горизонталі 
+  і припасовує до верхнього краю по вертикалі */
+  background-position: center top;
+
+  /* Прив'язує зображення до області перегляду */
+  background-attachment: fixed;
+}
+
+div {
+  background-color: rgba(250, 235, 215, 0.8);
+  font-size: 20px;
+  width: 60%;
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 16px;
+}

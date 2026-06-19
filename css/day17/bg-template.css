@@ -1,0 +1,32 @@
+body {
+  background-color: azure;
+  background-image: url(https://t4.ftcdn.net/jpg/02/84/32/21/360_F_284322178_4gxGLWFFujUQpE7p31xMLDt916vayMgs.jpg);
+  background-image: url(https://cdn.cgdream.ai/_next/image?url=https%3A%2F%2Fcdn.cgdream.ai%2Frails%2Factive_storage%2Fblobs%2Fproxy%2FeyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCTlpYUmdFPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ%3D%3D--ad666595b2e7d31125aa4176c981dbe2b05976bc%2F20250716_1357_Nautical%2520Shell%2520Pattern_remix_01k090b5z8f13vh764h7ya6jz3.png&w=256&q=100);
+  background-image: url("pattern.jpg");
+}
+
+div {
+  width: 60%;
+  margin: 20px auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0px 20px;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.start {
+  background-color: rgba(137, 43, 226, 0.764);
+  color: beige;
+}
+
+.linear {
+  background-image: linear-gradient(#b93b3b, rgb(209, 209, 9), green);
+}
+
+.radial {
+  background-image:
+    radial-gradient(ellipse at top, #e66465, transparent),
+    radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+}
+/* transparent - зарезервоване слово для позначення "прозорого" кольору */

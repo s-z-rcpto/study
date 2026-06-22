@@ -1,6 +1,107 @@
+/* Зразок з сайту fonts.google:
+
+// <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+*/
+
+/* <weight> - шаблон, значення яке потрібно замінити 
+на бажану товщину шрифта */
+
+/* <uniquifier> - шаблон, значення яке потрібно замінити
+на таке, яке забезбечить унікальність селектор */
+
+/* Нижче звичайне правило зі звичайним селектором,
+дозволяє задати елементу шрифт і його товщину */
+/* Можна обійтися без нього */
 .montserrat-200 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
+}
+
+p {
+  font-size: 40px;
+}
+
+.serif {
+  font-family: serif;
+}
+
+.sans {
+  font-family: sans-serif;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+.cursive {
+  font-family: cursive;
+}
+
+.fantasy {
+  font-family: fantasy;
+}
+
+/* Назва селектора може не включати назву шрифта */
+/* Можна використовувати шрифти Google без класів Google,
+головне - підключити за допомогою тегу link */
+.google-font-2 {
+  /* Якщо назва шрифта містить пробіл, 
+  то її потрібно писати в лапках */
+  /* Рекомендація: завжди писати назву шрифта в лапках,
+  а назву сімейства - без лапок */
+  font-family: "Pacifico", cursive;
+}
+
+/* Приклад задання кількох резервних шрифтів */
+/* Спочатку браузер спробує використати "Gill Sans,
+далі, якщо не вийде, буде намагатися "Gill Sans MT" 
+і т.д. по списку. Якщо з жодним не вийде, 
+то використає назву сімейства sans-serif */
+/* Якщо шрифт Oswald вдалося підключити, 
+то браузер використає його */
+.some-font {
+  font-family:
+    "Gill Sans", "Gill Sans MT", "Oswald", "Trebuchet MS", sans-serif;
+}
+
+/* Функція для завантаження власного шрифта */
+/* Завантаження != (не дорівнює) використання */
+@font-face {
+  /* Псевдонім шрифта Bender */
+  /* Це жартівливий приклад */
+  /* Для використання шрифта далі буде
+  використовуватися псевдонім  */
+  font-family: "Hello Ben";
+
+  /* Шлях розташування файла шрифта */
+  /* Відносний шлях з точкою відліку day18 */
+  src: url("../../assets/fonts/Bender.woff2") format("woff2");
+}
+
+.bender {
+  /* Для застосування шрифта Bender 
+  використовуємо наш жартівливий псевдонім "Hello Ben" */
+  font-family: "Hello Ben", sans-serif;
+}
+
+@font-face {
+  font-family: "Poetsen One";
+  /* Формат .woff2 - розроблений для підключення до сайтів */
+  /* Рекомендований формат */
+  src: url("../../assets/fonts/PoetsenOne-Regular.woff2") format("woff2");
+}
+
+.poetsen-one {
+  /* Регістр літер не впливає на використання шрифта */
+  font-family: "poetsen one", sans-serif;
 }

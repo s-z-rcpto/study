@@ -1,0 +1,127 @@
+/* "*" - універсальний селектор, 
+замінює будь-який тег, тобто всі теги на сторінці
+отримають вказану властивість */
+* {
+  /* Змінюємо точку відліку розмірів контейнера,
+    замість розмірів контенту і нашарування padding + border
+    будемо задавати розмір контейнера, а контент буде стискатися */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blanchedalmond;
+  font-family: sans-serif;
+  /* без одиниць = режим множника від font-size,
+  нащадки використовують множник для розрахунку свого шрифту */
+  line-height: 1.5;
+  width: 70%;
+  margin: auto;
+}
+
+code {
+  background-color: seagreen;
+  color: white;
+  padding: 0px 4px;
+}
+
+.demo {
+  border: 1px solid grey;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0px;
+}
+
+article {
+  border: 2px dotted red;
+  padding: 8px;
+
+  /* Nested-підхід, альтернатива "article div" */
+  div {
+    border: 1px dashed blue;
+    border-radius: 4px;
+    padding: 4px;
+  }
+}
+
+/* Усі абзаци (p) всередині тегу article 
+(який всередині div з класом inside) 
+на будь-якій глибині вкладеності отримають 
+помаранчевий фон ("діти", "онуки", "правнуки", ...) */
+/* Класичний варіант */
+.inside article p {
+  background-color: chocolate;
+}
+
+/* Nested варіант (варіант вкладеності) */
+/* Натхненний препроцесорами, працює з 2023 року */
+.inside {
+  article {
+    p {
+      background-color: chocolate;
+    }
+  }
+}
+
+/* Усі "діти" тегу article, які є абзацами (p),
+отримають широку ліву межу зеленого кольору, 
+на "онуків" правило не подіє */
+/* Класичний варіант */
+.direct article > p {
+  border-left: 8px solid seagreen;
+  padding-left: 12px;
+}
+
+/* Nested варіант (варіант вкладеності) */
+/* Натхненний препроцесорами, працює з 2023 року */
+.direct {
+  article {
+    /* & - позначення батьківського елемента */
+    & > p {
+      border-left: 8px solid seagreen;
+      padding-left: 12px;
+    }
+  }
+}
+
+/* Якщо наступним після h2 елементом буде абзац (p),
+то цей абзац (p) буде мати жирний зелений текст
+(якщо h2 буде в середині елемента з класом "next")
+на будь-якій глибині) */
+.next h2 + p {
+  font-weight: bold;
+  color: seagreen;
+}
+
+/* Правило не діє, тому що одразу за тегом h2 немає div*/
+.next h2 + div {
+  font-weight: bold;
+  color: blueviolet;
+}
+
+/* Якщо наступними ПІСЛЯ h2 будуть абзаци (p),
+неважливо у якій послідовності, але 
+на одному рівні з h2 ("брати" чи "сестри"),
+то вони будуть написані зеленим курсивом */
+.after h2 ~ p {
+  font-style: italic;
+  color: seagreen;
+}
+
+/* Правило не діє, тому що після h2 немає ul 
+на одному рівні з h2 */
+.after h2 ~ ul {
+  font-style: italic;
+  color: blueviolet;
+}
+
+/* Другий і третій абзаци отримають золотий фон
+тому що є "братами" чи "сестрами" div і розміщуються
+після нього
+
+Перший абзац хоч і є "братом" чи "сестрою" для div
+не отримає фон, тому що знаходиться вище над div
+
+CSS не має доступу до попередніх елементів */
+.after div ~ p {
+  background-color: goldenrod;
+}

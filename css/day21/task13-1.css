@@ -1,0 +1,99 @@
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  margin-bottom: 20px;
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+caption:hover {
+  color: blueviolet;
+}
+
+/* ----------- Таблиця 1 -----------  */
+table:first-of-type {
+  thead {
+    tr:first-of-type {
+      th:last-of-type {
+        background-color: yellow;
+      }
+    }
+
+    tr:last-of-type {
+      th {
+        text-decoration: underline;
+      }
+
+      th:first-of-type {
+        color: red;
+        border-color: red;
+      }
+
+      th:not(:is(:first-of-type, :nth-last-of-type)) {
+        color: green;
+        border-color: green;
+      }
+
+      th:last-of-type {
+        color: blue;
+        border-color: blue;
+      }
+    }
+  }
+
+  tr:first-of-type > th:first-of-type,
+  td:first-of-type {
+    background-color: lightgray;
+  }
+
+  td:not(:first-of-type) {
+    text-align: center;
+  }
+
+  td:nth-of-type(2) {
+    color: red;
+    border-color: red;
+  }
+
+  td:nth-of-type(3) {
+    color: green;
+    border-color: green;
+  }
+
+  td:nth-of-type(4) {
+    color: blue;
+    border-color: blue;
+  }
+}
+
+/* ----------- Таблиця 2 -----------  */
+table:last-of-type thead {
+  background-color: lightgreen;
+}
+
+table:last-of-type tfoot {
+  background-color: lightskyblue;
+  font-weight: bold;
+}
+
+table:last-of-type tbody tr:nth-of-type(2n) {
+  background-color: lightgray;
+}
+
+table:last-of-type td:first-of-type {
+  text-align: center;
+}
+
+table:last-of-type th:last-of-type,
+table:last-of-type td:last-of-type,
+table:last-of-type th:nth-last-child(2),
+table:last-of-type td:nth-last-child(2) {
+  text-align: end;
+}

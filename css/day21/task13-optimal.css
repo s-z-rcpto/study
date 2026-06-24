@@ -1,0 +1,81 @@
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  margin-bottom: 20px;
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+caption:hover {
+  color: blueviolet;
+}
+
+/* ----------- Таблиця 1 -----------  */
+#yellow {
+  background-color: yellow;
+}
+
+.color td:first-child,
+.color tr:first-child th:first-child {
+  background-color: lightgray;
+}
+
+.color .color-header th {
+  text-decoration: underline;
+}
+
+.color tbody td:not(:first-child) {
+  text-align: center;
+}
+
+.color .color-header th:nth-child(1),
+.color tbody td:nth-child(2) {
+  color: red;
+  border-color: red;
+}
+
+.color .color-header th:nth-child(2),
+.color tbody td:nth-child(3) {
+  color: green;
+  border-color: green;
+}
+
+.color .color-header th:nth-child(3),
+.color tbody td:nth-child(4) {
+  color: blue;
+  border-color: blue;
+}
+
+/* ----------- Таблиця 2 -----------  */
+.goods {
+  thead {
+    background-color: lightgreen;
+  }
+
+  tfoot {
+    background-color: lightblue;
+    font-weight: bold;
+  }
+
+  tbody tr:nth-child(2n) {
+    background-color: lightgrey;
+  }
+
+  td:first-of-type {
+    text-align: center;
+  }
+
+  th:last-child,
+  td:last-child,
+  th:nth-last-child(2),
+  td:nth-last-child(2) {
+    text-align: end;
+  }
+}

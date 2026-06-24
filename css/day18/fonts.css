@@ -98,7 +98,9 @@ p {
   font-family: "Poetsen One";
   /* Формат .woff2 - розроблений для підключення до сайтів */
   /* Рекомендований формат */
-  src: url("../../assets/fonts/PoetsenOne-Regular.woff2") format("woff2");
+  src:
+    url("../../assets/fonts/PoetsenOne-Regular.woff2") format("woff2"),
+    url("../../assets/fonts/PoetsenOne-Regular.ttf") format("TrueType");
 }
 
 .poetsen-one {

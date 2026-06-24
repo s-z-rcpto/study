@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Селектор = адреса</title>
+    <link rel="stylesheet" href="selector-like-address.css">
+</head>
+<body>
+
+    <!--
+        ІДЕЯ-АНАЛОГІЯ: CSS-селектор - це адреса елемента.
+
+        Кожен рівень має 2 класи:
+        загальний (= будь-який такий рівень) + конкретний (= саме цей).
+
+        ОБЛАСТЬ (div)         .bud-yaka-oblast   | .kyivska-oblast
+        МІСТО   (table)       .bud-yake-misto    | .misto-kyiv
+        РАЙОН   (thead/tbody) .bud-yakyi-rayon   | .soborny-rayon
+        ВУЛИЦЯ  (tr)          .bud-yaka-vulytsia | .vulytsia-shevchenka
+        БУДИНОК (td)          .bud-yakyi-budynok | .budynok-1
+
+        Тому "усі міста" = .bud-yake-misto, а "саме Київ" = .misto-kyiv.
+        Щоб "достукатись" до конкретного будинку, проходимо весь ланцюжок
+        адреси: область -> місто -> район -> вулиця -> будинок.
+    -->
+
+    <h1>Селектор - це аналог поштової адреси</h1>
+
+    <!-- ============ ОБЛАСТЬ 1: дві таблиці(міста) в одному div ============ -->
+    <div class="bud-yaka-oblast kyivska-oblast">
+        <h2>Область: Київська (div.kyivska-oblast)</h2>
+
+        <!-- МІСТО 1 -->
+        <table class="bud-yake-misto misto-kyiv">
+            <caption>Місто Київ (table.misto-kyiv)</caption>
+
+            <!-- РАЙОН: Соборний -->
+            <thead class="bud-yakyi-rayon soborny-rayon">
+                <tr class="bud-yaka-vulytsia vulytsia-shevchenka">
+                    <td class="bud-yakyi-budynok budynok-1">Шевченка, 1</td>
+                    <td class="bud-yakyi-budynok budynok-3">Шевченка, 3</td>
+                    <td class="bud-yakyi-budynok budynok-5 kvartyra">Шевченка, 5</td>
+                </tr>
+            </thead>
+
+            <!-- РАЙОН: спальний мікрорайон -->
+            <tbody class="bud-yakyi-rayon pechersk-rayon">
+                <tr class="bud-yaka-vulytsia vulytsia-franka">
+                    <td class="bud-yakyi-budynok budynok-10">Франка, 10</td>
+                    <td class="bud-yakyi-budynok budynok-12">Франка, 12</td>
+                </tr>
+                <tr class="bud-yaka-vulytsia vulytsia-lesi">
+                    <td class="bud-yakyi-budynok budynok-7">Лесі Українки, 7</td>
+                    <td class="bud-yakyi-budynok budynok-9 kvartyra">Лесі Українки, 9</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- МІСТО 2 -->
+        <table class="bud-yake-misto misto-lviv">
+            <caption>Місто Львів (table.misto-lviv)</caption>
+
+            <tbody class="bud-yakyi-rayon soborny-rayon">
+                <tr class="bud-yaka-vulytsia vulytsia-shevchenka">
+                    <td class="bud-yakyi-budynok budynok-2">Шевченка, 2</td>
+                    <td class="bud-yakyi-budynok budynok-4">Шевченка, 4</td>
+                </tr>
+                <tr class="bud-yaka-vulytsia vulytsia-franka">
+                    <td class="bud-yakyi-budynok budynok-21">Франка, 21</td>
+                    <td class="bud-yakyi-budynok budynok-23 kvartyra">Франка, 23</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============ ОБЛАСТЬ 2: окрема таблиця(місто) в іншому div ============ -->
+    <div class="bud-yaka-oblast odeska-oblast">
+        <h2>Область: Одеська (div.odeska-oblast)</h2>
+
+        <!-- МІСТО 3 -->
+        <table class="bud-yake-misto misto-odesa">
+            <caption>Місто Одеса (table.misto-odesa)</caption>
+
+            <thead class="bud-yakyi-rayon soborny-rayon">
+                <tr class="bud-yaka-vulytsia vulytsia-deribasivska">
+                    <td class="bud-yakyi-budynok budynok-1">Дерибасівська, 1</td>
+                    <td class="bud-yakyi-budynok budynok-3 kvartyra">Дерибасівська, 3</td>
+                </tr>
+            </thead>
+
+            <tbody class="bud-yakyi-rayon arkadia-rayon">
+                <tr class="bud-yaka-vulytsia vulytsia-shevchenka">
+                    <td class="bud-yakyi-budynok budynok-100">Шевченка, 100</td>
+                    <td class="bud-yakyi-budynok budynok-102">Шевченка, 102</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  color: seagreen;
+  text-align: center;
+  border: 2px solid seagreen;
+}
+
+/* Правило з псевдокласом :hover застосовується
+під час наведення курсору на елемент
+
+На сенсорних пристроях немає курсору, 
+тому :hover не буде працювати 
+
+Правило з псевдокласом доповнює існуючі правила
+або переписує конфліктуючі властивості */
+h1:hover {
+  color: white;
+  background-color: seagreen;
+  border: 2px dotted white;
+}
+
+div {
+  border: 2px solid;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Правило застосовується, якщо у певному контейнері
+першим елементом буде абзац (p)
+(body і кожен з div) */
+/* Як працює селектор:
+1. Пошук перших дочірніх (вкладених) компонентів
+2. Перевірка чи знайдений компонент є абзацом
+3. Якщо все збігається, то правило діє */
+p:first-child {
+  color: red;
+}
+
+/* Правило застосовуєть до всіх 
+перших дочірніх (вкладених) елементів
+незалежно від тегу (* - універсальний селектор),
+навіть до <html> */
+*:first-child {
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+/* ========== Parent 1 ========== */
+
+/* Якщо в конетейнері з класом .parent-1
+першим елементом (тегом) буде абзац,
+то правило застосується */
+/* Класичний підхід */
+.parent-1 p:first-child {
+  font-weight: bold;
+}
+
+/* Якщо останній вкладений елемент = абзац, 
+то правило діє */
+.parent-1 p:last-child {
+  text-decoration: underline;
+}
+
+/* Якщо 4-й елемент = абзац, то правило діє */
+.parent-1 p:nth-child(4) {
+  font-style: italic;
+}
+
+/* Парні елементи */
+.parent-1 p:nth-child(2n),
+.parent-1 p:nth-child(even) {
+  background-color: burlywood;
+}
+
+/* Непарні елементи */
+.parent-1 p:nth-child(2n + 1),
+.parent-1 p:nth-child(odd) {
+  background-color: rgb(201, 241, 160);
+}
+
+/* Nested (вкладений) підхід */
+.parent-1 {
+  /* Не працюють підказки редактора коду для селекторів тегу */
+  /* Лайфгак: тимчасово додавати . перед селектором,
+  а після вибору псевдокласу прибирати її */
+
+  /* Перший елемент = абзац */
+  p:first-child {
+    font-weight: bold;
+  }
+
+  /* Останній елемент = абзац */
+  p:last-child {
+    text-decoration: underline;
+  }
+
+  /* 4й елемент = абзац */
+  p:nth-child(4) {
+    font-style: italic;
+  }
+
+  /* Парні елементи = абзац */
+  p:nth-child(2n),
+  p:nth-child(even) {
+    background-color: burlywood;
+  }
+
+  /* Непарні елементи = абзац */
+  p:nth-child(2n + 1),
+  p:nth-child(odd) {
+    background-color: rgb(201, 241, 160);
+  }
+}
+
+/* ========== Parent 2 ========== */
+
+/* Якщо у контейнері з класом .parent-2 
+першим і останнім елементами будуть абзаци,
+то правило застосується до них */
+.parent-2 p:first-child,
+.parent-2 p:last-child {
+  border-left: 4px solid green;
+  border-top: 4px solid green;
+}
+
+/* Альтернативний варіант 1 */
+/* :is() дозволяє скоротити однаковий префікс ".parent-2 p" 
+i має специфічність класу */
+.parent-2 p:is(:first-child, :last-child) {
+  border-left: 4px solid green;
+  border-top: 4px solid green;
+}
+
+/* Альтернативний варіант 2 */
+/* :where = :is, але має специфічність 0 */
+.parent-2 p:where(:first-child, :last-child) {
+  border-left: 4px solid green;
+  border-top: 4px solid green;
+}
+
+/* ========== Parent 3 ========== */
+
+.parent-3 {
+  /* Перший абзац, інші сусідні теги ігноруються */
+  p:first-of-type {
+    font-weight: bold;
+  }
+
+  /* Останній абзац, інші теги ігноруються */
+  p:last-of-type {
+    text-decoration: underline;
+  }
+
+  /* 4-й абзац, може бути 5 або 7 елементом у контейнері */
+  p:nth-of-type(4) {
+    font-style: italic;
+  }
+
+  /* Парні абзаци, елементи до/між/після - ігноруються */
+  p:nth-of-type(2n) {
+    background-color: burlywood;
+  }
+
+  /* Непарні абзаци в контейнері з класом .parent-3 */
+  p:nth-of-type(2n + 1) {
+    background-color: rgb(201, 241, 160);
+  }
+
+  /* Якщо абзац НЕ Є першим абзацом (елементом/тегом p),
+  то задаємо для нього внутрішній відступ з лівого боку */
+  p:not(:first-of-type) {
+    padding-left: 20px;
+  }
+}

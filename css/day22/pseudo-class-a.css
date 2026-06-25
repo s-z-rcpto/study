@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: beige;
+}
+
+ul,
+section {
+  /* Ширина 70% від батьківського контейнера - body */
+  width: 70%;
+  margin: auto;
+  /* 100vh - це висота видимої частини вкладки */
+  /* Відносна величина, яка 
+  не залежить від батьківського контейнера, 
+  залежить від розмірів вікна браузера */
+  margin-bottom: 100vh;
+}
+
+ul {
+  border: 1px dotted green;
+  text-align: center;
+  padding: 8px 0px;
+  list-style: none;
+}
+
+li {
+  line-height: 1.5;
+  border: 2px solid;
+  border-radius: 12px;
+  /* Ширина 50% від батьківського контенера - ul */
+  /* тобто 50% від 70% ширини body */
+  width: 50%;
+  margin: 8px auto;
+}
+
+li:hover {
+  background-color: bisque;
+}
+
+section {
+  border: 2px solid darkgreen;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+/* Правило застосовується, коли в URL-адресі
+буде #ідентифікатор з атрибута href гіперпосилання <a> */
+section:target {
+  background-color: lightpink;
+  border-color: blueviolet;
+}
+
+h2 {
+  margin-top: 0px;
+}
+
+a:link, /* Посилання, за яким не переходили */
+a:visited /* Посилання, за яким ВЖЕ переходиди */ {
+  color: green;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Посилання в момент натискання, 
+але до моменту відпускання */
+a:active {
+  color: red;
+}

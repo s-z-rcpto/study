@@ -1,0 +1,55 @@
+.required {
+  color: red;
+}
+
+/* :focus - працює коли елемент активний (у фокусі),
+після кліку */
+input:focus {
+  background-color: yellow;
+}
+
+/* :required - працює, якщо поле (елемент) 
+обов'язкове для заповнення */
+input:required {
+  border-right: 4px solid red;
+}
+
+/* :valid - працює, якщо поле заповнене згідно вимог:
+- required - просто заповнене
+- type="email" - введена пошта
+- max, maxLength... */
+input:valid {
+  border-bottom: 4px solid green;
+}
+
+/* :invalid - працює, якщо поле заповнене з помилками:
+- required - пусте поле
+- type="email" - неправильна пошта
+- max, maxLength... */
+input:invalid {
+  border-bottom: 4px solid red;
+}
+
+/* :disabled - працює, якщо поле заблоковане */
+input:disabled {
+  background-color: lightgrey;
+}
+
+/* :read-only - працює, якщо поле позначене як 
+"лише для читання", а також для заблокованих полів (:disabled)
+Щоб "відкинути" хибне спрацювання на disabled поля
+можна використати псевдоклас :not */
+input:read-only:not(:disabled) {
+  background-color: lightpink;
+}
+
+/* :checked - працює, якщо чекбокс (галочка) або радіобатон
+увімкнені (активовані) */
+input:checked {
+  accent-color: red;
+}
+
+input:checked + label {
+  color: red;
+  font-weight: bold;
+}

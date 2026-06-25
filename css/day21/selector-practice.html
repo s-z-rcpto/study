@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тренажер селекторів</title>
+    <link rel="stylesheet" href="selector-practice.css" />
+  </head>
+  <body>
+    <!-- ===================================================================
+         ТРЕНАЖЕР СЕЛЕКТОРІВ
+         Розмітку нижче НЕ змінюйте. Усі завдання виконуються у файлі
+         selector-practice.css — там під кожним коментарем пиши свій
+         селектор і правило. Потім натисни кнопку "Перевірити"
+         ================================================================== -->
+
+    <div id="controls">
+      <h1>Тренажер CSS-селекторів</h1>
+
+      <p>
+        Відкрий <b>selector-practice.css</b>, виконай завдання, тоді натисни
+        кнопку.
+      </p>
+
+      <button id="check-btn" type="button">Перевірити</button>
+
+      <pre id="result">Результат з'явиться тут…</pre>
+    </div>
+
+    <!-- ====================== ІГРОВЕ ПОЛЕ ====================== -->
+    <main id="stage" class="catalog">
+      <h1 class="page-title">Книгарня</h1>
+
+      <p class="lead">Каталог книжок нашого магазину.</p>
+
+      <!-- ПОЛИЦЯ 1 -->
+      <section class="shelf" id="shelf-fantasy">
+        <h2 class="shelf-name">Фентезі</h2>
+
+        <p class="note">Полиця з фентезі.</p>
+
+        <div class="book new" id="bestseller">
+          <h3 class="book-title">Дракон</h3>
+
+          <p class="author">Іваненко</p>
+
+          <span class="year">2021</span>
+          <span class="price">250 грн</span>
+
+          <ul class="tags">
+            <li class="tag">пригоди</li>
+            <li class="tag">магія</li>
+            <li class="tag">діти</li>
+          </ul>
+
+          <button class="buy" type="button">Купити</button>
+        </div>
+
+        <div class="book">
+          <h3 class="book-title">Ельфи</h3>
+
+          <p class="author">Петренко</p>
+
+          <span class="year">2018</span>
+          <span class="price">180 грн</span>
+
+          <ul class="tags">
+            <li class="tag">магія</li>
+            <li class="tag">світи</li>
+          </ul>
+
+          <button class="buy" type="button">Купити</button>
+        </div>
+      </section>
+
+      <!-- ПОЛИЦЯ 2 -->
+      <section class="shelf" id="shelf-sci">
+        <h2 class="shelf-name">Наука</h2>
+
+        <p class="note">Полиця з наукою.</p>
+
+        <div class="book">
+          <h3 class="book-title">Космос</h3>
+
+          <p class="author">Сидоренко</p>
+
+          <span class="year">2020</span>
+          <span class="price">320 грн</span>
+
+          <ul class="tags">
+            <li class="tag">астрономія</li>
+            <li class="tag">всесвіт</li>
+          </ul>
+
+          <button class="buy" type="button">Купити</button>
+        </div>
+
+        <div class="book new">
+          <h3 class="book-title">Гени</h3>
+
+          <p class="author">Коваль</p>
+
+          <span class="year">2023</span>
+          <span class="price">410 грн</span>
+          <span class="badge new">новинка</span>
+
+          <ul class="tags">
+            <li class="tag">біологія</li>
+            <li class="tag">наука</li>
+          </ul>
+
+          <button class="buy" type="button">Купити</button>
+        </div>
+      </section>
+
+      <!-- БЛОК АКЦІЇ (для сусідніх комбінаторів) -->
+      <div class="promo">
+        <h2 class="promo-title">Акція тижня</h2>
+
+        <p class="step first">Крок 1: обери книгу</p>
+        <p class="step">Крок 2: додай у кошик</p>
+        <p class="step">Крок 3: оплати</p>
+      </div>
+
+      <footer class="page-footer">
+        <p class="lead">Дякуємо, що завітали!</p>
+      </footer>
+    </main>
+
+    <script src="selector-practice.js"></script>
+  </body>
+</html>

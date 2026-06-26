@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  /* cursor: crosshair; */
+  cursor: url("../../assets/images/rocket.png"), auto;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  background-color: antiquewhite;
+}
+
+main {
+  width: 75%;
+  margin: 0px auto;
+  border: 2px dotted purple;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+h1::first-letter,
+p::first-letter,
+li::first-letter {
+  color: purple;
+}
+
+/* Псевдоклас має бути перед псевдоелементом */
+p:first-of-type::first-line {
+  color: cadetblue;
+}
+
+/* ::before - додає вміст на сторінку перед вказаним елементом,
+властивість content - обов'язкова, навіть якщо це "" */
+h1::before {
+  /* На вміст, який додає псевдоелемент ::before 
+    поширюється діяя іншого псевдоелемента ::first-letter */
+  /* Контент, який додається - недоступний для виділення */
+  content: "+";
+}
+
+/* ::after - додає вміст на сторінку після вказаного елемента,
+властивість content - обов'язкова, навіть якщо це "" */
+h1::after {
+  content: "+";
+}
+
+/* Unicode представлення символу:
+- відображення: 📱 
+- код: U+1F4F1, де U+ - це ознака Unicode,
+а 1F4F1 - 16-ковий код символу
+- альтернативний код: \u1F4F1 */
+h2::before {
+  content: "📱";
+}
+
+h2::after {
+  /* Щоб задати відображення Unicode-символу
+    потрібно вказати частину його коду 
+    у форматі \код або краще відображення символу*/
+  content: "\1F4F1";
+}
+
+span::before {
+  content: "☎";
+  color: green;
+  margin-right: 4px;
+}
+
+/* ::selectio - дозволяє задати стиль для виділених елементів */
+span::selection {
+  background-color: brown;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 4px;
+}
+
+ul:first-of-type li::marker {
+  color: red;
+}
+
+/* ::marker - дозволяє керувати маркером списку, але
+підтримує обмежену кількість властивостей, зокрема:
+колір, властивості шрифтів, контент. Деталі на MDN */
+.sign li::marker {
+  content: "🚀";
+  /* Колір фону не підтримується */
+  background-color: blue;
+}
+
+/* Приклад лічильника, який нумерує будь-які елементи */
+.steps {
+  /* counter-reset - активує лічильник з назвою "step" */
+  counter-reset: step;
+}
+
+.step::before {
+  /* counter-increment - збільшує значення лічильника 
+  на кожному .step */
+  counter-increment: step;
+  /* "Склеюємо" значення маркера з кількох елементі,
+   функція counter(step) виводить поточне значення */
+  content: "Крок " counter(step) ": ";
+  color: brown;
+  font-weight: bold;
+}

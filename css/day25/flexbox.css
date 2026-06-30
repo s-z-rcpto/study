@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blanchedalmond;
+  font-family: monospace;
+  font-size: 48px;
+}
+
+div {
+  padding: 16px;
+  text-align: center;
+}
+
+.box {
+  border: 2px solid black;
+  margin-bottom: 16px;
+}
+
+.box div {
+  width: 200px;
+}
+
+.box-1 {
+  background-color: aquamarine;
+}
+
+.box-2 {
+  background-color: blueviolet;
+}
+
+.box-3 {
+  background-color: chartreuse;
+}
+
+.box-4 {
+  background-color: palevioletred;
+}
+
+.flex-row {
+  height: 200px;
+
+  /* Активуємо "гнучкий" режим для контейнера */
+  display: flex;
+
+  /* Задаємо розміщення вкладених елементів
+  у рядок */
+  flex-direction: row;
+
+  /* Задаємо взаємне розташування вкладених елементі:
+  - space-between = крайні елементи притискаються
+  до межі батьківського контейнера, а середні - 
+  розташовуються з однаковими інтервалами між ними
+  
+  - space-around = елементи розташовуються по середині
+  батьківського контейнера і навколо кожного задається
+  однаковий інтервал (між середніми елементами інтервал ніби подвоюється) 
+  
+  - space-evenly = елементи олзташовуються по середині
+  батьківського контейнера з однаковими інтервалами
+  між собою та межами батьківського контейнера */
+  /* Працює відносно основної осі - flex-direction,
+  оскільки flex-direction: row, то задаємо
+  розташування по горизонталі */
+  justify-content: space-between;
+
+  /* Задає вирівнювання по осі, яка перпендикулярна
+  до осі flex-direction */
+  /* Оскільки flex-direction: row, то
+  задаємо вирівнювання по вертикалі */
+  align-items: center;
+}
+
+.flex-column {
+  height: 500px;
+
+  display: flex;
+
+  /* Задаємо розміщення вкладених елементів
+  у стовпчик (колонку) */
+  flex-direction: column;
+
+  /* Задає вирівнювання по осі, яка перпендикулярна
+  до осі flex-direction */
+  /* Оскільки flex-direction: column, то
+  задаємо вирівнювання по горизонталі */
+  align-items: center;
+
+  /* Задаємо взяємне розташування елементів
+  відносно основної осі (flex-direction: column) */
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  height: 400px;
+
+  display: flex;
+
+  /* За замовчуванням, значення flex-direction = row,
+  але бажано вказувати явно */
+  flex-direction: row;
+
+  /* Вирівнювання по осі, яка перпендикулярна
+  до flex-direction: row, тобто - по вертикалі */
+  align-items: center;
+
+  /* Взаємне розташування елементів по основній
+  осі - flex-direction: row */
+  /* В даному випадку, властивість не працює явно,
+  оскільки сумарна ширина елементів перевищує
+  ширину батьківського контейнера, тому вони 
+  стискаються. Це є ще однією перевагою flexbox - 
+  елементи можуть автоматично розтягуватися або 
+  стискати за потреби */
+  justify-content: center;
+
+  /* Активуємо "адптивний" режим, у якому
+  елементи, які не влазять у батьківський контейнер
+  по основній осі - переносяться на інший рядок або 
+  в інший стовпець */
+  flex-wrap: wrap;
+
+  /* Задає взаємне розташування елементів 
+  в "адаптивному" режимі flex-wrap: wrap */
+  align-content: center;
+}

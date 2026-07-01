@@ -72,3 +72,76 @@ main {
   у верхній регістр (робить великими) */
   text-transform: uppercase;
 }
+
+.goods {
+  background-color: aliceblue;
+  width: 20%;
+  min-width: 200px;
+  color: blueviolet;
+  border: 2px solid blueviolet;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.goods img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.goods p {
+  margin: 8px 0px;
+}
+
+.goods button {
+  width: 32px;
+  height: 32px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.goods .price {
+  text-align: right;
+  /* font-weight: bold; */
+}
+
+.goods .price span:first-of-type {
+  font-weight: bold;
+}
+
+.goods .price span:last-of-type {
+  font-size: 0.7em;
+}
+
+.goods .order {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 40%;
+  min-width: 400px;
+}
+
+.flex img {
+  /* Задаємо ширину зображення, яка 
+  буде рівна половині ширини батьківського контенера
+  мінус половина відступу між елементами-нащадками */
+  /* У результаті, отримуємо 2 елементи однакової ширини */
+  width: calc(50% - 6px);
+}
+
+.flex .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex .data > p {
+  margin: 0;
+}

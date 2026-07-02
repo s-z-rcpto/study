@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  /* Прибираємо відступи, які додає браузер
+  за замовчуванням для всіх елементів.
+  Отримуємо повний контроль над відступами.
+  Приклад однієї з практик розмітки,
+  не обов'язковий */
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: burlywood;
+  font-family: sans-serif;
+  font-size: 24px;
+
+  /* Підхід 2: Ієрархічний (вкладений, nested) - 
+  медіазапит огортає лише властивості, які потрібно
+  змінити або нові властивості */
+  @media screen and (orientation: landscape) {
+    background-color: cadetblue;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+p {
+  margin: 12px 0px;
+}
+
+/* Підхід 1: Класичний - медіазапит огортає правило CSS */
+@media screen and (orientation: landscape) {
+  /* Правило діє для сторінок у альбомній
+  орієнтації (ширина області перегляду більша за висоту) */
+  /* Каскадність продовжує працювати */
+  body {
+    /* Замінюємо існуючу властивість */
+    background-color: cadetblue;
+
+    color: white;
+    font-weight: bold;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  /* Правило діє для сторінок у портретній
+  орієнтації (висота області перегляду більша за ширину) */
+  body {
+    background-color: darkslateblue;
+    color: whitesmoke;
+  }
+}
+
+/* ----------------------- */
+
+div {
+  width: 80%;
+  border: 2px solid yellow;
+  border-radius: 8px;
+  background-color: azure;
+  color: black;
+  font-weight: normal;
+  padding: 16px;
+  margin: auto;
+}
+
+@media screen and (min-width: 800px) {
+  /* Правило діє, якщо ширина області перегляду
+  більша або рівна 800px */
+  div {
+    width: 60%;
+    padding: 20px;
+    background-color: blueviolet;
+    color: aliceblue;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* Правило діє, якщо ширина області перегляду
+  менша або рівна 400px */
+  div {
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: chartreuse;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
+  /* Правило діє, якщо ширина області перегляду
+  більша за 500px і менша за 700px,
+  тобто в діапазоні між 500px і 700px */
+  div {
+    width: 80%;
+    font-size: 20px;
+    background-color: goldenrod;
+    color: darkblue;
+  }
+}

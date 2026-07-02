@@ -18,7 +18,7 @@ const TASKS = [
     { n: 2,  ref: 'h3',                    prop: 'color',           value: 'rgb(0, 128, 0)' },
     { n: 3,  ref: '.author',              prop: 'fontStyle',       value: 'italic' },
     { n: 4,  ref: '.price',               prop: 'color',           value: 'rgb(165, 42, 42)' },
-    { n: 5,  ref: '#bestseller',          prop: 'outlineStyle',    value: 'solid' },
+    { n: 5,  ref: '#bestseller',          prop: 'borderColor',     value: 'rgb(255, 165, 0)' },
     { n: 6,  ref: '.book.new',            prop: 'backgroundColor', value: 'rgb(255, 255, 224)' },
     { n: 7,  ref: '#shelf-fantasy .year', prop: 'color',           value: 'rgb(0, 0, 255)' },
     { n: 8,  ref: '.book .tag',           prop: 'textTransform',   value: 'uppercase' },
@@ -85,7 +85,7 @@ function runChecks() {
 
     const auto = TASKS.filter((t) => !t.manual).length;
     lines.push('');
-    lines.push(`Зараховано: ${passed} із ${auto} (15-те — вручну).`);
+    lines.push(`Зараховано: ${passed} із ${auto} (15-те — вручну)`);
     if (passed === auto) lines.push('🎉 Усі автозавдання виконано!');
 
     out.textContent = lines.join('\n');

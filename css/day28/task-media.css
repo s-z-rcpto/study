@@ -1,0 +1,142 @@
+/* :root - це головне місце для змінних */
+/* :root - це псевдоклас, який вказує на "корінь"
+сторінки (документа) - тег html */
+/* Змінні, оголошені тут доступні у всіх правилах 
+оформлення (наслідуються), такі змінні називаються
+глобальними */
+:root {
+  /* Оголошення змінної */
+  /* Змінна - це спосіб дати значенню (2px solid black) 
+  ім'я (псевдонім) щоб надалі використовувати 
+  у багатьох місцях, а змінювати - у місці оголошення */
+  /* Щоб використати значення за псевдонімом
+  потрібно викликати функцію var(--black-border) */
+  /* Ім'я (псевдонім) завжди починається з "--",
+  решту придумує розробник, як назву класу */
+  --black-border: 4px solid rgb(62, 61, 61);
+
+  /* На практиці змінні часто використовуються 
+  для задання відтінків кольорів */
+  --orange: #e69603;
+  --green: rgb(8, 126, 8);
+
+  /* Інші приклади змінних */
+  --gap: 4px;
+  --card-margin: 8px 0px;
+  --radius: 8px;
+  --main-bg: bisque;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Функція var може приймати 2-й параметр, який
+  буде використано як значення, якщо зі змінною (1-й параметр)
+  щось буде не так, наприклад: її не існує */
+  /* У поточному прикладі, змінної --bg-color не існує,
+  тому колір фону буде lavender */
+  background-color: var(--bg-color, lavender);
+
+  /* Змінна --main-bg існує, тому колір фону задасть вона,
+  lavender поки що не буде використаний */
+  background-color: var(--main-bg, lavender);
+}
+
+/* ========================Загальні(меню)================= */
+.menu-1st-line,
+.menu-2nd-line {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2px;
+  margin: 2px;
+}
+/* ==============================перший ряд================== */
+.menu-1st-line li {
+  border: 2px solid var(--orange);
+  border-top: var(--black-border);
+  background-color: var(--orange);
+
+  /* Змінні можна задавати в будь-якому правилі, 
+  не лише в :root */
+  /* Такі змінні називаються локальними й доступні
+  у поточному правилі, а також для нащадків */
+  --width: 120px;
+
+  width: var(--width);
+  height: var(--width);
+}
+/* ==================другий ряд========================== */
+.menu-2nd-line li {
+  border: 2px solid var(--green);
+  border-bottom: var(--black-border);
+  background-color: var(--green);
+
+  --width: 120px;
+
+  width: var(--width);
+  height: var(--width);
+}
+/* ========================hover=========================== */
+.menu-1st-line li:hover {
+  background-color: transparent;
+  color: var(--orange);
+}
+
+.menu-2nd-line li:hover {
+  background-color: transparent;
+  color: var(--orange);
+}
+/* =======================перший ряд border=================== */
+.menu-1st-line li:first-child {
+  border-left: var(--black-border);
+}
+
+.menu-1st-line li:last-child {
+  border-right: var(--black-border);
+}
+/* =======================Другий ряд border=================== */
+.menu-2nd-line li:first-child {
+  border-left: var(--black-border);
+}
+
+.menu-2nd-line li:last-child {
+  border-right: var(--black-border);
+}
+/* ==============================transform media=============== */
+
+@media screen and (max-width: 400px) {
+  .menu-1st-line,
+  .menu-2nd-line {
+    flex-direction: column;
+  }
+
+  .menu-1st-line li,
+  .menu-2nd-line li {
+    width: 180px;
+    height: 40px;
+    border-left: var(--black-border);
+    border-right: var(--black-border);
+  }
+
+  .menu-1st-line li {
+    border-top: 2px solid var(--orange);
+  }
+
+  .menu-2nd-line li {
+    border-bottom: 2px solid var(--green);
+  }
+  /* =====================================перший ряд======================== */
+  .menu-1st-line li:first-child {
+    border-top: var(--black-border);
+  }
+
+  /* =====================================другий ряд======================== */
+
+  .menu-2nd-line li:last-of-type {
+    border-bottom: var(--black-border);
+  }
+}

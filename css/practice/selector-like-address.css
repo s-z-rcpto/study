@@ -40,27 +40,60 @@
    ===================================================================== */
 
 /* ЗАВДАННЯ 1: задати фон УСІМ МІСТАМ (усім таблицям). */
+.bud-yake-misto {
+  background: #f4f6f8;
+}
 
 /* ЗАВДАННЯ 2: зробити синім текст усіх БУДИНКІВ у МІСТІ КИЇВ. */
+.misto-kyiv .bud-yakyi-budynok {
+  color: blue;
+}
 
 /* ЗАВДАННЯ 3: підсвітити фоном усіх мешканців ВУЛИЦІ ШЕВЧЕНКА
    (у будь-якому місті). */
+.vulytsia-shevchenka .bud-yakyi-budynok {
+  background: #fff3cd;
+}
 
 /* ЗАВДАННЯ 4: окреслити рамкою будинки в РАЙОНІ ПЕЧЕРСЬК
    саме МІСТА КИЇВ. */
+.misto-kyiv .pechersk-rayon .bud-yakyi-budynok {
+  border: 2px solid #2e7d32;
+}
 
 /* ЗАВДАННЯ 5: зробити жирним текст будинків у СОБОРНИХ районах
    будь-якого міста. */
+.soborny-rayon .bud-yakyi-budynok {
+  font-weight: bold;
+}
 
 /* ЗАВДАННЯ 6: пофарбувати текст усіх будинків в ОБЛАСТІ ОДЕСЬКА. */
+.odeska-oblast .bud-yakyi-budynok {
+  color: #c0392b;
+}
 
 /* ЗАВДАННЯ 7: виділити лише КВАРТИРИ (будинки з класом kvartyra). */
+.kvartyra {
+  background: #d1ecf1;
+}
 
 /* ЗАВДАННЯ 8: підкреслити ПЕРШИЙ будинок на КОЖНІЙ вулиці. */
+.bud-yaka-vulytsia .bud-yakyi-budynok:first-child {
+  text-decoration: underline;
+}
 
 /* ЗАВДАННЯ 9: зробити курсивом будинки на ВУЛИЦІ ФРАНКА саме в ІРПЕНІ
    (а в Києві вулиця Франка має лишитись без курсиву). */
+.misto-irpin .vulytsia-franka .bud-yakyi-budynok {
+  font-style: italic;
+}
 
 /* ЗАВДАННЯ 10: виділити БУДИНОК №1 пунктирною лінією */
+.budynok-1 {
+  border: 2px dotted #8e44ad;
+}
 
 /* ЗАВДАННЯ 11: виділити БУДИНОК №1 лише в ОДЕСЬКІЙ ОБЛАСТІ */
+.odeska-oblast .budynok-1 {
+  background: #ffe0b2;
+}

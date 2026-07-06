@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Макет сітки - Grid</title>
+
+    <link rel="stylesheet" href="grid.css" />
+  </head>
+  <body>
+    <h2>1. Базова сітка: колонки і рядки</h2>
+
+    <div class="demo-basic">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+    </div>
+
+    <h2>2. Одиниця виміру fr = частка місця</h2>
+
+    <div class="demo-fr">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+    </div>
+
+    <hr />
+
+    <div class="demo-2fr">
+      <div class="grid-item">2 частки</div>
+      <div class="grid-item">1 частка</div>
+      <div class="grid-item">2 частки</div>
+      <div class="grid-item">1 частка</div>
+    </div>
+
+    <h2>3. repeat() - коротший запис</h2>
+
+    <div class="demo-repeat">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item">7</div>
+      <div class="grid-item">8</div>
+    </div>
+
+    <h2>4. Розтягування комірок</h2>
+
+    <div class="demo-span">
+      <div class="grid-item wide">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item tall">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item">7</div>
+      <div class="grid-item">8</div>
+    </div>
+
+    <h2>5. Іменований макет</h2>
+
+    <div class="demo-areas">
+      <div class="grid-item area-header">Header ("шапка")</div>
+      <div class="grid-item area-sidebar">Sidebar (бокова панель)</div>
+      <div class="grid-item area-content">Content (основний вміст)</div>
+      <div class="grid-item area-footer">Footer ("підвал")</div>
+    </div>
+
+    <h2>6. minmax() - розмір "від" і "до"</h2>
+
+    <div class="demo-minmax">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+    </div>
+  </body>
+</html>

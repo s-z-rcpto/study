@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: antiquewhite;
+  font-family: sans-serif;
+}
+
+h2 {
+  margin: 24px 0px 8px;
+
+  /* rem - розмір шрифта відносно шрифта сторінки
+  (тег html), за замовчуванням - 16px * 1.25 = 20px */
+  /* rem - зручно використовувати для задання єдиної
+  системи масштабування, оскільки виключається накопичення
+  коефіцієнтів "батьківських" контейнерів як з em */
+  font-size: 1.25rem;
+}
+
+.grid-item {
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: seagreen;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.demo-basic {
+  display: grid;
+  /* Задаємо кількість стовпців та їх розміри */
+  /* Якщо не задати налаштування рядків, 
+  то воно відбудеться автоматично */
+  grid-template-columns: 120px 120px 120px;
+
+  /* Задаємо висоту рядків */
+  grid-template-rows: 120px 80px;
+
+  /* Задаємо проміжок між комірками */
+  gap: 8px;
+}
+
+.demo-fr {
+  display: grid;
+  /* fr - частки вільного місця */
+  /* Задаємо 3 однакові колонки, які 
+  займають всю ширину області перегляду */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.demo-2fr {
+  display: grid;
+  /* Перша колонка в 2 рази ширша за другу,
+  разом займають всю ширину області перегляду */
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.demo-repeat {
+  display: grid;
+  /* Задаємо 4 стовпці однакової ширини,
+  які разом займуть всю ширину області перегляду */
+  /* Аналог: grid-template-columns: 1fr 1fr 1fr 1fr */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.demo-span {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 60px;
+  gap: 8px;
+}
+
+.wide {
+  /* Розтягуємо елемент від першої до третьої
+  лінії сітки = 2 стовпці */
+  /* Сітка з 4-х стовпців має 5 ліній:
+  1 - крайня ліва
+  2 - між 1 і 2
+  3 - між 2 і 3
+  4 - між 3 і 4
+  5 - крайня права */
+  grid-column: 1 / 3; /* span 2 */
+  background-color: blueviolet;
+}
+
+.tall {
+  /* span - тут це не тег, а ключове слово CSS */
+  /* Розтягуємо комірку на 2 рядки */
+  grid-row: span 2;
+  /* Аналог: Розтягуємо елемент від 
+  другої до четвертої лінії сітки
+   = 2 рядки */
+  /* grid-row: 2 / 4; */
+  background-color: darkred;
+}
+
+.demo-areas {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 12px;
+
+  /* Задаємо "схему" макета */
+  /* У схемі кожному з контейнерів присвоюється
+  "псевдонім" */
+  /* Якщо "псевдонім" повторюється, то 
+  контейнер - розтягується у відповідному
+  напрямку */
+  grid-template-areas:
+    "header header"
+    "content sidebar"
+    "footer footer";
+}
+
+/* На вузьких екранах зручно змінювати 
+макет за допомогою медіазапитів */
+@media screen and (max-width: 500px) {
+  .demo-areas {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "content"
+      "footer";
+  }
+}
+
+.area-header {
+  grid-area: header;
+  background-color: mediumpurple;
+}
+
+.area-sidebar {
+  grid-area: sidebar;
+  background-color: mediumturquoise;
+}
+
+.area-content {
+  grid-area: content;
+  background-color: mediumseagreen;
+}
+
+.area-footer {
+  grid-area: footer;
+  background-color: darkgoldenrod;
+}
+
+.demo-minmax {
+  display: grid;
+  /* Задаємо 3 стовпці з розмірами у діапазоні
+  від 120px до однакової частки вільного простору,
+  тобто якщо ширина контейнера буде більше 3 * 120px,
+  то стовпці будуть розтягуватися, інакше 
+  з'явиться горизотальна смуга прокрутки */
+  grid-template-columns: repeat(3, minmax(120px, 240px));
+  gap: 8px;
+
+  /* По аналогії з Flexbox можна використовувати
+  властивості для вирівнювання і редактор в браузері
+  для оптимального підбору значень */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+}

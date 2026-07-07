@@ -1,0 +1,269 @@
+/* Анімація в CSS буває 2 видів: */
+
+/* 1. Властивість transition, яка 
+запезпечує плавний перехід між 2 станами.
+Спрацьовує ТІЛЬКИ тоді, коли вказана властивість
+змінюється (наприклад, користувач наводить
+курсор). Працює НЕ з усіма властивостями */
+
+/* 2. Поєднання властивості animation і 
+функції @keyframes - складна анімація з 
+кількох (багатьох) кадрів, яка може працювати
+без дій користувача */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+}
+
+h2 {
+  margin: 24px 0px 8px;
+  font-size: 1.75rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.box {
+  width: 120px;
+  height: 120px;
+  background-color: seagreen;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+/* Приклад 1 */
+
+.demo-transition {
+  /* Забезпечення плавної зміни кольору
+  фону тривалістю 0.9 секунди,
+  якщо цю зміну активує користувач
+  навівши курсор */
+  transition: background-color 0.9s;
+}
+
+.demo-transition:hover {
+  /* Кінцевий стан кольору фону */
+  background-color: blueviolet;
+  /* Початковий задається класом .box */
+}
+
+/* Приклад 2 */
+.demo-multi {
+  /* Початковий стан задається класом .box */
+
+  /* Забезпечення плавної зміни кольору фону
+  і заокруглення кутів з різною швидкістю */
+  transition:
+  /* назва_властивості тривалість_переходу */
+    background-color 0.9s,
+    border-radius 1.6s;
+}
+
+.demo-multi:hover {
+  /* Якщо задати оновлення значення
+  однієї властивості, то transition буде
+  працювати лише зі зміненою властивістю */
+  background-color: blueviolet;
+  border-radius: 50%;
+}
+
+/* Приклад 3 */
+.demo-transform {
+  /* Забезпечення плавної трансформації */
+  transition: transform 0.5s;
+  /* Трансформація не порушує потоку
+  сторінки, елемент змінює відображення
+  лише візуально ("сусіди" не рухаються) */
+}
+
+.demo-move:hover {
+  /* посунути елемент вгору (по осі Y) на 20px */
+  transform: translateY(-20px);
+}
+
+.demo-scale:hover {
+  /* збільшити масштаб елемента в 1.3 рази */
+  transform: scale(1.3); /* 130% */
+}
+
+.demo-rotate:hover {
+  /* обернути (нахилити) елемент на 45 градусів */
+  transform: rotate(45deg);
+}
+
+.demo-skew:hover {
+  /* нахилити (перекосити) по горизонталі */
+  transform: skewX(-45deg);
+}
+
+.demo-combo:hover {
+  /* Кілька трансформацій одночасно (розділені пробілами) */
+  transform: translateY(-10px) scale(1.2) rotate(10deg) skewX(-10deg);
+}
+
+/* Приклад 4 */
+.demo-timing-function {
+  /* transition: transform 1.5s; */
+  /* Альтернативний варіант */
+  transition-property: transform;
+  transition-duration: 1.5s;
+}
+
+.demo-tf-easy {
+  /* Плавні старт і фініш, пришвидшена середина */
+  /* Значення за замовчуванням */
+  transition-timing-function: ease;
+}
+
+.demo-tf-easy-in {
+  /* Повільний старт, швидкий фініш */
+  transition-timing-function: ease-in;
+}
+
+.demo-tf-easy-out {
+  /* Швидкий старт, повільний фініш */
+  transition-timing-function: ease-out;
+}
+
+.demo-tf-linear {
+  /* Рівномірна швидкість */
+  transition-timing-function: linear;
+}
+
+/* Забезпечимо зміну властивості transform */
+.demo-timing-function:hover {
+  transform: translateX(720px);
+}
+
+/* Приклад 5 */
+.demo-keyframes {
+  /* Вмикаємо сценарій анімації:
+  1. Назва сценарію
+  2. Тривалість
+  3. Характер переходу
+  4. Кількість повторів (infinite = вічно) */
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Задаємо розкадровку сценарію */
+/* Без виклику за допомогою animation
+жодного ефекту не буде */
+@keyframes pulse {
+  /* 0%, 50%, 100% - це точки на шкалі часу (кадри) */
+  /* Проміжні стани браузер плавно домалює сам */
+  0% {
+    /* Старт (початковий стан): звичайний розмір */
+    transform: scale(1);
+  }
+  50% {
+    /* Середина: масштаб 125% */
+    transform: scale(1.25);
+  }
+  100% {
+    /* Фініш: повернення у початковий стан */
+    transform: scale(1);
+  }
+}
+
+/* Приклад 6 */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 8px solid lightgrey;
+  /* Робимо спіннер круглим */
+  border-radius: 50%;
+  /* Задаємо інший колір щоб було помітне обертання */
+  border-top-color: seagreen;
+  /* Вмикаємо сценарій обертання spin,
+  тривалість 1 секунда, швидкість рівномірна,
+  повторюється безкінечно */
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  /* from - аналог 0% = початковий стан */
+  from {
+    transform: rotate(0deg);
+  }
+  /* to - аналог 100% = кінцевий стан */
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Приклад 7 */
+.demo-alternate {
+  /* Вмикаємо сценарій slide, який триває 1.2 секунди,
+  починається і закінчується повільно,
+  повторюється безкінечно і 
+  кожен другий цикл виконується у зворотному порядку (alternate) */
+  animation: slide 1.2s ease-in-out infinite alternate;
+}
+
+.demo-alternate:hover {
+  /* Ставимо на паузу виконанню сценарію */
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(400px);
+  }
+}
+
+/* Приклад 8 */
+.dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: seagreen;
+  animation: wave 0.9s ease-in-out infinite;
+}
+
+@keyframes wave {
+  /* Задаємо однаковий стан для 2 часових міток */
+  0%,
+  100% {
+    /* Можна міняти одночасно декілька властивостей */
+    transform: translateY(0);
+    background-color: seagreen;
+  }
+  50% {
+    transform: translateY(-30px);
+    background-color: blueviolet;
+  }
+}
+
+/* Задаємо різну затримку (паузу) початку 
+виконання сценарію для реалізації ефекту хвилі */
+.dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.dot:nth-child(4) {
+  animation-delay: 0.45s;
+}

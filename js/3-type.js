@@ -44,3 +44,38 @@ amount = 5;
 console.log(
   `${amount} кг яблук по ціні ${price} грн коштує ${amount * price} ₴`,
 ); // 5 кг яблук по ціні 47 грн коштує 235 ₴
+
+// Логічний/булевий тип (Boolean)
+const isCorrect = true; // істина/правда/так
+const hasChild = false; // хиба/не правда/ні
+
+// Нічого (Null)
+const border = null; // border: none;
+
+// Не задано/не визначено (Undefined)
+let catsCount; // undefined
+let dogsCount = undefined;
+// Попередні 2 рядки задають однакове значення для змінних
+// Не задано - це НЕ НІЧОГО, це різні значення
+
+// Перевірка типу (typeof)
+// Синтаксис
+// typeof <змінна>
+// typeof <значення>
+// Результат
+// undefined | number | string | boolean | object
+let t;
+
+console.log("t =", t, "і це тип:", typeof t);
+
+t = 23;
+console.log("t =", t, "і це тип:", typeof t);
+
+t = "Text";
+console.log("t =", t, "і це тип:", typeof t);
+
+t = false;
+console.log("t =", t, "і це тип:", typeof t);
+
+t = null;
+console.log("t =", t, "і це тип:", typeof t);

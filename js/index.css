@@ -7,3 +7,29 @@ body {
   font-family: sans-serif;
   font-size: 20px;
 }
+
+div {
+  margin-top: 20px;
+  font-size: 40px;
+  background-color: aquamarine;
+}
+
+.c3 {
+  background-color: blueviolet;
+}
+
+#d2 {
+  background-color: chartreuse;
+}
+
+div div {
+  background-color: dimgray;
+}
+
+.box {
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
+}

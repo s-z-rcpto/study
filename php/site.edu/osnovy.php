@@ -80,3 +80,32 @@ $result = match ($seson) {
 };
 
 echo "<br>$result";
+
+
+$day = rand(1, 9);
+echo "<br>День тижня: $day - ";
+
+switch ($day) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        echo "робочий";
+        break;
+    case 6:
+    case 7:
+        echo "вихідний";
+        break;
+    default:
+        echo "такого дня нема";
+        break;
+}
+
+// Замість switch
+$result = match ($day) {
+    1, 2, 3, 4, 5 => "робочий",
+    6, 7 => "вихідний",
+    default => "такого дня нема"
+};
+echo "<br>День тижня: $day - $result";
